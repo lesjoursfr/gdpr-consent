@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Tarte au Citron</title>
+
+	<link rel="stylesheet" href="gdpr-consent.css" />
+	<script type="text/javascript" src="gdpr-consent.js"></script>
+	<script type="text/javascript">
+		GDPRConsent.init({
+			"hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+			"cookieName": "tartaucitron", /* Cookie name */
+
+			"AcceptAllCta" : false, /* Show the accept all button when highPrivacy on */
+			"highPrivacy": false, /* Disable auto consent */
+
+			"moreInfoLink": true /* Show more info link */
+		});
+	</script>
+</head>
+<body height="10000">
+	<script type="text/javascript">
+		/* Initialize gdprconsent.js job array */
+		GDPRConsent.job = GDPRConsent.job || [];
+
+		/* Add Google Tag Manager */
+		GDPRConsent.user.googletagmanagerId = 'GTM-P5GRMRT';
+		GDPRConsent.job.push('googletagmanager');
+
+		/* Add Google Analytics (gtag.js) */
+		GDPRConsent.user.gtagUa = 'UA-59581990-1';
+		GDPRConsent.user.gtagInitOptions = { 'send_page_view': false, 'optimize_id': 'GTM-W4WVC25' };
+		GDPRConsent.job.push('gtag');
+
+		/* Add Socials Sharing Services : Twitter & Facebook */
+		GDPRConsent.job.push('twitter');
+		window.fbAsyncInit = function() { FB.init({ appId: '1716167151957741', status: true, version: 'v3.0' }); };
+		GDPRConsent.job.push('facebook');
+	</script>
+</body>
+</html>

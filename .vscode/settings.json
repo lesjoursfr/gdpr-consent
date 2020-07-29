@@ -1,0 +1,7 @@
+{
+    "search.maintainFileSearchCache": true,
+    "eslint.format.enable": true,
+    "files.exclude": {
+        "**/node_modules": true
+    }
+}

@@ -1,0 +1,24 @@
+os:
+	- "linux"
+	- "windows"
+language: "node_js"
+node_js:
+	- "14"
+	- "12"
+
+jobs:
+	include:
+		- stage: "Build project"
+			script: npm run build
+		- stage: "Release to NPM"
+			os: "linux"
+			node_js: "14"
+			deploy:
+				provider: "npm"
+				email: "npmjs@eraud.dev"
+				api_key:
+					secure: "u+Q1ppb+0D9JJ/gWy/BZAt+vhWVNSs4TuNSdrRJ2u0fj/yfODvMM7bZui9JOJ7wu6lWLRqvJbnEXaazoJARkmct/G5pB6Q9b/rOuW3lr5k3HUgkTpY2cTC9BUh3ce/gjOqFYsuZRfbIBlXjbX5Y/1qLCUuBI+D2o9AbhK80asnSVmg4K6a7H57vBpKDFrlcr+XeHkh5ygfwGQKbeYW4u7M88jILPEDp+523vHcgjpFie5gpDpvdPB4AoiLuqpfuyStzLn2ynMmXw3OkM3eiVNMMcGDugipDt63wRZSjetH6GQRTHOEzN66ieG7SgnfUMdd2wJtwt89sWbA5kbUNhEISrmuAUOEYeQb+ePjXWdwRgWt6+Pi9UAc3KEYq2168y7AmD3K05UBJF1Amur4CcK/fI3bstaALF6wQ5bmhqXD1DiXJ3n0qUIG3NwYyvgg6HS9f/NIlnhxNq3D9ygQuE6HJqkrCjZqSmoFWUASyTugLOCUm2RXHm024+4hEKu5bcDyfuIOlUJLu8b2FGmeUtkqROaY5pU+UHwgx8cYXwwmjebIqukGvHrHryBdLNQI+QG5HvM1Izzo22YJI5nYhJWQpdMffTs7583kLcRGwdvX+xuBRhjlEpi2v/g/0g4ozaKDy8gWm5rhe3lGNxHAgWZqoRwkiT+ttahYKzIsiTtZQ="
+				on:
+					tags: "true"
+					repo: "lesjoursfr/gdpr-consent"
+				skip_cleanup: "true"

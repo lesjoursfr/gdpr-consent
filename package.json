@@ -1,0 +1,43 @@
+{
+	"name": "gdpr-constent",
+	"version": "0.1.0",
+	"description": "GDPR banner to comply with the European cookie law. Inspired by tarteaucitronjs.",
+	"license": "MIT",
+	"repository": "lesjoursfr/gdpr-consent",
+	"homepage": "https://github.com/lesjoursfr/gdpr-consent#readme",
+	"bugs": {
+		"url": "https://github.com/lesjoursfr/gdpr-consent/issues"
+	},
+	"engines": {
+		"node": ">=12"
+	},
+	"scripts": {
+		"server": "webpack-dev-server --mode development --config webpack.config.js --hot --open",
+		"build": "webpack --mode production --config webpack.config.js --progress"
+	},
+	"files": [
+		"src/**/*", "build/**/*"
+	],
+	"keywords": [
+		"cookie",
+		"law",
+		"RGPD",
+		"GDPR"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"@babel/core": "^7.10.5",
+		"@babel/preset-env": "^7.10.4",
+		"babel-eslint": "^10.1.0",
+		"babel-loader": "^8.1.0",
+		"css-loader": "^4.0.0",
+		"eslint": "^7.5.0",
+		"mini-css-extract-plugin": "^0.9.0",
+		"sass": "^1.26.10",
+		"sass-loader": "^9.0.2",
+		"style-loader": "^1.2.1",
+		"webpack": "^4.44.0",
+		"webpack-cli": "^3.3.12",
+		"webpack-dev-server": "^3.11.0"
+	}
+}

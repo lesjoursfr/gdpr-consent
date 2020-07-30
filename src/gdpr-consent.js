@@ -166,6 +166,17 @@ const GDPRConsent = {
 		// For the Banner
 		if (GDPRConsent.parameters.highPrivacy && !GDPRConsent.parameters.AcceptAllCta) {
 			html += "<div id=\"tarteaucitronAlertBig\" class=\"tarteaucitronAlertBigBottom\">";
+			if (GDPRConsent.lang.siteDisclaimerTitle !== "" && GDPRConsent.lang.siteDisclaimerMessage !== "") {
+				html += "   <span id=\"tarteaucitronSiteDisclaimerTitle\">";
+				html += "       " + GDPRConsent.lang.siteDisclaimerTitle;
+				html += "   </span>";
+				html += "   <br />";
+				html += "   <br />";
+				html += "   <span id=\"tarteaucitronSiteDisclaimerMessage\">";
+				html += "       " + GDPRConsent.lang.siteDisclaimerMessage;
+				html += "   </span>";
+				html += "   <br />";
+			}
 			html += "   <span id=\"tarteaucitronDisclaimerAlert\">";
 			html += "       " + GDPRConsent.lang.alertBigPrivacy;
 			html += "   </span>";
@@ -175,6 +186,17 @@ const GDPRConsent = {
 			html += "</div>";
 		} else {
 			html += "<div id=\"tarteaucitronAlertBig\" class=\"tarteaucitronAlertBigBottom\">";
+			if (GDPRConsent.lang.siteDisclaimerTitle !== "" && GDPRConsent.lang.siteDisclaimerMessage !== "") {
+				html += "   <span id=\"tarteaucitronSiteDisclaimerTitle\">";
+				html += "       " + GDPRConsent.lang.siteDisclaimerTitle;
+				html += "   </span>";
+				html += "   <br />";
+				html += "   <br />";
+				html += "   <span id=\"tarteaucitronSiteDisclaimerMessage\">";
+				html += "       " + GDPRConsent.lang.siteDisclaimerMessage;
+				html += "   </span>";
+				html += "   <br />";
+			}
 			html += "   <span id=\"tarteaucitronDisclaimerAlert\">";
 			if (GDPRConsent.parameters.highPrivacy) {
 				html += "       " + GDPRConsent.lang.alertBigPrivacy;

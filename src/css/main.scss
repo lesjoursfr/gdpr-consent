@@ -1,24 +1,26 @@
-/**
- * Colors
- */
-$color_1: rgb(66, 66, 66);
-$color_2: #fff;
-$color_3: #333;
-$color_4: #555;
-$color_5: darkred;
-$font_family_1: sans-serif;
-$background_color_1: #ddd;
-$background_color_2: #1B870B;
-$background_color_3: #9C1A1A;
-$background_color_4: gray;
-$background_color_5: #FBDA26;
-$border_color_1: #1B870B;
-$border_color_2: #9C1A1A;
-$border_color_3: #555;
+/////////////////////////////////////////////
+// Colors                                  //
+/////////////////////////////////////////////
+$background-color-dark: #c83e2c;
+$text-color-white: #fff;
+$color-1: rgb(66, 66, 66);
+$color-2: #fff;
+$color-3: #333;
+$color-4: #555;
+$color-5: #8b0000;
+$font-family-1: sans-serif;
+$background-color-1: #ddd;
+$background-color-2: #1b870b;
+$background-color-3: #9c1a1a;
+$background-color-4: #808080;
+$background-color-5: #fbda26;
+$border-color-1: #1b870b;
+$border-color-2: #9c1a1a;
+$border-color-3: #555;
 
-/**
- * Global
- */
+/////////////////////////////////////////////
+// Global                                  //
+/////////////////////////////////////////////
 .modal-open {
 	overflow: hidden;
 	height: 100%;
@@ -28,11 +30,89 @@ $border_color_3: #555;
 	display: unset;
 }
 
-/**
- * Reset CSS
- */
+/////////////////////////////////////////////
+// Reset CSS                               //
+/////////////////////////////////////////////
 #tarteaucitronRoot {
-	div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	div,
+	span,
+	applet,
+	object,
+	iframe,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	blockquote,
+	pre,
+	a,
+	abbr,
+	acronym,
+	address,
+	big,
+	cite,
+	code,
+	del,
+	dfn,
+	em,
+	img,
+	ins,
+	kbd,
+	q,
+	s,
+	samp,
+	small,
+	strike,
+	strong,
+	sub,
+	sup,
+	tt,
+	var,
+	b,
+	u,
+	i,
+	center,
+	dl,
+	dt,
+	dd,
+	ol,
+	ul,
+	li,
+	fieldset,
+	form,
+	label,
+	legend,
+	table,
+	caption,
+	tbody,
+	tfoot,
+	thead,
+	tr,
+	th,
+	td,
+	article,
+	aside,
+	canvas,
+	details,
+	embed,
+	figure,
+	figcaption,
+	footer,
+	header,
+	hgroup,
+	menu,
+	nav,
+	output,
+	ruby,
+	section,
+	summary,
+	time,
+	mark,
+	audio,
+	video {
 		margin: 0;
 		padding: 0;
 		border: 0;
@@ -43,21 +123,21 @@ $border_color_3: #555;
 		text-shadow: initial;
 	}
 
-	blockquote, q {
+	blockquote,
+	q {
 		quotes: none;
 
-		&:before {
-			content: '';
+		&::before {
 			content: none;
 		}
 
-		&:after {
-			content: '';
+		&::after {
 			content: none;
 		}
 	}
 
-	ol, ul {
+	ol,
+	ul {
 		list-style: none;
 	}
 
@@ -67,14 +147,24 @@ $border_color_3: #555;
 		border-spacing: 0;
 	}
 
-	article, aside, details, figure, figcaption, footer, header, hgroup, menu, nav, section {
+	article,
+	aside,
+	details,
+	figure,
+	figcaption,
+	footer,
+	header,
+	hgroup,
+	menu,
+	nav,
+	section {
 		display: block;
 	}
 }
 
-/**
- * Better scroll management
- */
+/////////////////////////////////////////////
+// Better scroll management                //
+/////////////////////////////////////////////
 #tarteaucitronMainLineOffset {
 	margin-top: 0 !important;
 }
@@ -92,14 +182,14 @@ $border_color_3: #555;
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: $background_color_1;
+		background-color: $background-color-1;
 		outline: 0px solid slategrey;
 	}
 }
 
-/**
- * Responsive layout for the control panel
- */
+/////////////////////////////////////////////
+// Responsive layout for the control panel //
+/////////////////////////////////////////////
 @media screen and (max-width:479px) {
 	#tarteaucitron {
 		.tarteaucitronLine {
@@ -166,9 +256,9 @@ $border_color_3: #555;
 	}
 }
 
-/***
- * Common value
- */
+/////////////////////////////////////////////
+// Common value                            //
+/////////////////////////////////////////////
 #tarteaucitron {
 	* {
 		zoom: 1;
@@ -179,7 +269,7 @@ $border_color_3: #555;
 	}
 
 	a {
-		color: $color_1;
+		color: $color-1;
 		font-size: 11px;
 		font-weight: 700;
 		text-decoration: none;
@@ -228,7 +318,7 @@ $border_color_3: #555;
 #tarteaucitronAlertBig {
 	strong,
 	a {
-		color: $color_2;
+		color: $text-color-white;
 	}
 }
 
@@ -238,9 +328,9 @@ $border_color_3: #555;
 	margin: 0;
 }
 
-/***
- * Root div added just before </body>
- */
+/////////////////////////////////////////////
+// Root div added just before </body>      //
+/////////////////////////////////////////////
 #tarteaucitronRoot {
 	left: 0;
 	position: absolute;
@@ -250,8 +340,8 @@ $border_color_3: #555;
 
 	* {
 		box-sizing: initial;
-		color: $color_3;
-		font-family: $font_family_1 !important;
+		color: $color-3;
+		font-family: $font-family-1 !important;
 		font-size: 14px;
 		line-height: normal;
 		vertical-align: initial;
@@ -260,14 +350,14 @@ $border_color_3: #555;
 	.tarteaucitronH1 {
 		font-size: 1.5em;
 		text-align: center;
-		color: $color_2;
+		color: $text-color-white;
 		margin: 15px 0 28px;
 	}
 
 	.tarteaucitronH2 {
 		display: inline-block;
 		margin: 12px 0 0 10px;
-		color: $color_2;
+		color: $text-color-white;
 	}
 
 	button {
@@ -276,9 +366,9 @@ $border_color_3: #555;
 	}
 }
 
-/***
- * Control panel
- */
+/////////////////////////////////////////////
+// Control panel                           //
+/////////////////////////////////////////////
 #tarteaucitronBack {
 	background: #fff;
 	display: none;
@@ -312,7 +402,7 @@ $border_color_3: #555;
 
 	#tarteaucitronClosePanel {
 		background: #333333;
-		color: $color_2;
+		color: $text-color-white;
 		cursor: pointer;
 		font-size: 12px;
 		font-weight: 700;
@@ -325,7 +415,7 @@ $border_color_3: #555;
 	}
 
 	#tarteaucitronDisclaimer {
-		color: $color_4;
+		color: $color-4;
 		font-size: 12px;
 		margin: 15px auto 0;
 		width: 80%;
@@ -354,7 +444,7 @@ a.tarteaucitronSelfLink {
 	#tarteaucitronServices {
 		.tarteaucitronTitle {
 			button {
-				color: $color_2;
+				color: $text-color-white;
 				display: inline-block;
 				font-size: 14px;
 				font-weight: 700;
@@ -366,18 +456,18 @@ a.tarteaucitronSelfLink {
 			}
 
 			a {
-				color: $color_2;
+				color: $text-color-white;
 				font-weight: 500;
 				font-size: 14px;
 
-				&:hover {
+				&::hover {
 					text-decoration: none !important;
 				}
 			}
 		}
 
 		.tarteaucitronDetails {
-			color: $color_2;
+			color: $text-color-white;
 			display: inline-block;
 			font-size: 14px;
 			font-weight: 700;
@@ -386,7 +476,7 @@ a.tarteaucitronSelfLink {
 			text-align: left;
 			width: auto;
 			background: #333;
-			color: $color_2;
+			color: $text-color-white;
 			display: none;
 			font-size: 12px;
 			font-weight: 500;
@@ -403,17 +493,17 @@ a.tarteaucitronSelfLink {
 				margin-top: 2px;
 
 				a {
-					color: $color_2;
+					color: $text-color-white;
 					font-weight: 500;
 					font-size: 22px;
 
-					&:hover {
+					&::hover {
 						text-decoration: none !important;
 					}
 				}
 
 				button {
-					color: $color_2;
+					color: $text-color-white;
 				}
 			}
 
@@ -425,7 +515,7 @@ a.tarteaucitronSelfLink {
 			margin-top: 21px;
 			position: relative;
 
-			&:hover {
+			&::hover {
 				background: #333;
 			}
 
@@ -441,7 +531,7 @@ a.tarteaucitronSelfLink {
 			overflow: hidden;
 			padding: 15px 5px;
 
-			&:hover {
+			&::hover {
 				background: rgba(51, 51, 51, 0.2);
 			}
 
@@ -452,13 +542,13 @@ a.tarteaucitronSelfLink {
 				width: 50%;
 
 				a {
-					&:hover {
+					&::hover {
 						text-decoration: underline;
 					}
 				}
 
 				.tarteaucitronListCookies {
-					color: $color_3;
+					color: $color-3;
 					font-size: 12px;
 				}
 			}
@@ -471,7 +561,7 @@ a.tarteaucitronSelfLink {
 				.tarteaucitronAllow {
 					background: gray;
 					border-radius: 4px;
-					color: $color_2;
+					color: $text-color-white;
 					cursor: pointer;
 					display: inline-block;
 					padding: 6px 10px;
@@ -484,7 +574,7 @@ a.tarteaucitronSelfLink {
 				.tarteaucitronDeny {
 					background: gray;
 					border-radius: 4px;
-					color: $color_2;
+					color: $text-color-white;
 					cursor: pointer;
 					display: inline-block;
 					padding: 6px 10px;
@@ -497,34 +587,34 @@ a.tarteaucitronSelfLink {
 		}
 
 		.tarteaucitronLine.tarteaucitronIsAllowed {
-			border-color: $border_color_1;
+			border-color: $border-color-1;
 
 			.tarteaucitronAllow {
-				background-color: $background_color_2;
+				background-color: $background-color-2;
 			}
 		}
 
 		.tarteaucitronLine.tarteaucitronIsDenied {
-			border-color: $border_color_2;
+			border-color: $border-color-2;
 
 			.tarteaucitronDeny {
-				background-color: $background_color_3;
+				background-color: $background-color-3;
 			}
 		}
 
 		#tarteaucitronAllAllowed.tarteaucitronIsSelected {
-			background-color: $background_color_2;
+			background-color: $background-color-2;
 			opacity: 1;
 		}
 
 		#tarteaucitronAllDenied.tarteaucitronIsSelected {
-			background-color: $background_color_3;
+			background-color: $background-color-3;
 			opacity: 1;
 		}
 	}
 
 	#tarteaucitronInfo {
-		color: $color_2;
+		color: $text-color-white;
 		display: inline-block;
 		font-size: 14px;
 		font-weight: 700;
@@ -533,7 +623,7 @@ a.tarteaucitronSelfLink {
 		text-align: left;
 		width: auto;
 		background: #333;
-		color: $color_2;
+		color: $text-color-white;
 		display: none;
 		font-size: 12px;
 		font-weight: 500;
@@ -544,7 +634,7 @@ a.tarteaucitronSelfLink {
 		z-index: 2147483647;
 
 		a {
-			color: $color_2;
+			color: $text-color-white;
 			text-decoration: underline;
 		}
 	}
@@ -559,7 +649,7 @@ a.tarteaucitronSelfLink {
 
 	#tarteaucitronPrivacyUrl {
 		background: #008300;
-		color: $color_2;
+		color: $text-color-white;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 16px !important;
@@ -568,7 +658,7 @@ a.tarteaucitronSelfLink {
 		text-decoration: none;
 		margin-left: 7px;
 		background: #fff;
-		color: $color_3;
+		color: $color-3;
 		font-size: 13px;
 		margin-bottom: 3px;
 		margin-left: 7px;
@@ -577,7 +667,7 @@ a.tarteaucitronSelfLink {
 
 	#tarteaucitronPrivacyUrlDialog {
 		background: #008300;
-		color: $color_2;
+		color: $text-color-white;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 16px !important;
@@ -586,7 +676,7 @@ a.tarteaucitronSelfLink {
 		text-decoration: none;
 		margin-left: 7px;
 		background: #fff;
-		color: $color_3;
+		color: $color-3;
 		font-size: 13px;
 		margin-bottom: 3px;
 		margin-left: 7px;
@@ -594,13 +684,13 @@ a.tarteaucitronSelfLink {
 	}
 }
 
-/**
- * Big alert
- */
+/////////////////////////////////////////////
+// Big alert                               //
+/////////////////////////////////////////////
 #tarteaucitronRoot {
 	#tarteaucitronAlertBig {
-		background: #333;
-		color: $color_2;
+		background: $background-color-dark;
+		color: $text-color-white;
 		display: none;
 		font-size: 15px !important;
 		left: 0;
@@ -615,7 +705,7 @@ a.tarteaucitronSelfLink {
 
 	.tarteaucitronDeny {
 		background: #008300;
-		color: $color_2;
+		color: $text-color-white;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 16px !important;
@@ -630,30 +720,30 @@ a.tarteaucitronSelfLink {
 #tarteaucitronAlertBig {
 	#tarteaucitronPrivacyUrl {
 		font: 15px verdana;
-		color: $color_2;
+		color: $text-color-white;
 		cursor: pointer;
 	}
 
 	#tarteaucitronPrivacyUrlDialog {
 		font: 15px verdana;
-		color: $color_2;
+		color: $text-color-white;
 		cursor: pointer;
 	}
 
 	#tarteaucitronDisclaimerAlert {
 		font: 15px verdana;
-		color: $color_2;
+		color: $text-color-white;
 
 		strong {
 			font: 15px verdana;
-			color: $color_2;
+			color: $text-color-white;
 			font-weight: 700;
 		}
 	}
 
 	#tarteaucitronCloseAlert {
-		background: #008300;
-		color: $color_2;
+		background: #fff;
+		color: $color-3;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 16px !important;
@@ -661,17 +751,12 @@ a.tarteaucitronSelfLink {
 		padding: 5px 10px;
 		text-decoration: none;
 		margin-left: 7px;
-		background: #fff;
-		color: $color_3;
-		font-size: 13px;
 		margin-bottom: 3px;
-		margin-left: 7px;
-		padding: 4px 10px;
 	}
 
 	#tarteaucitronPersonalize {
 		background: #008300;
-		color: $color_2;
+		color: $text-color-white;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 16px !important;
@@ -700,9 +785,9 @@ a.tarteaucitronSelfLink {
 	z-index: 2147483644;
 }
 
-/**
- * CSS for services
- */
+/////////////////////////////////////////////
+// CSS for services                        //
+/////////////////////////////////////////////
  div#tarteaucitronInfo {
 	display: block !important;
 	position: relative !important;
@@ -713,12 +798,12 @@ a.tarteaucitronSelfLink {
 	font-size: 1em !important;
 	border-bottom: 1px solid;
 	border-top: 1px solid;
-	border-color: $border_color_3;
+	border-color: $border-color-3;
 }
 
  .tac_activate {
 	background: #333;
-	color: $color_2;
+	color: $text-color-white;
 	display: table;
 	font-size: 12px;
 	height: 100%;
@@ -730,7 +815,7 @@ a.tarteaucitronSelfLink {
 	.tarteaucitronAllow {
 		background: gray;
 		border-radius: 4px;
-		color: $color_2;
+		color: $text-color-white;
 		cursor: pointer;
 		display: inline-block;
 		padding: 6px 10px;
@@ -742,11 +827,11 @@ a.tarteaucitronSelfLink {
 
 	.tac_float {
 		strong {
-			color: $color_2;
+			color: $color-2;
 		}
 
 		.tarteaucitronAllow {
-			background-color: $background_color_2;
+			background-color: $background-color-2;
 			display: inline-block;
 		}
 	}

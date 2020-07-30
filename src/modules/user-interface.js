@@ -123,7 +123,6 @@ function closeAlert() {
 	"use strict";
 	var c = "tarteaucitron";
 	css(c + "Percentage", "display", "none");
-	css(c + "AlertSmall", "display", "block");
 	css(c + "AlertBig",   "display", "none");
 	removeClass(c + "Root",   "tarteaucitronBeforeVisible");
 	jsSizing("box");
@@ -135,7 +134,6 @@ function openAlert() {
 	"use strict";
 	var c = "tarteaucitron";
 	css(c + "Percentage", "display", "block");
-	css(c + "AlertSmall", "display", "none");
 	css(c + "AlertBig",   "display", "block");
 	addClass(c + "Root",   "tarteaucitronBeforeVisible");
 

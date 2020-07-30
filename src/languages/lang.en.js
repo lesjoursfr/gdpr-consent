@@ -1,15 +1,15 @@
 const en = {
 	middleBarHead: "☝ 🍪",
-	adblock: "Hello! This site is transparent and lets you choose the 3rd party services you want to allow.",
-	adblockCall: "Please disable your adblocker to start customizing.",
 	reload: "Refresh the page",
+
+	siteDisclaimerTitle: "«&nbsp;Le site qui raconte l’actualité en séries&nbsp;»",
+	siteDisclaimerMessage: "<i>Les&nbsp;Jours</i> sont un média <a data-ga-type=\"click\" data-ga-category=\"Bottom Bar\" data-ga-action=\"Navigate\" data-ga-label=\"Les Jours c’est quoi ?\" href=\"/les-jours-c-quoi/\">indépendant et sans pub</a> accessible par <a data-ga-type=\"click\" data-ga-category=\"Bottom Bar\" data-ga-action=\"Navigate\" data-ga-label=\"Abonnement\" href=\"/abonnement/jouriste\">abonnement</a>. Découvrez <a data-ga-category=\"Bottom Bar\" data-ga-action=\"Navigate\" data-ga-label=\"Les Jours en Clair\" href=\"/les-jours-en-clair/\">notre zone gratuite</a>&nbsp;: l’actualité en profondeur, avec des épisodes, des personnages, des lieux.",
 
 	alertBigScroll: "By continuing to scroll,",
 	alertBigClick: "If you continue to browse this website,",
 	alertBig: "you are allowing all third-party services",
 
 	alertBigPrivacy: "This site uses cookies and gives you control over what you want to activate",
-	alertSmall: "Manage services",
 	personalize: "Personalize",
 	acceptAll: "OK, accept all",
 	close: "Close",
@@ -42,15 +42,15 @@ const en = {
 	fallback: "is disabled.",
 
 	ads: {
-		title: "Advertising network",
+		title: "Advertising network (to let us know)",
 		details: "Ad networks can generate revenue by selling advertising space on the site."
 	},
 	analytic: {
-		title: "Audience measurement",
+		title: "Navigation (ergonomics) and audience measurement",
 		details: "The audience measurement services used to generate useful statistics attendance to improve the site."
 	},
 	social: {
-		title: "Social networks",
+		title: "Social networks (sharing buttons and Twitter cards)",
 		details: "Social networks can improve the usability of the site and help to promote it via the shares."
 	},
 	video: {
@@ -66,7 +66,7 @@ const en = {
 		details: "Support services allow you to get in touch with the site team and help to improve it."
 	},
 	api: {
-		title: "APIs",
+		title: "Services",
 		details: "APIs are used to load scripts: geolocation, search engines, translations, ..."
 	},
 	other: {

@@ -1,0 +1,9 @@
+options:
+  formatter: stylish
+files:
+  include: 'src/**/*.scss'
+rules:
+  indentation:
+    - 1
+    - size: tab
+  no-ids: 0

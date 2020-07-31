@@ -38,7 +38,7 @@ function jsSizing(type) {
 		}
 
 		// align the main allow/deny button depending on scrollbar width
-		if (document.getElementById("tarteaucitron-services") !== null && document.getElementById("tarteaucitronScrollbarChild") !== null) {
+		if (document.getElementById("tarteaucitron-services") !== null && document.getElementById("tarteaucitron-scrollbar-child") !== null) {
 			// media query
 			if (e[a + "Width"] <= 479) {
 				css("tarteaucitron-scrollbar-adjust", "marginLeft", "11px");
@@ -47,7 +47,7 @@ function jsSizing(type) {
 			}
 
 			scrollbarWidthParent = document.getElementById("tarteaucitron-services").offsetWidth;
-			scrollbarWidthChild = document.getElementById("tarteaucitronScrollbarChild").offsetWidth;
+			scrollbarWidthChild = document.getElementById("tarteaucitron-scrollbar-child").offsetWidth;
 			css("tarteaucitron-scrollbar-adjust", "marginRight", ((scrollbarWidthParent - scrollbarWidthChild) + scrollbarMarginRight) + "px");
 		}
 
@@ -89,7 +89,7 @@ function closePanel(GDPRConsentState) {
 	}
 	css("tarteaucitron", "display", "none");
 
-	searchElements(["tarteaucitron-infoBox"], function(elem) {
+	searchElements(["tarteaucitron-info-box"], function(elem) {
 		elem.style.display = "none";
 	});
 
@@ -124,7 +124,7 @@ function closeAlert() {
 	var c = "tarteaucitron";
 	css(c + "-percentage", "display", "none");
 	css(c + "-alert-big",   "display", "none");
-	removeClass(c + "Root",   "tarteaucitronBeforeVisible");
+	removeClass(c + "-root",   "tarteaucitron-before-visible");
 	jsSizing("box");
 
 	sendEvent("tac.close_alert");
@@ -135,7 +135,7 @@ function openAlert() {
 	var c = "tarteaucitron";
 	css(c + "-percentage", "display", "block");
 	css(c + "-alert-big",   "display", "block");
-	addClass(c + "Root",   "tarteaucitronBeforeVisible");
+	addClass(c + "-root",   "tarteaucitron-before-visible");
 
 	sendEvent("tac.open_alert");
 }

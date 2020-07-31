@@ -41,14 +41,14 @@ function jsSizing(type) {
 		if (document.getElementById("tarteaucitron-services") !== null && document.getElementById("tarteaucitronScrollbarChild") !== null) {
 			// media query
 			if (e[a + "Width"] <= 479) {
-				css("tarteaucitronScrollbarAdjust", "marginLeft", "11px");
+				css("tarteaucitron-scrollbar-adjust", "marginLeft", "11px");
 			} else if (e[a + "Width"] <= 767) {
 				scrollbarMarginRight = 12;
 			}
 
 			scrollbarWidthParent = document.getElementById("tarteaucitron-services").offsetWidth;
 			scrollbarWidthChild = document.getElementById("tarteaucitronScrollbarChild").offsetWidth;
-			css("tarteaucitronScrollbarAdjust", "marginRight", ((scrollbarWidthParent - scrollbarWidthChild) + scrollbarMarginRight) + "px");
+			css("tarteaucitron-scrollbar-adjust", "marginRight", ((scrollbarWidthParent - scrollbarWidthChild) + scrollbarMarginRight) + "px");
 		}
 
 		// center the main panel
@@ -122,8 +122,8 @@ function openPanel() {
 function closeAlert() {
 	"use strict";
 	var c = "tarteaucitron";
-	css(c + "Percentage", "display", "none");
-	css(c + "AlertBig",   "display", "none");
+	css(c + "-percentage", "display", "none");
+	css(c + "-alert-big",   "display", "none");
 	removeClass(c + "Root",   "tarteaucitronBeforeVisible");
 	jsSizing("box");
 
@@ -133,8 +133,8 @@ function closeAlert() {
 function openAlert() {
 	"use strict";
 	var c = "tarteaucitron";
-	css(c + "Percentage", "display", "block");
-	css(c + "AlertBig",   "display", "block");
+	css(c + "-percentage", "display", "block");
+	css(c + "-alert-big",   "display", "block");
 	addClass(c + "Root",   "tarteaucitronBeforeVisible");
 
 	sendEvent("tac.open_alert");

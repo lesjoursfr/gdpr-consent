@@ -24,7 +24,7 @@ Clearly this script will:
 <link rel="stylesheet" href="gdpr-consent.css" />
 <script type="text/javascript" src="gdpr-consent.js"></script>
 <script type="text/javascript">
-tarteaucitron.init({
+GDPRConsent.init({
     "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
 	"cookieName": "tarteaucitron", /* Cookie name */
 	"timeExpire": 31536000000, /* Cookie expiration time */

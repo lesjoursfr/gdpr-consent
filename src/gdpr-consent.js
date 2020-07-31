@@ -106,7 +106,7 @@ const GDPRConsent = {
 		html += "<div id=\"tarteaucitron\" role=\"dialog\" aria-labelledby=\"dialogTitle\">";
 		html += "   <button type=\"button\" id=\"tarteaucitron-close-panel\" onclick=\"GDPRConsent.closePanel();\">&#128473;</button>";
 		html += "   <div id=\"tarteaucitron-services\">";
-		html += "      <div class=\"tarteaucitron-line tarteaucitron-main-line\" id=\"tarteaucitron-main-line-offset\">";
+		html += "      <div class=\"tarteaucitron-main-line\" id=\"tarteaucitron-main-line-offset\">";
 		html += "         <span class=\"tarteaucitron-h1\" role=\"heading\" aria-level=\"1\" id=\"dialogTitle\">"+ GDPRConsent.lang.title + "</span>";
 		html += "         <div id=\"tarteaucitron-info\">";
 		html += "         " + GDPRConsent.lang.disclaimer;
@@ -114,7 +114,7 @@ const GDPRConsent = {
 		html += "         <div class=\"tarteaucitron-name\">";
 		html += "            <span class=\"tarteaucitron-h2\" role=\"heading\" aria-level=\"2\">" + GDPRConsent.lang.all + "</span>";
 		html += "         </div>";
-		html += "         <div class=\"tarteaucitron-ask\" id=\"tarteaucitronScrollbarAdjust\">";
+		html += "         <div class=\"tarteaucitron-ask\" id=\"tarteaucitron-scrollbar-adjust\">";
 		html += "            <button type=\"button\" id=\"tarteaucitron-all-allowed\" class=\"tarteaucitron-allow\" onclick=\"GDPRConsent.respondAll(true);\">";
 		html += "               &#10003; " + GDPRConsent.lang.allowAll;
 		html += "            </button> ";

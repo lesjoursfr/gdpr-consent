@@ -1,18 +1,21 @@
-os:
-  - "linux"
-  - "windows"
 language: "node_js"
-node_js:
-  - "14"
-  - "12"
-
 jobs:
   include:
     - stage: "Build project"
-      script: npm run build
-    - stage: "Release to NPM"
+      name: "Build the project on Linux with NodeJS 14"
       os: "linux"
       node_js: "14"
+      script: npm run build
+    - stage: "Build project"
+      name: "Build the project on Windows with NodeJS 14"
+      os: "windows"
+      node_js: "14"
+      script: npm run build
+    - stage: "Release to NPM"
+      name: "Publish the package to the npmjs repository"
+      os: "linux"
+      node_js: "14"
+      script: npm run build
       deploy:
         provider: "npm"
         email: "npmjs@eraud.dev"

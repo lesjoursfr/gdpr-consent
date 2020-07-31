@@ -22,18 +22,18 @@ $border-color-3: #555;
 // Global                                  //
 /////////////////////////////////////////////
 .modal-open {
-	overflow: hidden;
 	height: 100%;
+	overflow: hidden;
 }
 
-#contentWrapper {
+#content-wrapper {
 	display: unset;
 }
 
 /////////////////////////////////////////////
 // Reset CSS                               //
 /////////////////////////////////////////////
-#tarteaucitronRoot {
+#tarteaucitron-root {
 	div,
 	span,
 	applet,
@@ -113,14 +113,14 @@ $border-color-3: #555;
 	mark,
 	audio,
 	video {
+		border: 0;
+		font: inherit;
+		font-size: 100%;
 		margin: 0;
 		padding: 0;
-		border: 0;
-		font-size: 100%;
-		font: inherit;
-		vertical-align: baseline;
 		text-align: initial;
 		text-shadow: initial;
+		vertical-align: baseline;
 	}
 
 	blockquote,
@@ -165,39 +165,41 @@ $border-color-3: #555;
 /////////////////////////////////////////////
 // Better scroll management                //
 /////////////////////////////////////////////
-#tarteaucitronMainLineOffset {
+#tarteaucitron-main-line-offset {
 	margin-top: 0 !important;
 }
 
-#tarteaucitronServices {
-	margin-top: 21px !important;
+#tarteaucitron-services {
 	box-shadow: 0 0 35px #575757;
+	margin-top: 21px !important;
 
+	// sass-lint:disable no-vendor-prefixes
 	&::-webkit-scrollbar {
 		width: 5px;
 	}
 
 	&::-webkit-scrollbar-track {
-		box-shadow: inset 0 0 0 rgba(0,0,0,0);
+		box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
 	}
 
 	&::-webkit-scrollbar-thumb {
 		background-color: $background-color-1;
-		outline: 0px solid slategrey;
+		outline: 0 solid #708090;
 	}
+	// sass-lint:enable no-vendor-prefixes
 }
 
 /////////////////////////////////////////////
 // Responsive layout for the control panel //
 /////////////////////////////////////////////
-@media screen and (max-width:479px) {
+@media screen and (max-width: 479px) {
 	#tarteaucitron {
-		.tarteaucitronLine {
-			.tarteaucitronName {
+		.tarteaucitron-line {
+			.tarteaucitron-name {
 				width: 90% !important;
 			}
 
-			.tarteaucitronAsk {
+			.tarteaucitron-ask {
 				float: left !important;
 				margin: 10px 15px 5px;
 			}
@@ -205,7 +207,7 @@ $border-color-3: #555;
 	}
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
 	#tarteaucitron {
 		background: #fff;
 		border: 0 !important;
@@ -218,17 +220,17 @@ $border-color-3: #555;
 		top: 0 !important;
 		width: 100% !important;
 
-		.tarteaucitronBorder {
+		.tarteaucitron-border {
 			border: 0 !important;
 		}
 
-		#tarteaucitronServices {
-			.tarteaucitronTitle {
+		#tarteaucitron-services {
+			.tarteaucitron-title {
 				text-align: left !important;
 			}
 
-			.tarteaucitronLine {
-				.tarteaucitronAsk {
+			.tarteaucitron-line {
+				.tarteaucitron-ask {
 					text-align: center !important;
 
 					button {
@@ -239,14 +241,14 @@ $border-color-3: #555;
 		}
 	}
 
-	.tarteaucitronName {
-		.tarteaucitronH2 {
+	.tarteaucitron-name {
+		.tarteaucitron-h2 {
 			max-width: 80%;
 		}
 	}
 }
 
-@media screen and (min-width:768px) and (max-width:991px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
 	#tarteaucitron {
 		border: 0 !important;
 		left: 0 !important;
@@ -284,29 +286,33 @@ $border-color-3: #555;
 		padding: 0;
 	}
 
-	.tarteaucitronH1,
-	.tarteaucitronH2,
-	.tarteaucitronH3,
-	.tarteaucitronH4,
-	.tarteaucitronH5,
-	.tarteaucitronH6 {
+	.tarteaucitron-h1,
+	.tarteaucitron-h2,
+	.tarteaucitron-h3,
+	.tarteaucitron-h4,
+	.tarteaucitron-h5,
+	.tarteaucitron-h6 {
 		display: block;
 	}
 
-	.tarteaucitronH3 {
+	.tarteaucitron-h3 {
 		font-size: 18px;
 	}
 }
 
-#tarteaucitronRoot {
-	div#tarteaucitron {
-		left: 0;
-		right: 0;
-		margin: auto;
+#tarteaucitron-root {
+	div {
+		&#tarteaucitron {
+			left: 0;
+			margin: auto;
+			right: 0;
+		}
 	}
 
-	button#tarteaucitronBack {
-		background: #eee;
+	button {
+		&#tarteaucitron-back {
+			background: #eee;
+		}
 	}
 
 	button {
@@ -315,7 +321,7 @@ $border-color-3: #555;
 	}
 }
 
-#tarteaucitronAlertBig {
+#tarteaucitron-alert-big {
 	strong,
 	a {
 		color: $text-color-white;
@@ -324,14 +330,14 @@ $border-color-3: #555;
 
 .cookie-list {
 	list-style: none;
-	padding: 0;
 	margin: 0;
+	padding: 0;
 }
 
 /////////////////////////////////////////////
 // Root div added just before </body>      //
 /////////////////////////////////////////////
-#tarteaucitronRoot {
+#tarteaucitron-root {
 	left: 0;
 	position: absolute;
 	right: 0;
@@ -347,17 +353,17 @@ $border-color-3: #555;
 		vertical-align: initial;
 	}
 
-	.tarteaucitronH1 {
-		font-size: 1.5em;
-		text-align: center;
+	.tarteaucitron-h1 {
 		color: $text-color-white;
+		font-size: 1.5em;
 		margin: 15px 0 28px;
+		text-align: center;
 	}
 
-	.tarteaucitronH2 {
+	.tarteaucitron-h2 {
+		color: $text-color-white;
 		display: inline-block;
 		margin: 12px 0 0 10px;
-		color: $text-color-white;
 	}
 
 	button {
@@ -369,12 +375,12 @@ $border-color-3: #555;
 /////////////////////////////////////////////
 // Control panel                           //
 /////////////////////////////////////////////
-#tarteaucitronBack {
+#tarteaucitron-back {
 	background: #fff;
 	display: none;
 	height: 100%;
 	left: 0;
-	opacity: 0.7;
+	opacity: .7;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -383,16 +389,16 @@ $border-color-3: #555;
 
 #tarteaucitron {
 	display: none;
-	max-height: 80%;
 	left: 50%;
 	margin: 0 auto 0 -430px;
+	max-height: 80%;
 	padding: 0;
 	position: fixed;
 	top: 6%;
 	width: 860px;
 	z-index: 2147483647;
 
-	.tarteaucitronBorder {
+	.tarteaucitron-border {
 		background: #fff;
 		border: 2px solid #333;
 		border-top: 0;
@@ -400,8 +406,8 @@ $border-color-3: #555;
 		overflow: auto;
 	}
 
-	#tarteaucitronClosePanel {
-		background: #333333;
+	#tarteaucitron-close-panel {
+		background: #333;
 		color: $text-color-white;
 		cursor: pointer;
 		font-size: 12px;
@@ -414,35 +420,25 @@ $border-color-3: #555;
 		width: 70px;
 	}
 
-	#tarteaucitronDisclaimer {
+	#tarteaucitron-disclaimer {
 		color: $color-4;
 		font-size: 12px;
 		margin: 15px auto 0;
 		width: 80%;
 	}
 
-	#tarteaucitronServices {
-		.tarteaucitronHidden {
-			background: rgba(51, 51, 51, 0.07);
+	#tarteaucitron-services {
+		.tarteaucitron-hidden {
+			background: rgba(51, 51, 51, .07);
 			display: none;
 			position: relative;
 		}
 	}
 }
 
-.tarteaucitronSelfLink {
-	background: rgba(51, 51, 51, 0.07);
-}
-
-a.tarteaucitronSelfLink {
-	text-align: center !important;
-	display: block;
-	padding: 7px !important;
-}
-
 #tarteaucitron {
-	#tarteaucitronServices {
-		.tarteaucitronTitle {
+	#tarteaucitron-services {
+		.tarteaucitron-title {
 			button {
 				color: $text-color-white;
 				display: inline-block;
@@ -466,7 +462,7 @@ a.tarteaucitronSelfLink {
 			}
 		}
 
-		.tarteaucitronDetails {
+		.tarteaucitron-details {
 			color: $text-color-white;
 			display: inline-block;
 			font-size: 14px;
@@ -487,17 +483,25 @@ a.tarteaucitronSelfLink {
 			z-index: 2147483647;
 		}
 
-		.tarteaucitronMainLine {
-			.tarteaucitronName {
+		.tarteaucitron-main-line {
+			background: #333;
+			border: 3px solid #333;
+			border-left: 9px solid #333;
+			border-top: 5px solid #333;
+			margin-bottom: 0;
+			margin-top: 21px;
+			position: relative;
+
+			.tarteaucitron-name {
 				margin-left: 15px;
 				margin-top: 2px;
 
 				a {
 					color: $text-color-white;
-					font-weight: 500;
 					font-size: 22px;
+					font-weight: 500;
 
-					&::hover {
+					&:hover {
 						text-decoration: none !important;
 					}
 				}
@@ -507,58 +511,50 @@ a.tarteaucitronSelfLink {
 				}
 			}
 
-			background: #333;
-			border: 3px solid #333;
-			border-left: 9px solid #333;
-			border-top: 5px solid #333;
-			margin-bottom: 0;
-			margin-top: 21px;
-			position: relative;
-
-			&::hover {
+			&:hover {
 				background: #333;
 			}
 
-			.tarteaucitronAsk {
+			.tarteaucitron-ask {
 				margin-top: 0px !important;
 			}
 		}
 
-		.tarteaucitronLine {
-			background: rgba(51, 51, 51, 0.1);
+		.tarteaucitron-line {
+			background: rgba(51, 51, 51, .1);
 			border-left: 5px solid transparent;
 			margin: 0;
 			overflow: hidden;
 			padding: 15px 5px;
 
-			&::hover {
-				background: rgba(51, 51, 51, 0.2);
+			&:hover {
+				background: rgba(51, 51, 51, .2);
 			}
 
-			.tarteaucitronName {
+			.tarteaucitron-name {
 				float: left;
 				margin-left: 10px;
 				text-align: left;
 				width: 50%;
 
 				a {
-					&::hover {
+					&:hover {
 						text-decoration: underline;
 					}
 				}
 
-				.tarteaucitronListCookies {
+				.tarteaucitron-list-cookies {
 					color: $color-3;
 					font-size: 12px;
 				}
 			}
 
-			.tarteaucitronAsk {
+			.tarteaucitron-ask {
 				float: right;
 				margin: 7px 15px 0;
 				text-align: right;
 
-				.tarteaucitronAllow {
+				.tarteaucitron-allow {
 					background: gray;
 					border-radius: 4px;
 					color: $text-color-white;
@@ -571,7 +567,7 @@ a.tarteaucitronSelfLink {
 					border: 0;
 				}
 
-				.tarteaucitronDeny {
+				.tarteaucitron-deny {
 					background: gray;
 					border-radius: 4px;
 					color: $text-color-white;
@@ -586,34 +582,24 @@ a.tarteaucitronSelfLink {
 			}
 		}
 
-		.tarteaucitronLine.tarteaucitronIsAllowed {
+		.tarteaucitron-line.tarteaucitron-is-allowed {
 			border-color: $border-color-1;
 
-			.tarteaucitronAllow {
+			.tarteaucitron-allow {
 				background-color: $background-color-2;
 			}
 		}
 
-		.tarteaucitronLine.tarteaucitronIsDenied {
+		.tarteaucitron-line.tarteaucitron-is-denied {
 			border-color: $border-color-2;
 
-			.tarteaucitronDeny {
+			.tarteaucitron-deny {
 				background-color: $background-color-3;
 			}
 		}
-
-		#tarteaucitronAllAllowed.tarteaucitronIsSelected {
-			background-color: $background-color-2;
-			opacity: 1;
-		}
-
-		#tarteaucitronAllDenied.tarteaucitronIsSelected {
-			background-color: $background-color-3;
-			opacity: 1;
-		}
 	}
 
-	#tarteaucitronInfo {
+	#tarteaucitron-info {
 		color: $text-color-white;
 		display: inline-block;
 		font-size: 14px;
@@ -639,56 +625,20 @@ a.tarteaucitronSelfLink {
 		}
 	}
 
-	#tarteaucitronMainLineOffset {
-		.tarteaucitronName {
+	#tarteaucitron-main-line-offset {
+		.tarteaucitron-name {
 			width: auto !important;
 			margin-left: 0 !important;
 			font-size: 14px;
 		}
-	}
-
-	#tarteaucitronPrivacyUrl {
-		background: #008300;
-		color: $text-color-white;
-		cursor: pointer;
-		display: inline-block;
-		font-size: 16px !important;
-		line-height: 1.2;
-		padding: 5px 10px;
-		text-decoration: none;
-		margin-left: 7px;
-		background: #fff;
-		color: $color-3;
-		font-size: 13px;
-		margin-bottom: 3px;
-		margin-left: 7px;
-		padding: 4px 10px;
-	}
-
-	#tarteaucitronPrivacyUrlDialog {
-		background: #008300;
-		color: $text-color-white;
-		cursor: pointer;
-		display: inline-block;
-		font-size: 16px !important;
-		line-height: 1.2;
-		padding: 5px 10px;
-		text-decoration: none;
-		margin-left: 7px;
-		background: #fff;
-		color: $color-3;
-		font-size: 13px;
-		margin-bottom: 3px;
-		margin-left: 7px;
-		padding: 4px 10px;
 	}
 }
 
 /////////////////////////////////////////////
 // Big alert                               //
 /////////////////////////////////////////////
-#tarteaucitronRoot {
-	#tarteaucitronAlertBig {
+#tarteaucitron-root {
+	#tarteaucitron-alert-big {
 		background: $background-color-dark;
 		color: $text-color-white;
 		display: none;
@@ -703,7 +653,7 @@ a.tarteaucitronSelfLink {
 		width: 100%;
 	}
 
-	.tarteaucitronDeny {
+	.tarteaucitron-deny {
 		background: #008300;
 		color: $text-color-white;
 		cursor: pointer;
@@ -717,20 +667,8 @@ a.tarteaucitronSelfLink {
 	}
 }
 
-#tarteaucitronAlertBig {
-	#tarteaucitronPrivacyUrl {
-		font: 15px verdana;
-		color: $text-color-white;
-		cursor: pointer;
-	}
-
-	#tarteaucitronPrivacyUrlDialog {
-		font: 15px verdana;
-		color: $text-color-white;
-		cursor: pointer;
-	}
-
-	#tarteaucitronDisclaimerAlert {
+#tarteaucitron-alert-big {
+	#tarteaucitron-disclaimer-alert {
 		font: 15px verdana;
 		color: $text-color-white;
 
@@ -741,7 +679,7 @@ a.tarteaucitronSelfLink {
 		}
 	}
 
-	#tarteaucitronCloseAlert {
+	#tarteaucitron-close-alert {
 		background: #fff;
 		color: $color-3;
 		cursor: pointer;
@@ -754,7 +692,7 @@ a.tarteaucitronSelfLink {
 		margin-bottom: 3px;
 	}
 
-	#tarteaucitronPersonalize {
+	#tarteaucitron-personalize {
 		background: #008300;
 		color: $text-color-white;
 		cursor: pointer;
@@ -767,15 +705,11 @@ a.tarteaucitronSelfLink {
 	}
 }
 
-.tarteaucitronAlertBigTop {
-	top: 0;
-}
-
-.tarteaucitronAlertBigBottom {
+.tarteaucitron-alert-big-bottom {
 	bottom: 0;
 }
 
-#tarteaucitronPercentage {
+#tarteaucitron-percentage {
 	background: #0A0 !important;
 	box-shadow: 0 0 2px #fff, 0 1px 2px #555;
 	height: 5px;
@@ -788,7 +722,7 @@ a.tarteaucitronSelfLink {
 /////////////////////////////////////////////
 // CSS for services                        //
 /////////////////////////////////////////////
- div#tarteaucitronInfo {
+div#tarteaucitron-info {
 	display: block !important;
 	position: relative !important;
 	text-align: center !important;
@@ -801,95 +735,43 @@ a.tarteaucitronSelfLink {
 	border-color: $border-color-3;
 }
 
- .tac_activate {
-	background: #333;
-	color: $text-color-white;
-	display: table;
-	font-size: 12px;
-	height: 100%;
-	line-height: initial;
-	margin: auto;
-	text-align: center;
-	width: 100%;
-
-	.tarteaucitronAllow {
-		background: gray;
-		border-radius: 4px;
-		color: $text-color-white;
-		cursor: pointer;
-		display: inline-block;
-		padding: 6px 10px;
-		text-align: center;
-		text-decoration: none;
-		width: auto;
-		border: 0;
-	}
-
-	.tac_float {
-		strong {
-			color: $color-2;
-		}
-
-		.tarteaucitronAllow {
-			background-color: $background-color-2;
-			display: inline-block;
-		}
-	}
-}
-
-.tac_float {
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-}
-
-.tarteaucitronIsAllowed {
-	.tarteaucitronDeny {
+.tarteaucitron-is-allowed {
+	.tarteaucitron-deny {
 		opacity: 0.4 !important;
 	}
 
-	.tarteaucitronAllow {
+	.tarteaucitron-allow {
 		opacity: 1 !important;
 	}
 }
 
-.tarteaucitronIsDenied {
-	.tarteaucitronAllow {
+.tarteaucitron-is-denied {
+	.tarteaucitron-allow {
 		opacity: 0.4 !important;
 	}
 
-	.tarteaucitronDeny {
+	.tarteaucitron-deny {
 		opacity: 1 !important;
 	}
 }
 
-.tarteaucitronLine {
-	.tarteaucitronAllow {
+.tarteaucitron-line {
+	.tarteaucitron-allow {
 		opacity: 0.4;
 	}
 
-	.tarteaucitronDeny {
+	.tarteaucitron-deny {
 		opacity: 0.4;
 	}
 }
 
-a.tarteaucitronSelfLink {
-	position: absolute;
-	left: 0;
-	right: 0;
-	padding-top: 13px !important;
-	display: block;
-	text-shadow: 0 0 14px white;
-	text-transform: uppercase;
-}
-
-.tarteaucitronMainLine {
-	.tarteaucitronH2 {
+.tarteaucitron-main-line {
+	.tarteaucitron-h2 {
 		font-size: 1.2em !important;
 		margin-top: 4px !important;
 	}
 }
 
-span.tarteaucitronTitle.tarteaucitronH3 {
+span.tarteaucitron-title.tarteaucitron-h3 {
 	margin-top: 12px !important;
 }

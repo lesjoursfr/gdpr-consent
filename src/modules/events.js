@@ -23,8 +23,8 @@ function resizeEvent() {
 function scrollEvent(GDPRConsentState, GDPRConsentParameters, lang) {
 	var scrollPos = window.pageYOffset || document.documentElement.scrollTop,
 		heightPosition,
-		tacPercentage = document.getElementById("tarteaucitronPercentage"),
-		tacAlertBig = document.getElementById("tarteaucitronAlertBig");
+		tacPercentage = document.getElementById("tarteaucitron-percentage"),
+		tacAlertBig = document.getElementById("tarteaucitron-alert-big");
 
 	if (tacAlertBig && !GDPRConsentParameters.highPrivacy) {
 		if (tacAlertBig.style.display === "block") {
@@ -33,7 +33,7 @@ function scrollEvent(GDPRConsentState, GDPRConsentParameters, lang) {
 			if (scrollPos > (screen.height * 2)) {
 				userInterface.respondAll(true, GDPRConsentState, GDPRConsentParameters);
 			} else if (scrollPos > (screen.height / 2)) {
-				document.getElementById("tarteaucitronDisclaimerAlert").innerHTML = "<strong>" + lang.alertBigScroll + "</strong> " + lang.alertBig;
+				document.getElementById("tarteaucitron-disclaimer-alert").innerHTML = "<strong>" + lang.alertBigScroll + "</strong> " + lang.alertBig;
 			}
 
 			if (tacPercentage) {

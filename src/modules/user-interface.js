@@ -23,22 +23,22 @@ function jsSizing(type) {
 		}
 
 		// height of the services list container
-		if (document.getElementById("tarteaucitron") !== null && document.getElementById("tarteaucitronClosePanel") !== null && document.getElementById("tarteaucitronMainLineOffset") !== null) {
+		if (document.getElementById("tarteaucitron") !== null && document.getElementById("tarteaucitron-close-panel") !== null && document.getElementById("tarteaucitron-main-line-offset") !== null) {
 			// reset
-			css("tarteaucitronServices", "height", "auto");
+			css("tarteaucitron-services", "height", "auto");
 
 			// calculate
 			mainHeight = document.getElementById("tarteaucitron").offsetHeight;
-			closeButtonHeight = document.getElementById("tarteaucitronClosePanel").offsetHeight;
+			closeButtonHeight = document.getElementById("tarteaucitron-close-panel").offsetHeight;
 
 			// apply
 			servicesHeight = (mainHeight - closeButtonHeight + 2);
-			css("tarteaucitronServices", "height", servicesHeight + "px");
-			css("tarteaucitronServices", "overflow-x", "auto");
+			css("tarteaucitron-services", "height", servicesHeight + "px");
+			css("tarteaucitron-services", "overflow-x", "auto");
 		}
 
 		// align the main allow/deny button depending on scrollbar width
-		if (document.getElementById("tarteaucitronServices") !== null && document.getElementById("tarteaucitronScrollbarChild") !== null) {
+		if (document.getElementById("tarteaucitron-services") !== null && document.getElementById("tarteaucitronScrollbarChild") !== null) {
 			// media query
 			if (e[a + "Width"] <= 479) {
 				css("tarteaucitronScrollbarAdjust", "marginLeft", "11px");
@@ -46,7 +46,7 @@ function jsSizing(type) {
 				scrollbarMarginRight = 12;
 			}
 
-			scrollbarWidthParent = document.getElementById("tarteaucitronServices").offsetWidth;
+			scrollbarWidthParent = document.getElementById("tarteaucitron-services").offsetWidth;
 			scrollbarWidthChild = document.getElementById("tarteaucitronScrollbarChild").offsetWidth;
 			css("tarteaucitronScrollbarAdjust", "marginRight", ((scrollbarWidthParent - scrollbarWidthChild) + scrollbarMarginRight) + "px");
 		}
@@ -60,9 +60,9 @@ function jsSizing(type) {
 				mainTop = ((windowInnerHeight - document.getElementById("tarteaucitron").offsetHeight) / 2) - 21;
 			}
 
-			if (document.getElementById("tarteaucitronMainLineOffset") !== null) {
+			if (document.getElementById("tarteaucitron-main-line-offset") !== null) {
 				if (document.getElementById("tarteaucitron").offsetHeight < (windowInnerHeight / 2)) {
-					mainTop -= document.getElementById("tarteaucitronMainLineOffset").offsetHeight;
+					mainTop -= document.getElementById("tarteaucitron-main-line-offset").offsetHeight;
 				}
 			}
 
@@ -89,17 +89,17 @@ function closePanel(GDPRConsentState) {
 	}
 	css("tarteaucitron", "display", "none");
 
-	searchElements(["tarteaucitronInfoBox"], function(elem) {
+	searchElements(["tarteaucitron-infoBox"], function(elem) {
 		elem.style.display = "none";
 	});
 
 	if (GDPRConsentState.reloadThePage === true) {
 		window.location.reload();
 	} else {
-		css("tarteaucitronBack", "display", "none");
+		css("tarteaucitron-back", "display", "none");
 	}
-	if (document.getElementById("tarteaucitronCloseAlert") !== null) {
-		document.getElementById("tarteaucitronCloseAlert").focus();
+	if (document.getElementById("tarteaucitron-close-alert") !== null) {
+		document.getElementById("tarteaucitron-close-alert").focus();
 	}
 	document.getElementsByTagName("body")[0].classList.remove("modal-open");
 
@@ -110,9 +110,9 @@ function openPanel() {
 	"use strict";
 
 	css("tarteaucitron", "display", "block");
-	css("tarteaucitronBack", "display", "block");
+	css("tarteaucitron-back", "display", "block");
 
-	document.getElementById("tarteaucitronClosePanel").focus();
+	document.getElementById("tarteaucitron-close-panel").focus();
 	document.getElementsByTagName("body")[0].classList.add("modal-open");
 	jsSizing("main");
 
@@ -150,11 +150,11 @@ function color(key, status, GDPRConsentState) {
 		index;
 
 	if (status === true) {
-		document.getElementById(key + "Line").classList.add("tarteaucitronIsAllowed");
-		document.getElementById(key + "Line").classList.remove("tarteaucitronIsDenied");
+		document.getElementById(key + "-line").classList.add("tarteaucitron-is-allowed");
+		document.getElementById(key + "-line").classList.remove("tarteaucitron-is-denied");
 	} else if (status === false) {
-		document.getElementById(key + "Line").classList.remove("tarteaucitronIsAllowed");
-		document.getElementById(key + "Line").classList.add("tarteaucitronIsDenied");
+		document.getElementById(key + "-line").classList.remove("tarteaucitron-is-allowed");
+		document.getElementById(key + "-line").classList.add("tarteaucitron-is-denied");
 	}
 
 	// check if all services are allowed
@@ -168,28 +168,28 @@ function color(key, status, GDPRConsentState) {
 		}
 	}
 
-	css(c + "DotGreen", "width", ((100 / sum) * nbAllowed) + "%");
-	css(c + "DotYellow", "width", ((100 / sum) * nbPending) + "%");
-	css(c + "DotRed", "width", ((100 / sum) * nbDenied) + "%");
+	css(c + "-dot-green", "width", ((100 / sum) * nbAllowed) + "%");
+	css(c + "-dot-yellow", "width", ((100 / sum) * nbPending) + "%");
+	css(c + "-dot-red", "width", ((100 / sum) * nbDenied) + "%");
 
 	if (nbDenied === 0 && nbPending === 0) {
-		removeClass(c + "AllDenied", c + "IsSelected");
-		addClass(c + "AllAllowed", c + "IsSelected");
+		removeClass(c + "-all-denied", c + "-is-selected");
+		addClass(c + "-all-allowed", c + "-is-selected");
 
-		addClass(c + "MainLineOffset", c + "IsAllowed");
-		removeClass(c + "MainLineOffset", c + "IsDenied");
+		addClass(c + "-main-line-offset", c + "-is-allowed");
+		removeClass(c + "-main-line-offset", c + "-is-denied");
 	} else if (nbAllowed === 0 && nbPending === 0) {
-		removeClass(c + "AllAllowed", c + "IsSelected");
-		addClass(c + "AllDenied", c + "IsSelected");
+		removeClass(c + "-all-allowed", c + "-is-selected");
+		addClass(c + "-all-denied", c + "-is-selected");
 
-		removeClass(c + "MainLineOffset", c + "IsAllowed");
-		addClass(c + "MainLineOffset", c + "IsDenied");
+		removeClass(c + "-main-line-offset", c + "-is-allowed");
+		addClass(c + "-main-line-offset", c + "-is-denied");
 	} else {
-		removeClass(c + "AllAllowed", c + "IsSelected");
-		removeClass(c + "AllDenied", c + "IsSelected");
+		removeClass(c + "-all-allowed", c + "-is-selected");
+		removeClass(c + "-all-denied", c + "-is-selected");
 
-		removeClass(c + "MainLineOffset", c + "IsAllowed");
-		removeClass(c + "MainLineOffset", c + "IsDenied");
+		removeClass(c + "-main-line-offset", c + "-is-allowed");
+		removeClass(c + "-main-line-offset", c + "-is-denied");
 	}
 
 	// close the alert if all service have been reviewed
@@ -289,7 +289,7 @@ function toggle(id, closeClass) {
 
 function order(id, GDPRConsentState) {
 	"use strict";
-	var main = document.getElementById("tarteaucitronServices_" + id);
+	var main = document.getElementById("tarteaucitron-services_" + id);
 
 	if (main === null) {
 		return;
@@ -297,8 +297,8 @@ function order(id, GDPRConsentState) {
 
 	if (typeof Array.prototype.map === "function" && typeof Enumerable === "undefined") {
 		Array.prototype.map.call(main.children, Object).sort(function(a, b) {
-			if (GDPRConsentState.services[a.id.replace(/Line/g, "")].name > GDPRConsentState.services[b.id.replace(/Line/g, "")].name) { return 1; }
-			if (GDPRConsentState.services[a.id.replace(/Line/g, "")].name < GDPRConsentState.services[b.id.replace(/Line/g, "")].name) { return -1; }
+			if (GDPRConsentState.services[a.id.replace(/-line/g, "")].name > GDPRConsentState.services[b.id.replace(/-line/g, "")].name) { return 1; }
+			if (GDPRConsentState.services[a.id.replace(/-line/g, "")].name < GDPRConsentState.services[b.id.replace(/-line/g, "")].name) { return -1; }
 			return 0;
 		}).forEach(function(element) {
 			main.appendChild(element);

@@ -104,9 +104,7 @@ const GDPRConsent = {
 		// For the Pannel
 		html += "<button type=\"button\" id=\"tarteaucitronBack\" onclick=\"GDPRConsent.closePanel();\" aria-label=\"" + GDPRConsent.lang.close + "\"></button>";
 		html += "<div id=\"tarteaucitron\" role=\"dialog\" aria-labelledby=\"dialogTitle\">";
-		html += "   <button type=\"button\" id=\"tarteaucitronClosePanel\" onclick=\"GDPRConsent.closePanel();\">";
-		html += "       " + GDPRConsent.lang.close;
-		html += "   </button>";
+		html += "   <button type=\"button\" id=\"tarteaucitronClosePanel\" onclick=\"GDPRConsent.closePanel();\">&#128473;</button>";
 		html += "   <div id=\"tarteaucitronServices\">";
 		html += "      <div class=\"tarteaucitronLine tarteaucitronMainLine\" id=\"tarteaucitronMainLineOffset\">";
 		html += "         <span class=\"tarteaucitronH1\" role=\"heading\" aria-level=\"1\" id=\"dialogTitle\">"+ GDPRConsent.lang.title + "</span>";

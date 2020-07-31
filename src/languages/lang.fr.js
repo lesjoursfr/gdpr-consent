@@ -1,7 +1,4 @@
 const fr = {
-	middleBarHead: "☝ 🍪",
-	reload: "Recharger la page",
-
 	siteDisclaimerTitle: "«&nbsp;Le site qui raconte l’actualité en séries&nbsp;»",
 	siteDisclaimerMessage: "<i>Les&nbsp;Jours</i> sont un média <a data-ga-type=\"click\" data-ga-category=\"Bottom Bar\" data-ga-action=\"Navigate\" data-ga-label=\"Les Jours c’est quoi ?\" href=\"/les-jours-c-quoi/\">indépendant et sans pub</a> accessible par <a data-ga-type=\"click\" data-ga-category=\"Bottom Bar\" data-ga-action=\"Navigate\" data-ga-label=\"Abonnement\" href=\"/abonnement/jouriste\">abonnement</a>. Découvrez <a data-ga-category=\"Bottom Bar\" data-ga-action=\"Navigate\" data-ga-label=\"Les Jours en Clair\" href=\"/les-jours-en-clair/\">notre zone gratuite</a>&nbsp;: l’actualité en profondeur, avec des épisodes, des personnages, des lieux.",
 
@@ -14,11 +11,8 @@ const fr = {
 	personalize: "Personnaliser",
 	close: "Fermer",
 
-	privacyUrl: "Politique de confidentialité",
-
 	all: "Préférences pour tous les services",
 
-	info: "Protection de votre vie privée",
 	disclaimer: "En autorisant ces services tiers, vous acceptez le dépôt et la lecture de cookies et l’utilisation de technologies de suivi nécessaires à leur bon fonctionnement.",
 	allow: "Autoriser",
 	deny: "Interdire",
@@ -26,20 +20,13 @@ const fr = {
 	useCookie: "Ce service peut déposer",
 	useCookieCurrent: "Ce service a déposé",
 	useNoCookie: "Ce service n’a déposé aucun cookie.",
-	more: "En savoir plus",
 	source: "Voir le site officiel",
-	credit: "Gestion des cookies par tarteaucitron.js",
 	noServices: "Ce site n’utilise aucun cookie nécessitant votre consentement.",
 
-	toggleInfoBox: "Afficher/masquer les informations sur le stockage des cookies",
 	title: "Panneau de gestion des cookies",
-	cookieDetail: "Détail des cookies",
-	ourSite: "sur notre site",
 	newWindow: "(nouvelle fenêtre)",
 	allowAll: "Autoriser tous les cookies",
 	denyAll: "Interdire tous les cookies",
-
-	fallback: "est désactivé.",
 
 	ads: {
 		title: "Régies publicitaires (pour nous faire connaître)",

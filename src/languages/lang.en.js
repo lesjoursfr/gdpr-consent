@@ -1,7 +1,4 @@
 const en = {
-	middleBarHead: "☝ 🍪",
-	reload: "Refresh the page",
-
 	siteDisclaimerTitle: "«&nbsp;Le site qui raconte l’actualité en séries&nbsp;»",
 	siteDisclaimerMessage: "<i>Les&nbsp;Jours</i> sont un média <a data-ga-type=\"click\" data-ga-category=\"Bottom Bar\" data-ga-action=\"Navigate\" data-ga-label=\"Les Jours c’est quoi ?\" href=\"/les-jours-c-quoi/\">indépendant et sans pub</a> accessible par <a data-ga-type=\"click\" data-ga-category=\"Bottom Bar\" data-ga-action=\"Navigate\" data-ga-label=\"Abonnement\" href=\"/abonnement/jouriste\">abonnement</a>. Découvrez <a data-ga-category=\"Bottom Bar\" data-ga-action=\"Navigate\" data-ga-label=\"Les Jours en Clair\" href=\"/les-jours-en-clair/\">notre zone gratuite</a>&nbsp;: l’actualité en profondeur, avec des épisodes, des personnages, des lieux.",
 
@@ -14,11 +11,8 @@ const en = {
 	acceptAll: "OK, accept all",
 	close: "Close",
 
-	privacyUrl: "Privacy policy",
-
 	all: "Preference for all services",
 
-	info: "Protecting your privacy",
 	disclaimer: "By allowing these third party services, you accept their cookies and the use of tracking technologies necessary for their proper functioning.",
 	allow: "Allow",
 	deny: "Deny",
@@ -26,20 +20,13 @@ const en = {
 	useCookie: "This service can install",
 	useCookieCurrent: "This service has installed",
 	useNoCookie: "This service has not installed any cookie.",
-	more: "Read more",
 	source: "View the official website",
-	credit: "Cookies manager by tarteaucitron.js",
 	noServices: "This website does not use any cookie requiring your consent.",
 
-	toggleInfoBox: "Show/hide informations about cookie storage",
 	title: "Cookies management panel",
-	cookieDetail: "Cookie detail for",
-	ourSite: "on our site",
 	newWindow: "(new window)",
 	allowAll: "Allow all cookies",
 	denyAll: "Deny all cookies",
-
-	fallback: "is disabled.",
 
 	ads: {
 		title: "Advertising network (to let us know)",

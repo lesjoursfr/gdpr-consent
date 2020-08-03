@@ -5,6 +5,7 @@ $background-color-white: #fff;
 $background-color-dark: #c83e2c;
 $text-color-white: #fff;
 $text-color-dark: #414141;
+$text-color-buttons: #000;
 $scrollbar-color-track: #000;
 $scrollbar-color-thumb: #708090;
 $scrollbar-background-color-thumb: #ddd;
@@ -141,7 +142,6 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 	}
 
 	table {
-
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
@@ -164,10 +164,6 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 /////////////////////////////////////////////
 // Better scroll management                //
 /////////////////////////////////////////////
-#tarteaucitron-main-line-offset {
-	margin-top: 0 !important;
-}
-
 #tarteaucitron-services {
 	box-shadow: 0 0 35px $shadow-color;
 
@@ -217,10 +213,6 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 		max-width: 100% !important;
 		top: 0 !important;
 		width: 100% !important;
-
-		.tarteaucitron-border {
-			border: 0 !important;
-		}
 
 		#tarteaucitron-services {
 			.tarteaucitron-title {
@@ -294,7 +286,7 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 	}
 
 	.tarteaucitron-h3 {
-		font-size: 18px;
+		font-size: 14px;
 	}
 }
 
@@ -337,7 +329,7 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 	.tarteaucitron-h1 {
 		color: $text-color-dark;
 		font-size: 1.5em;
-		margin: 15px 0 28px;
+		padding: 20px 0;
 		text-align: center;
 	}
 
@@ -374,13 +366,6 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 	width: 860px;
 	z-index: 2147483647;
 
-	.tarteaucitron-border {
-		border-right: 2px solid $border-color-dark;
-		border-top: 2px solid $border-color-dark;
-		height: auto;
-		overflow: auto;
-	}
-
 	#tarteaucitron-close-panel {
 		background: $border-color-dark;
 		border-radius: 50%;
@@ -391,7 +376,7 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 		height: 30px;
 		padding: 4px 0;
 		position: absolute;
-		right: 10px;
+		right: 20px;
 		text-align: center;
 		text-decoration: none;
 		top: 10px;
@@ -446,6 +431,7 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 			font-size: 12px;
 			font-weight: 500;
 			margin: 0;
+			max-width: 270px;
 			padding: 20px;
 			position: absolute;
 			text-align: left;
@@ -453,14 +439,14 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 			z-index: 2147483647;
 		}
 
-		.tarteaucitron-main-line {
-			border-right: 2px solid $border-color-dark;
+		#tarteaucitron-main-line {
 			margin: 0;
 			position: relative;
 
 			.tarteaucitron-name {
-				margin-left: 15px;
-				margin-top: 2px;
+				font-size: 16;
+				margin: 0;
+				width: auto !important;
 
 				a {
 					color: $text-color-white;
@@ -476,10 +462,12 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 					color: $text-color-white;
 				}
 			}
+		}
 
-			.tarteaucitron-ask {
-				margin-top: 0 !important;
-			}
+		.tarteaucitron-services-list {
+			border-top: 2px solid $border-color-dark;
+			height: auto;
+			overflow: auto;
 		}
 
 		.tarteaucitron-line {
@@ -515,7 +503,7 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 					background: $color-pending;
 					border: 0;
 					border-radius: 4px;
-					color: $text-color-white;
+					color: $text-color-buttons;
 					cursor: pointer;
 					display: inline-block;
 					padding: 6px 10px;
@@ -550,7 +538,7 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 		display: block;
 		font-size: 1em;
 		font-weight: 500;
-		margin: -10px auto 40px;
+		margin: 0 auto 40px;
 		max-width: 80%;
 		padding: 15px 0;
 		position: relative;
@@ -561,14 +549,6 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 		a {
 			color: $text-color-white;
 			text-decoration: underline;
-		}
-	}
-
-	#tarteaucitron-main-line-offset {
-		.tarteaucitron-name {
-			font-size: 14px;
-			margin-left: 0 !important;
-			width: auto !important;
 		}
 	}
 }
@@ -594,11 +574,10 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 
 	.tarteaucitron-deny,
 	.tarteaucitron-allow {
-		color: $text-color-white;
+		color: $text-color-buttons;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 16px !important;
-		line-height: 1.2;
 		margin-left: 7px;
 		padding: 5px 10px;
 		text-decoration: none;
@@ -665,11 +644,10 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 
 	#tarteaucitron-personalize {
 		background: $color-personalize;
-		color: $text-color-dark;
+		color: $text-color-buttons;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 16px;
-		line-height: 1.2;
 		margin-left: 7px;
 		padding: 5px 10px;
 		text-decoration: none;
@@ -724,13 +702,6 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 
 	.tarteaucitron-deny {
 		opacity: .4;
-	}
-}
-
-.tarteaucitron-main-line {
-	.tarteaucitron-h2 {
-		font-size: 1.2em !important;
-		margin-top: 4px !important;
 	}
 }
 

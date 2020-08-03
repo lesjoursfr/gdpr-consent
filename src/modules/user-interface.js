@@ -23,7 +23,7 @@ function jsSizing(type) {
 		}
 
 		// height of the services list container
-		if (document.getElementById("tarteaucitron") !== null && document.getElementById("tarteaucitron-close-panel") !== null && document.getElementById("tarteaucitron-main-line-offset") !== null) {
+		if (document.getElementById("tarteaucitron") !== null && document.getElementById("tarteaucitron-close-panel") !== null && document.getElementById("tarteaucitron-main-line") !== null) {
 			// reset
 			css("tarteaucitron-services", "height", "auto");
 
@@ -60,9 +60,9 @@ function jsSizing(type) {
 				mainTop = ((windowInnerHeight - document.getElementById("tarteaucitron").offsetHeight) / 2) - 21;
 			}
 
-			if (document.getElementById("tarteaucitron-main-line-offset") !== null) {
+			if (document.getElementById("tarteaucitron-main-line") !== null) {
 				if (document.getElementById("tarteaucitron").offsetHeight < (windowInnerHeight / 2)) {
-					mainTop -= document.getElementById("tarteaucitron-main-line-offset").offsetHeight;
+					mainTop -= document.getElementById("tarteaucitron-main-line").offsetHeight;
 				}
 			}
 

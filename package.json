@@ -30,14 +30,14 @@
 		"@babel/preset-env": "^7.11.0",
 		"babel-eslint": "^10.1.0",
 		"babel-loader": "^8.1.0",
-		"css-loader": "^4.0.0",
-		"eslint": "^7.5.0",
+		"css-loader": "^4.2.0",
+		"eslint": "^7.6.0",
 		"mini-css-extract-plugin": "^0.9.0",
 		"sass": "^1.26.10",
 		"sass-lint": "^1.13.1",
 		"sass-loader": "^9.0.2",
 		"style-loader": "^1.2.1",
-		"webpack": "^4.44.0",
+		"webpack": "^4.44.1",
 		"webpack-cli": "^3.3.12",
 		"webpack-dev-server": "^3.11.0"
 	}

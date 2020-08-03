@@ -29,6 +29,8 @@ GDPRConsent.init({
 	"cookieName": "tarteaucitron", /* Cookie name */
 	"timeExpire": 31536000000, /* Cookie expiration time */
 
+	"websiteName": "Les Jours", /* The name of the Website */
+
     "highPrivacy": true, /* Disable auto consent */
     "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
 
@@ -39,7 +41,7 @@ GDPRConsent.init({
 </script>
 ```
 
-# Add a service
+# Add services
 
 ```html
 <script type="text/javascript">

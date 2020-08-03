@@ -7,13 +7,15 @@ const fr = {
 	alertBig: "vous acceptez l’utilisation de services tiers pouvant installer des cookies",
 
 	alertBigPrivacy: "Ce site utilise des cookies et vous donne le contrôle sur ce que vous souhaitez activer",
-	acceptAll: "OK, tout accepter",
 	personalize: "Personnaliser",
+	acceptAll: "OK, tout accepter",
 	close: "Fermer",
 
 	all: "Préférences pour tous les services",
 
 	disclaimer: "En autorisant ces services tiers, vous acceptez le dépôt et la lecture de cookies et l’utilisation de technologies de suivi nécessaires à leur bon fonctionnement.",
+	disclaimerWebsite: "Ces services nous aident à améliorer",
+
 	allow: "Autoriser",
 	deny: "Interdire",
 	noCookie: "Ce service ne dépose aucun cookie.",

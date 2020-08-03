@@ -66,6 +66,7 @@ const GDPRConsent = {
 			hashtag: "#tarteaucitron",
 			cookieName: "tarteaucitron",
 			timeExpire: 31536000000,
+			websiteName: undefined,
 			highPrivacy: false,
 			AcceptAllCta: true,
 			moreInfoLink: true,
@@ -110,6 +111,9 @@ const GDPRConsent = {
 		html += "         <span class=\"tarteaucitron-h1\" role=\"heading\" aria-level=\"1\" id=\"dialogTitle\">"+ GDPRConsent.lang.title + "</span>";
 		html += "         <div id=\"tarteaucitron-info\">";
 		html += "         " + GDPRConsent.lang.disclaimer;
+		if (GDPRConsent.parameters.websiteName) {
+			html += "         " + GDPRConsent.lang.disclaimerWebsite + " " + GDPRConsent.parameters.websiteName + ".";
+		}
 		html += "         </div>";
 		html += "         <div class=\"tarteaucitron-line\">";
 		html += "            <div class=\"tarteaucitron-name\">";

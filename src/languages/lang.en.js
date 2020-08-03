@@ -14,6 +14,8 @@ const en = {
 	all: "Preference for all services",
 
 	disclaimer: "By allowing these third party services, you accept their cookies and the use of tracking technologies necessary for their proper functioning.",
+	disclaimerWebsite: "These services help us improve",
+
 	allow: "Allow",
 	deny: "Deny",
 	noCookie: "This service does not use cookie.",

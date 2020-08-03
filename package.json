@@ -1,5 +1,5 @@
 {
-	"name": "gdpr-constent",
+	"name": "gdpr-consent",
 	"version": "0.2.0",
 	"description": "GDPR banner to comply with the European cookie law. Inspired by tarteaucitronjs.",
 	"license": "MIT",

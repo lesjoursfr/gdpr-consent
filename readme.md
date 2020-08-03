@@ -25,20 +25,20 @@ Clearly this script will:
 <link rel="stylesheet" href="gdpr-consent.css" />
 <script type="text/javascript" src="gdpr-consent.js"></script>
 <script type="text/javascript">
-GDPRConsent.init({
-    "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
-	"cookieName": "tarteaucitron", /* Cookie name */
-	"timeExpire": 31536000000, /* Cookie expiration time */
+	GDPRConsent.init({
+		"hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+		"cookieName": "tarteaucitron", /* Cookie name */
+		"timeExpire": 31536000000, /* Cookie expiration time */
 
-	"websiteName": "Les Jours", /* The name of the Website */
+		"websiteName": "Les Jours", /* The name of the Website */
 
-    "highPrivacy": true, /* Disable auto consent */
-    "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
+		"highPrivacy": true, /* Disable auto consent */
+		"AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
 
-    "moreInfoLink": true, /* Show more info link */
+		"moreInfoLink": true, /* Show more info link */
 
-    "mandatory": false /* Show a message about mandatory cookies */
-});
+		"mandatory": false /* Show a message about mandatory cookies */
+	});
 </script>
 ```
 

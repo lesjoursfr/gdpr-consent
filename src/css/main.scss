@@ -321,6 +321,12 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 		background: transparent;
 		border: 0;
 
+		&:hover,
+		&:focus {
+			border: 0;
+			outline: none;
+		}
+
 		&#tarteaucitron-back {
 			background: $background-color-white;
 		}

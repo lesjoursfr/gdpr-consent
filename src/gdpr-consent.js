@@ -29,7 +29,7 @@ const GDPRConsent = {
 					GDPRConsent.load();
 				}, false);
 				window.addEventListener("scroll", function() {
-					events.scrollEvent(GDPRConsent.parameters);
+					events.scrollEvent(GDPRConsent, GDPRConsent.parameters, GDPRConsent.lang);
 				}, false);
 
 				window.addEventListener("keydown", function(evt) {

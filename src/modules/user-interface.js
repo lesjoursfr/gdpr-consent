@@ -4,75 +4,22 @@ import cookies from "./cookies";
 
 function jsSizing(type) {
 	"use strict";
-	var scrollbarMarginRight = 10,
-		scrollbarWidthParent,
-		scrollbarWidthChild,
-		servicesHeight,
-		e = window,
-		a = "inner",
-		windowInnerHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
-		mainTop,
-		mainHeight,
-		closeButtonHeight;
+	var servicesHeight,
+		mainHeight;
 
 	if (type === "main") {
-		// get the real window width for media query
-		if (window.innerWidth === undefined) {
-			a = "client";
-			e = document.documentElement || document.body;
-		}
-
 		// height of the services list container
-		if (document.getElementById("tarteaucitron") !== null && document.getElementById("tarteaucitron-close-panel") !== null && document.getElementById("tarteaucitron-main-line") !== null) {
+		if (document.getElementById("tarteaucitron") !== null && document.getElementById("tarteaucitron-main-line") !== null) {
 			// reset
 			css("tarteaucitron-services", "height", "auto");
 
 			// calculate
 			mainHeight = document.getElementById("tarteaucitron").offsetHeight;
-			closeButtonHeight = document.getElementById("tarteaucitron-close-panel").offsetHeight;
 
 			// apply
-			servicesHeight = (mainHeight - closeButtonHeight + 2);
+			servicesHeight = mainHeight;
 			css("tarteaucitron-services", "height", servicesHeight + "px");
 			css("tarteaucitron-services", "overflow-x", "auto");
-		}
-
-		// align the main allow/deny button depending on scrollbar width
-		if (document.getElementById("tarteaucitron-services") !== null && document.getElementById("tarteaucitron-scrollbar-child") !== null) {
-			// media query
-			if (e[a + "Width"] <= 479) {
-				css("tarteaucitron-scrollbar-adjust", "marginLeft", "11px");
-			} else if (e[a + "Width"] <= 767) {
-				scrollbarMarginRight = 12;
-			}
-
-			scrollbarWidthParent = document.getElementById("tarteaucitron-services").offsetWidth;
-			scrollbarWidthChild = document.getElementById("tarteaucitron-scrollbar-child").offsetWidth;
-			css("tarteaucitron-scrollbar-adjust", "marginRight", ((scrollbarWidthParent - scrollbarWidthChild) + scrollbarMarginRight) + "px");
-		}
-
-		// center the main panel
-		if (document.getElementById("tarteaucitron") !== null) {
-			// media query
-			if (e[a + "Width"] <= 767) {
-				mainTop = 0;
-			} else {
-				mainTop = ((windowInnerHeight - document.getElementById("tarteaucitron").offsetHeight) / 2) - 21;
-			}
-
-			if (document.getElementById("tarteaucitron-main-line") !== null) {
-				if (document.getElementById("tarteaucitron").offsetHeight < (windowInnerHeight / 2)) {
-					mainTop -= document.getElementById("tarteaucitron-main-line").offsetHeight;
-				}
-			}
-
-			// correct
-			if (mainTop < 0) {
-				mainTop = 0;
-			}
-
-			// apply
-			css("tarteaucitron", "top", mainTop + "px");
 		}
 	}
 }
@@ -125,7 +72,6 @@ function closeAlert() {
 	css(c + "-percentage", "display", "none");
 	css(c + "-alert-big",   "display", "none");
 	removeClass(c + "-root",   "tarteaucitron-before-visible");
-	jsSizing("box");
 
 	sendEvent("tac.close_alert");
 }

@@ -24,4 +24,4 @@ jobs:
         on:
           tags: "true"
           repo: "lesjoursfr/gdpr-consent"
-        skip_cleanup: "true"
+        cleanup: "false"

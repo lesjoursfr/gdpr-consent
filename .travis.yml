@@ -1,27 +1,27 @@
-language: "node_js"
+language: node_js
 jobs:
   include:
-    - stage: "Build project"
-      name: "Build the project on Linux with NodeJS 14"
-      os: "linux"
-      node_js: "14"
-      script: npm run build
-    - stage: "Build project"
-      name: "Build the project on Windows with NodeJS 14"
-      os: "windows"
-      node_js: "14"
-      script: npm run build
-    - stage: "Release to NPM"
-      name: "Publish the package to the npmjs repository"
-      os: "linux"
-      node_js: "14"
-      script: npm run build
-      deploy:
-        provider: "npm"
-        email: "npmjs@eraud.dev"
-        api_key:
-          secure: "u+Q1ppb+0D9JJ/gWy/BZAt+vhWVNSs4TuNSdrRJ2u0fj/yfODvMM7bZui9JOJ7wu6lWLRqvJbnEXaazoJARkmct/G5pB6Q9b/rOuW3lr5k3HUgkTpY2cTC9BUh3ce/gjOqFYsuZRfbIBlXjbX5Y/1qLCUuBI+D2o9AbhK80asnSVmg4K6a7H57vBpKDFrlcr+XeHkh5ygfwGQKbeYW4u7M88jILPEDp+523vHcgjpFie5gpDpvdPB4AoiLuqpfuyStzLn2ynMmXw3OkM3eiVNMMcGDugipDt63wRZSjetH6GQRTHOEzN66ieG7SgnfUMdd2wJtwt89sWbA5kbUNhEISrmuAUOEYeQb+ePjXWdwRgWt6+Pi9UAc3KEYq2168y7AmD3K05UBJF1Amur4CcK/fI3bstaALF6wQ5bmhqXD1DiXJ3n0qUIG3NwYyvgg6HS9f/NIlnhxNq3D9ygQuE6HJqkrCjZqSmoFWUASyTugLOCUm2RXHm024+4hEKu5bcDyfuIOlUJLu8b2FGmeUtkqROaY5pU+UHwgx8cYXwwmjebIqukGvHrHryBdLNQI+QG5HvM1Izzo22YJI5nYhJWQpdMffTs7583kLcRGwdvX+xuBRhjlEpi2v/g/0g4ozaKDy8gWm5rhe3lGNxHAgWZqoRwkiT+ttahYKzIsiTtZQ="
-        on:
-          tags: "true"
-          repo: "lesjoursfr/gdpr-consent"
-        cleanup: "false"
+  - stage: Build project
+    name: Build the project on Linux with NodeJS 14
+    os: linux
+    node_js: '14'
+    script: npm run build
+  - stage: Build project
+    name: Build the project on Windows with NodeJS 14
+    os: windows
+    node_js: '14'
+    script: npm run build
+  - stage: Release to NPM
+    name: Publish the package to the npmjs repository
+    os: linux
+    node_js: '14'
+    script: npm run build
+    deploy:
+      provider: npm
+      email: npmjs@eraud.dev
+      api_key:
+        secure: OxhoYpByRm9J30WO0HaZ0LTET8ntFGmEHF0hfXdDzMqsAbxzVsrEgM2gwk3/550+H4Ls+MtkEQsydKuJhBP0N2+uQxfm8iWwzJFjSJQncbNNzjk7Z1eY4TcUiBlEW+6ysePvUqIk1zA/lCR62y5eDb/nkmrF6pLLUj1zEPhYREZzUEwMpisbrA+vxa/ve80GEdjMAqNNE4QM5OWe/RrPOdyGs617sBxyqlS9sRXjbpMpnOR4TzLmZqT5QWyL4zVn5bPW69WN42Fr9qFbHdBQLIfbGwLU3cEeOqYuDh+yJBNDVofb8bvPCKJWXPlf1iUFKMbCNMVdSPA0VvThYkLVPU5dxywL4XXdcgMshlSbd6lWdpQUqUo/6SaxDS8GqHvl27kotou8/VT/PmTLA2SlJA9wHPMWGGKZvFqEmjQqWHIYn/zStsyiNWqWgYwpmIpsXWFVlwq3U7r3szhgjaXrH9NCfJvnOzLopLY6M94p6eE37doKbZ+n25Kq1l/xMQ2NGmjgZFBnKuWxQa1ri/BBEJ8aNNw3mg0ewvJ5Y7VS6sW4OGuoDPtc6lnAZQRIEEAkw1/6S+8sw9/UiECTJ75DWLkoCtCzB94LZgIwzSgFsiObklutv/52E3cJnfPJ2xCQFrIX0sUhjAXe8J8dxGfejqWIpWx8rt+2E9HQLdHq5KA=
+      on:
+        tags: true
+        repo: lesjoursfr/gdpr-consent
+      cleanup: 'false'

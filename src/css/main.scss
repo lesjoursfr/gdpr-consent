@@ -518,6 +518,20 @@ $font-family-text: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-seri
 					text-decoration: none;
 					width: auto;
 				}
+
+				.tarteaucitron-allow {
+					&.tarteaucitron-is-selected {
+						background-color: $color-allowed;
+						opacity: 1;
+					}
+				}
+
+				.tarteaucitron-deny {
+					&.tarteaucitron-is-selected {
+						background-color: $color-denied;
+						opacity: 1;
+					}
+				}
 			}
 
 			&.tarteaucitron-is-allowed {

@@ -1,7 +1,7 @@
 /* globals fbq: true */
 import { addScript } from "../utils/dom";
 
-export default () => ({
+export default (GDPRConsentUser) => ({
 	key: "facebookpixel",
 	type: "ads",
 	name: "Facebook Pixel",

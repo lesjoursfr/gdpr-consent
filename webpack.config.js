@@ -14,6 +14,7 @@ module.exports = {
 		library: "GDPRConsent",
 		libraryTarget: "umd"
 	},
+	target: "browserslist",
 	module: {
 		rules: [
 			{

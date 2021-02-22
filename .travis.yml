@@ -3,11 +3,14 @@ language: node_js
 branches:
   only:
   - master
+os: linux
+dist: focal
 jobs:
   include:
   - stage: Build project
     name: Build the project on Linux with NodeJS 14
     os: linux
+    dist: focal
     node_js: '14'
     script: npm run build
   - stage: Build project
@@ -18,13 +21,14 @@ jobs:
   - stage: Release to NPM
     name: Publish the package to the npmjs repository
     os: linux
+    dist: focal
     node_js: '14'
     script: npm run build
     deploy:
       edge: true
       provider: npm
       email: npmjs@eraud.dev
-      api_key:
+      api_token:
         secure: OxhoYpByRm9J30WO0HaZ0LTET8ntFGmEHF0hfXdDzMqsAbxzVsrEgM2gwk3/550+H4Ls+MtkEQsydKuJhBP0N2+uQxfm8iWwzJFjSJQncbNNzjk7Z1eY4TcUiBlEW+6ysePvUqIk1zA/lCR62y5eDb/nkmrF6pLLUj1zEPhYREZzUEwMpisbrA+vxa/ve80GEdjMAqNNE4QM5OWe/RrPOdyGs617sBxyqlS9sRXjbpMpnOR4TzLmZqT5QWyL4zVn5bPW69WN42Fr9qFbHdBQLIfbGwLU3cEeOqYuDh+yJBNDVofb8bvPCKJWXPlf1iUFKMbCNMVdSPA0VvThYkLVPU5dxywL4XXdcgMshlSbd6lWdpQUqUo/6SaxDS8GqHvl27kotou8/VT/PmTLA2SlJA9wHPMWGGKZvFqEmjQqWHIYn/zStsyiNWqWgYwpmIpsXWFVlwq3U7r3szhgjaXrH9NCfJvnOzLopLY6M94p6eE37doKbZ+n25Kq1l/xMQ2NGmjgZFBnKuWxQa1ri/BBEJ8aNNw3mg0ewvJ5Y7VS6sW4OGuoDPtc6lnAZQRIEEAkw1/6S+8sw9/UiECTJ75DWLkoCtCzB94LZgIwzSgFsiObklutv/52E3cJnfPJ2xCQFrIX0sUhjAXe8J8dxGfejqWIpWx8rt+2E9HQLdHq5KA=
       on:
         tags: true

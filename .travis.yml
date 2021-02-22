@@ -1,10 +1,8 @@
-version: ~> 1.0
+version: "~> 1.0"
 language: node_js
-branches:
-  only:
-  - master
 os: linux
 dist: focal
+if: branch = "master" OR tag IS present
 jobs:
   include:
   - stage: Build project
@@ -34,3 +32,6 @@ jobs:
         tags: true
         repo: lesjoursfr/gdpr-consent
       cleanup: false
+notifications:
+  slack:
+    secure: t51kIeUB7k9jbWKdSHTLYsThu71PEZjLoofNuzB0Peo8jV1vNgwdcyBtNO8JFbT1pneWVjrERFWZ9T98zOBk8wajs9x9RHDaTT45bOl9ZLPCVyorqFtHmybjC/QyDQpovExiIbq16AWdyPgin3EOazcN+A7w05NzNjJgFwfs2WE8cdu8/NvfnMqWw6I5BcVtTRfiQj2C+XliPyjHzeqcyt4IEZZCvWMuDrrXBzvL8jUK0XSgmMsZN0/Y023lQWH0feAEpoQNRsBZG0e8NOy8vUnR4ude5tqwPrjRcAJLeFBtA4YWsWUxmsmkXWSHE78k71FKMurkNoiPJv6Vo9UM1vT1bPanQoqi5PT1nuy0rbCA6yoU3eVMVw+EsLlEsBkeLF8NebwaE3hBzDDmkQKZd0IyFSXHA6BIZgUy83u31r6AbMNX6I0b/nZiGcucIioIPpypM5URfG0mpsFrr7FI0hwJXN3rhV+7RjZwcVJWXDtTMxx6gII96KMNyNMhRD1MtJieIIBb50gVuvVQ/FmyAuE2FJE2Cd7IBxLcizOLLvsp06UeHdPVgbJnBjig+oUI6PgAkqgF2Qz8xlEkL2DN1Kkk6mH9n5hTpDddolvv2nIH4KoekOSWqHbwahSUZzK5gp+05iS37FhDwvrhPduPPy3y+19UnWwxcHBnPK0iKJI=

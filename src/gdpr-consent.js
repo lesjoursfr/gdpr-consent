@@ -103,6 +103,7 @@ const GDPRConsent = {
 
 		// Prepare the html
 		// For the Pannel
+
 		html += "<button type=\"button\" id=\"tarteaucitron-back\" onclick=\"GDPRConsent.closePanel();\" aria-label=\"" + GDPRConsent.lang.close + "\"></button>";
 		html += "<div id=\"tarteaucitron\" role=\"dialog\" aria-labelledby=\"dialogTitle\">";
 		html += "   <button type=\"button\" id=\"tarteaucitron-close-panel\" onclick=\"GDPRConsent.closePanel();\">&#128473;</button>";
@@ -171,53 +172,56 @@ const GDPRConsent = {
 		if (GDPRConsent.parameters.highPrivacy && !GDPRConsent.parameters.AcceptAllCta) {
 			html += "<div id=\"tarteaucitron-alert-big\" class=\"tarteaucitron-alert-big-bottom\">";
 			if (GDPRConsent.lang.siteDisclaimerTitle !== "" && GDPRConsent.lang.siteDisclaimerMessage !== "") {
-				html += "   <span id=\"tarteaucitron-site-disclaimer-title\">";
-				html += "       " + GDPRConsent.lang.siteDisclaimerTitle;
-				html += "   </span>";
-				html += "   <br />";
-				html += "   <br />";
-				html += "   <span id=\"tarteaucitron-site-disclaimer-message\">";
-				html += "       " + GDPRConsent.lang.siteDisclaimerMessage;
-				html += "   </span>";
-				html += "   <br />";
+				html += "<div id=\"tarteaucitron-wrapper\">";
+				html += "	<div id=\"tarteaucitron-disclaimer-texte\">";
+				html += "		<span id=\"tarteaucitron-site-disclaimer-title\">";
+				html += "			" + GDPRConsent.lang.siteDisclaimerTitle;
+				html += "		</span>";
+				html += "		<span id=\"tarteaucitron-site-disclaimer-message\">";
+				html += "       	" + GDPRConsent.lang.siteDisclaimerMessage;
+				html += "		</span>";
 			}
-			html += "   <span id=\"tarteaucitron-disclaimer-alert\">";
-			html += "       " + GDPRConsent.lang.alertBigPrivacy;
-			html += "   </span>";
-			html += "   <span id=\"tarteaucitron-disclaimer-buttons\">";
-			html += "       <button type=\"button\" id=\"tarteaucitron-personalize\" onclick=\"GDPRConsent.openPanel();\">";
-			html += "           " + GDPRConsent.lang.personalize;
-			html += "       </button>";
-			html += "   </span>";
+			html += "   		<span id=\"tarteaucitron-disclaimer-alert\">";
+			html += "       		" + GDPRConsent.lang.alertBigPrivacy;
+			html += "   		</span>";
+			html += "		</div>";
+
+			html += "   	<div id=\"tarteaucitron-disclaimer-buttons\">";
+			html += "       	<button type=\"button\" id=\"tarteaucitron-personalize\" onclick=\"GDPRConsent.openPanel();\">";
+			html += "           	" + GDPRConsent.lang.personalize;
+			html += "       	</button>";
+			html += "   	</div>";
+			html += "	</div>";
 			html += "</div>";
 		} else {
 			html += "<div id=\"tarteaucitron-alert-big\" class=\"tarteaucitron-alert-big-bottom\">";
 			if (GDPRConsent.lang.siteDisclaimerTitle !== "" && GDPRConsent.lang.siteDisclaimerMessage !== "") {
-				html += "   <span id=\"tarteaucitron-site-disclaimer-title\">";
-				html += "       " + GDPRConsent.lang.siteDisclaimerTitle;
-				html += "   </span>";
-				html += "   <br />";
-				html += "   <br />";
-				html += "   <span id=\"tarteaucitron-site-disclaimer-message\">";
-				html += "       " + GDPRConsent.lang.siteDisclaimerMessage;
-				html += "   </span>";
-				html += "   <br />";
+				html += "<div id=\"tarteaucitron-wrapper\">";
+				html += "	<div id=\"tarteaucitron-disclaimer-texte\">";
+				html += "		<span id=\"tarteaucitron-site-disclaimer-title\">";
+				html += "			" + GDPRConsent.lang.siteDisclaimerTitle;
+				html += "		</span>";
+				html += "		<span id=\"tarteaucitron-site-disclaimer-message\">";
+				html += "       	" + GDPRConsent.lang.siteDisclaimerMessage;
+				html += "		</span>";
 			}
-			html += "   <span id=\"tarteaucitron-disclaimer-alert\">";
+			html += "   		<span id=\"tarteaucitron-disclaimer-alert\">";
 			if (GDPRConsent.parameters.highPrivacy) {
-				html += "       " + GDPRConsent.lang.alertBigPrivacy;
+				html += "	       	" + GDPRConsent.lang.alertBigPrivacy;
 			} else {
-				html += "       " + GDPRConsent.lang.alertBigClick + " " + GDPRConsent.lang.alertBig;
+				html += "	       	" + GDPRConsent.lang.alertBigClick + " " + GDPRConsent.lang.alertBig;
 			}
-			html += "   </span>";
-			html += "   <span id=\"tarteaucitron-disclaimer-buttons\">";
-			html += "       <button type=\"button\" id=\"tarteaucitron-personalize\" onclick=\"GDPRConsent.respondAll(true);\">";
-			html += "           &#10003; " + GDPRConsent.lang.acceptAll;
-			html += "       </button>";
-			html += "       <button type=\"button\" id=\"tarteaucitron-close-alert\" onclick=\"GDPRConsent.openPanel();\">";
-			html += "           " + GDPRConsent.lang.personalize;
-			html += "       </button>";
-			html += "   </span>";
+			html += "   		</span>";
+			html += "		</div>";
+			html += "   	<div id=\"tarteaucitron-disclaimer-buttons\">";
+			html += "       	<button type=\"button\" id=\"tarteaucitron-personalize\" onclick=\"GDPRConsent.respondAll(true);\">";
+			html += "           	&#10003; " + GDPRConsent.lang.acceptAll;
+			html += "       	</button>";
+			html += "       	<button type=\"button\" id=\"tarteaucitron-close-alert\" onclick=\"GDPRConsent.openPanel();\">";
+			html += "           	" + GDPRConsent.lang.personalize;
+			html += "       	</button>";
+			html += "   	</div>";
+			html += "	</div>";
 			html += "</div>";
 			html += "<div id=\"tarteaucitron-percentage\"></div>";
 		}

@@ -1,0 +1,128 @@
+/////////////////////////////////////////////
+// Big alert                               //
+/////////////////////////////////////////////
+#tarteaucitron-root {
+	#tarteaucitron-alert-big {
+		background: $background-color-dark;
+		box-sizing: border-box;
+		color: $text-color-white;
+		font-size: 15px !important;
+		left: 0;
+		margin: auto;
+		padding: 30px;
+		position: fixed;
+		text-align: left;
+		width: 100%;
+		z-index: 2147483645;
+	}
+
+	#tarteaucitron-wrapper {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.tarteaucitron-deny,
+	.tarteaucitron-allow {
+		color: $text-color-buttons;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 16px !important;
+		margin-left: 7px;
+		padding: 5px 10px;
+		text-decoration: none;
+	}
+
+	.tarteaucitron-deny {
+		background: $color-denied;
+	}
+
+	.tarteaucitron-allow {
+		background: $color-allowed;
+	}
+}
+
+#tarteaucitron-alert-big {
+	strong,
+	a {
+		color: $text-color-white;
+	}
+
+	#tarteaucitron-disclaimer-texte {
+		line-height: 1.4em;
+		max-width: 750px;
+		width: 60%;
+	}
+
+	#tarteaucitron-site-disclaimer-title {
+		color: $text-color-white;
+		display: block;
+		font-family: $font-family-title;
+		font-size: 24px;
+		font-style: italic;
+		font-weight: 600;
+		line-height: 1;
+		margin-bottom: 15px;
+	}
+
+	#tarteaucitron-site-disclaimer-message,
+	#tarteaucitron-disclaimer-alert {
+
+		&,
+		a,
+		i,
+		strong {
+			color: $text-color-white;
+			font-family: $font-family-text;
+			font-size: 1em;
+			font-weight: 400;
+			line-height: 1.2;
+		}
+
+		a {
+			text-decoration: underline;
+		}
+
+		i {
+			font-style: italic;
+		}
+
+		strong {
+			font-weight: 700;
+		}
+	}
+
+	#tarteaucitron-disclaimer-buttons {
+		align-self: flex-end;
+	}
+
+	#tarteaucitron-close-alert,
+	#tarteaucitron-personalize {
+		background-color: $color-light;
+		color: $color-mid;
+		cursor: pointer;
+		font-size: 14px;
+		line-height: 1.3rem;
+		margin: 0 5px;
+		opacity: .75;
+		padding: 5px 10px;
+		text-transform: uppercase;
+		transition: opacity .45s ease;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+}
+
+.tarteaucitron-alert-big-bottom {
+	bottom: 0;
+}
+
+#tarteaucitron-percentage {
+	background: $color-personalize !important;
+	height: 5px;
+	left: 0;
+	position: fixed;
+	width: 0;
+	z-index: 2147483644;
+}

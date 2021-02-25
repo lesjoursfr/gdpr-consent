@@ -1,0 +1,292 @@
+/////////////////////////////////////////////
+// Control panel                           //
+/////////////////////////////////////////////
+#tarteaucitron-back {
+	background: $background-color-white;
+	display: none;
+	height: 100%;
+	left: 0;
+	opacity: .7;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2147483646;
+}
+
+#tarteaucitron {
+	display: none;
+	left: 50%;
+	margin: 0 auto 0 -430px;
+	max-height: 80%;
+	padding: 0;
+	position: fixed;
+	top: 6%;
+	width: 860px;
+	z-index: 2147483647;
+
+	#tarteaucitron-close-panel {
+		background: $border-color-dark;
+		border-radius: 50%;
+		color: $text-color-white;
+		cursor: pointer;
+		font-size: 12px;
+		font-weight: 700;
+		height: 30px;
+		line-height: 1;
+		padding: 0;
+		position: absolute;
+		right: 20px;
+		text-align: center;
+		text-decoration: none;
+		top: 10px;
+		width: 30px;
+		z-index: 1;
+	}
+
+	#tarteaucitron-disclaimer {
+		color: $text-color-dark;
+		font-size: 12px;
+		margin: 15px auto 0;
+		width: 80%;
+	}
+
+	#tarteaucitron-services {
+		background: $background-color-white;
+		border: 2px solid $border-color-dark;
+
+		.tarteaucitron-hidden {
+			display: none;
+			position: relative;
+		}
+
+		.tarteaucitron-title {
+			button {
+				background: $border-color-dark;
+				color: $text-color-white;
+				display: inline-block;
+				font-size: 14px;
+				font-weight: 700;
+				margin: 20px 0 0;
+				padding: 5px 20px;
+				text-align: left;
+				width: auto;
+			}
+
+			a {
+				color: $text-color-white;
+				font-size: 14px;
+				font-weight: 500;
+
+				&:hover {
+					text-decoration: none !important;
+				}
+			}
+		}
+
+		.tarteaucitron-details {
+			background: $background-color-white;
+			color: $text-color-dark;
+			display: none;
+			font-size: 12px;
+			font-weight: 500;
+			margin: 0;
+			max-width: 270px;
+			padding: 20px;
+			position: absolute;
+			text-align: left;
+			width: auto;
+			z-index: 2147483647;
+		}
+
+		#tarteaucitron-main-line {
+			margin: 0;
+			position: relative;
+
+			.tarteaucitron-name {
+				font-size: 16;
+				margin: 0;
+				width: auto !important;
+
+				a {
+					color: $text-color-white;
+					font-size: 22px;
+					font-weight: 500;
+
+					&:hover {
+						text-decoration: none !important;
+					}
+				}
+
+				button {
+					color: $text-color-white;
+				}
+			}
+		}
+
+		.tarteaucitron-services-list {
+			border-top: 2px solid $border-color-dark;
+			height: auto;
+			overflow: auto;
+		}
+
+		.tarteaucitron-line {
+			margin: 0;
+			overflow: hidden;
+			padding: 15px 5px;
+
+			.tarteaucitron-name {
+				float: left;
+				margin-left: 10px;
+				text-align: left;
+				width: 50%;
+
+				a {
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+
+				.tarteaucitron-list-cookies {
+					color: $text-color-dark;
+					font-size: 12px;
+				}
+			}
+
+			.tarteaucitron-ask {
+				float: right;
+				margin: 7px 15px 0;
+				text-align: right;
+
+				.tarteaucitron-allow,
+				.tarteaucitron-deny {
+					background: $color-pending;
+					border: 0;
+					border-radius: 4px;
+					color: $text-color-buttons;
+					cursor: pointer;
+					display: inline-block;
+					padding: 6px 10px;
+					text-align: center;
+					text-decoration: none;
+					width: auto;
+				}
+
+				.tarteaucitron-allow {
+					&.tarteaucitron-is-selected {
+						background-color: $color-allowed;
+						opacity: 1;
+					}
+				}
+
+				.tarteaucitron-deny {
+					&.tarteaucitron-is-selected {
+						background-color: $color-denied;
+						opacity: 1;
+					}
+				}
+			}
+
+			&.tarteaucitron-is-allowed {
+				border-color: $color-allowed;
+
+				.tarteaucitron-allow {
+					background-color: $color-allowed;
+				}
+			}
+
+			&.tarteaucitron-is-denied {
+				border-color: $color-denied;
+
+				.tarteaucitron-deny {
+					background-color: $color-denied;
+				}
+			}
+		}
+	}
+
+	#tarteaucitron-info {
+		border-bottom: 1px solid $border-color-dark;
+		border-top: 1px solid $border-color-dark;
+		color: $text-color-dark;
+		display: block;
+		font-size: 1em;
+		font-weight: 500;
+		margin: 0 auto 40px;
+		max-width: 80%;
+		padding: 15px 0;
+		position: relative;
+		text-align: center;
+		width: auto;
+		z-index: 2147483647;
+
+		a {
+			color: $text-color-white;
+			text-decoration: underline;
+		}
+	}
+}
+
+/////////////////////////////////////////////
+// Responsive layout for the control panel //
+/////////////////////////////////////////////
+@media screen and (max-width: 479px) {
+	#tarteaucitron {
+		.tarteaucitron-line {
+			.tarteaucitron-name {
+				width: 90% !important;
+			}
+
+			.tarteaucitron-ask {
+				float: left !important;
+				margin: 10px 15px 5px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	#tarteaucitron {
+		background: $background-color-white;
+		border: 0 !important;
+		bottom: 0 !important;
+		height: 100% !important;
+		left: 0 !important;
+		margin: 0 !important;
+		max-height: 100% !important;
+		max-width: 100% !important;
+		top: 0 !important;
+		width: 100% !important;
+
+		#tarteaucitron-services {
+			.tarteaucitron-title {
+				text-align: left !important;
+			}
+
+			.tarteaucitron-line {
+				.tarteaucitron-ask {
+					text-align: center !important;
+
+					button {
+						margin-bottom: 5px;
+					}
+				}
+			}
+		}
+	}
+
+	.tarteaucitron-name {
+		.tarteaucitron-h2 {
+			max-width: 80%;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	#tarteaucitron {
+		border: 0 !important;
+		left: 0 !important;
+		margin: 0 5% !important;
+		max-height: 80% !important;
+		width: 90% !important;
+	}
+}

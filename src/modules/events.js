@@ -48,5 +48,5 @@ export default {
 	keydownEvent: keydownEvent,
 	hashchangeEvent: hashchangeEvent,
 	resizeEvent: resizeEvent,
-	scrollEvent: scrollEvent
+	scrollEvent: scrollEvent,
 };

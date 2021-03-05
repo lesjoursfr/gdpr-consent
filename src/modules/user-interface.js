@@ -159,6 +159,32 @@ function color(key, status, GDPRConsentState) {
 	}
 }
 
+function mouseXEvent(event) {
+	var e = event;
+	return e.clientX;
+}
+
+function respondCSS(key, choice) {
+	var switchBtn = document.getElementById(key),
+		allowedState = document.getElementById(key + "Allowed"),
+		deniedState = document.getElementById(key + "Denied");
+
+	switchBtn.classList.remove("switch-denied");
+	switchBtn.classList.remove("switch-allowed");
+	allowedState.classList.remove("active");
+	deniedState.classList.remove("active");
+	
+	if (choice === true) {
+		switchBtn.classList.add("switch-allowed");
+		switchBtn.children[0].innerHTML = "&#10003;";
+		allowedState.classList.add("active");
+	} else {
+		switchBtn.classList.add("switch-denied");
+		switchBtn.children[0].innerHTML = "&#10007;";
+		deniedState.classList.add("active");
+	}
+}
+
 function respondAll(status, GDPRConsentState, GDPRConsentParameters) {
 	"use strict";
 	var s = GDPRConsentState.services,
@@ -169,6 +195,7 @@ function respondAll(status, GDPRConsentState, GDPRConsentParameters) {
 	for (index = 0; index < GDPRConsentState.job.length; index += 1) {
 		service = s[GDPRConsentState.job[index]];
 		key = service.key;
+
 		if (GDPRConsentState.state[key] !== status) {
 			if (status === false && GDPRConsentState.launch[key] === true) {
 				GDPRConsentState.reloadThePage = true;
@@ -178,36 +205,58 @@ function respondAll(status, GDPRConsentState, GDPRConsentParameters) {
 				GDPRConsentState.services[key].js();
 			}
 			GDPRConsentState.state[key] = status;
-			cookies.create(key, status, GDPRConsentParameters);
-			color(key, status, GDPRConsentState);
+			cookies.create(key, status, GDPRConsentParameters);	
+			respondCSS(key, status);		
 		}
 	}
 }
 
-function respond(el, status, GDPRConsentState, GDPRConsentParameters) {
+function respond(el, GDPRConsentState, GDPRConsentParameters) {
 	"use strict";
-	var key = el.id.replace(new RegExp("(Eng[0-9]+|Allow|Deni)ed", "g"), "");
 
-	// return if same state
-	if (GDPRConsentState.state[key] === status) {
-		return;
-	}
-
-	if (status === false && GDPRConsentState.launch[key] === true) {
-		GDPRConsentState.reloadThePage = true;
-	}
-
-	// if not already launched... launch the service
-	if (status === true) {
-		if (GDPRConsentState.launch[key] !== true) {
-			GDPRConsentState.launch[key] = true;
-			sendEvent(key + "_loaded");
-			GDPRConsentState.services[key].js();
+	var key = el.id.replace(new RegExp("(Eng[0-9]+|Allow|Deni)ed", "g"), ""),
+		// switchBtn = document.getElementById(key),
+		status,
+		mousePosition = mouseXEvent(event), 
+		elPos = el.getBoundingClientRect();
+	
+	// Cas 1 : Je clique sur le switch
+	if (el.classList.contains("tarteaucitron-switch")) {
+		// Je regarde si il a déjà été activé ou refusé...
+		if (GDPRConsentState.state[key] !== undefined) {
+			if (el.classList.contains("switch-denied")) {
+				status = true;
+			} else {
+				status = false;
+			}
+		} else if (mousePosition < (elPos.left) + ((el.clientWidth)/2)) {
+			status = true;
+		} else {
+			status = false;
 		}
+	} 
+	// Cas 2 : Je clique sur "Autoriser" ou "Interdire"
+	else if (el.classList.contains("tarteaucitron-switch-state")) {
+		// Je vérifie que je ne reclique pas sur la même valeur
+		if ((el.id.includes("Allowed")) && (GDPRConsentState.state[key] !== true)) {
+			status = true;
+		} else if ((el.id.includes("Denied")) && (GDPRConsentState.state[key] !== false)) {
+			status = false;
+		} else {
+			console.log("allo");
+			return;
+		}		
 	}
+
+	if ((status === true) && (GDPRConsentState.launch[key] !== true)) {
+		GDPRConsentState.launch[key] = true;
+		sendEvent(key + "_loaded");
+		GDPRConsentState.services[key].js();
+	}
+
 	GDPRConsentState.state[key] = status;
 	cookies.create(key, status, GDPRConsentParameters);
-	color(key, status, GDPRConsentState);
+	respondCSS(key, status);
 }
 
 function toggle(id, closeClass) {

@@ -2,27 +2,27 @@ import { searchElements, css, addClass, removeClass } from "../utils/dom";
 import { sendEvent } from "../utils/event";
 import cookies from "./cookies";
 
-function jsSizing(type) {
-	"use strict";
-	var servicesHeight,
-		mainHeight;
+// function jsSizing(type) {
+// 	"use strict";
+// 	var servicesHeight,
+// 		mainHeight;
 
-	if (type === "main") {
-		// height of the services list container
-		if (document.getElementById("tarteaucitron") !== null && document.getElementById("tarteaucitron-main-line") !== null) {
-			// reset
-			css("tarteaucitron-services", "height", "auto");
+// 	if (type === "main") {
+// 		// height of the services list container
+// 		if (document.getElementById("tarteaucitron") !== null && document.getElementById("tarteaucitron-main-line") !== null) {
+// 			// reset
+// 			css("tarteaucitron-services", "height", "auto");
 
-			// calculate
-			mainHeight = document.getElementById("tarteaucitron").offsetHeight;
+// 			// calculate
+// 			mainHeight = document.getElementById("tarteaucitron").offsetHeight;
 
-			// apply
-			servicesHeight = mainHeight;
-			css("tarteaucitron-services", "height", servicesHeight + "px");
-			css("tarteaucitron-services", "overflow-x", "auto");
-		}
-	}
-}
+// 			// apply
+// 			servicesHeight = mainHeight;
+// 			css("tarteaucitron-services", "height", servicesHeight + "px");
+// 			css("tarteaucitron-services", "overflow-x", "auto");
+// 		}
+// 	}
+// }
 
 function closePanel(GDPRConsentState) {
 	"use strict";
@@ -61,7 +61,7 @@ function openPanel() {
 
 	document.getElementById("tarteaucitron-close-panel").focus();
 	document.getElementsByTagName("body")[0].classList.add("modal-open");
-	jsSizing("main");
+	// jsSizing("main");
 
 	sendEvent("tac.open_panel");
 }
@@ -302,7 +302,7 @@ function order(id, GDPRConsentState) {
 }
 
 export default {
-	jsSizing: jsSizing,
+	// jsSizing: jsSizing,
 	closePanel: closePanel,
 	openPanel: openPanel,
 	closeAlert: closeAlert,

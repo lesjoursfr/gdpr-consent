@@ -6,10 +6,9 @@
 		background: $background-color-dark;
 		box-sizing: border-box;
 		color: $text-color-white;
-		font-size: 15px !important;
 		left: 0;
 		margin: auto;
-		padding: 30px;
+		padding: 8% 0;
 		position: fixed;
 		text-align: left;
 		width: 100%;
@@ -20,7 +19,6 @@
 			color: $text-color-buttons;
 			cursor: pointer;
 			display: inline-block;
-			font-size: 16px !important;
 			margin-left: 7px;
 			padding: 5px 10px;
 			text-decoration: none;
@@ -28,7 +26,9 @@
 	}
 
 	#tarteaucitron-wrapper {
+		align-items: center;
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
 	}
 }
@@ -39,21 +39,23 @@
 		color: $text-color-white;
 	}
 
-	#tarteaucitron-disclaimer-texte {
-		line-height: 1.4em;
-		max-width: 750px;
-		width: 60%;
-	}
-
 	#tarteaucitron-site-disclaimer-title {
 		color: $text-color-white;
 		display: block;
 		font-family: $font-family-title;
-		font-size: 24px;
+		font-size: 34px;
 		font-style: italic;
 		font-weight: 600;
 		line-height: 1;
-		margin-bottom: 15px;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+
+	#tarteaucitron-disclaimer-texte {
+		font-size: 30px;
+		line-height: 1.2em;
+		text-align: center;
+		width: 80%;
 	}
 
 	#tarteaucitron-site-disclaimer-message,
@@ -65,9 +67,7 @@
 		strong {
 			color: $text-color-white;
 			font-family: $font-family-text;
-			font-size: 1em;
 			font-weight: 400;
-			line-height: 1.2;
 		}
 
 		a {
@@ -84,7 +84,10 @@
 	}
 
 	#tarteaucitron-disclaimer-buttons {
-		align-self: flex-end;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 50px;
+		width: 80%;
 	}
 
 	#tarteaucitron-close-alert,
@@ -92,11 +95,9 @@
 		background-color: $color-light;
 		color: $color-mid;
 		cursor: pointer;
-		font-size: 14px;
-		line-height: 1.3rem;
-		margin: 0 5px;
+		font-size: 28px;
 		opacity: .75;
-		padding: 5px 10px;
+		padding: 3%;
 		text-transform: uppercase;
 		transition: opacity .45s ease;
 
@@ -117,4 +118,151 @@
 	position: fixed;
 	width: 0;
 	z-index: 2147483644;
+}
+
+@media screen and (min-device-width: 660px) and (orientation: landscape) {
+	#tarteaucitron-root {
+		#tarteaucitron-alert-big {
+			padding: 3%;
+		}
+
+		#tarteaucitron-wrapper {
+			align-items: space-between;
+			flex-direction: row;
+		}
+	}
+
+	#tarteaucitron-alert-big {
+		#tarteaucitron-disclaimer-texte {
+			font-size: 14px;
+			line-height: 1.4em;
+			max-width: 750px;
+			text-align: left;
+			width: 60%;
+		}
+
+		#tarteaucitron-disclaimer-buttons {
+			align-self: flex-end;
+			display: flex;
+			margin-top: 0;
+			width: inherit;
+		}
+
+		#tarteaucitron-site-disclaimer-title {
+			font-size: 18px;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+
+		#tarteaucitron-close-alert,
+		#tarteaucitron-personalize {
+			font-size: 12px;
+			margin: 0 15px;
+			padding: 10px;
+		}
+	}
+}
+
+@media screen and (min-device-width: 728px) {
+	#tarteaucitron-root {
+		#tarteaucitron-alert-big {
+			padding: 5% 8%;
+		}
+	}
+
+	#tarteaucitron-alert-big {
+		#tarteaucitron-site-disclaimer-title {
+			font-size: 24px;
+		}
+
+		#tarteaucitron-disclaimer-texte {
+			font-size: 20px;
+			line-height: 1.4em;
+		}
+
+		#tarteaucitron-disclaimer-texte,
+		#tarteaucitron-disclaimer-buttons {
+			width: 100%;
+		}
+
+		#tarteaucitron-disclaimer-buttons {
+			justify-content: space-around;
+			margin-top: 30px;
+		}
+
+		#tarteaucitron-close-alert,
+		#tarteaucitron-personalize {
+			font-size: 18px;
+			padding: 15px;
+		}
+	}
+}
+
+@media screen and (min-device-width: 1024px) {
+	#tarteaucitron-root {
+		#tarteaucitron-alert-big {
+			padding: 3%;
+		}
+
+		#tarteaucitron-wrapper {
+			align-items: space-between;
+			flex-direction: row;
+		}
+	}
+
+	#tarteaucitron-alert-big {
+		#tarteaucitron-disclaimer-texte {
+			font-size: 14px;
+			line-height: 1.4em;
+			max-width: 750px;
+			text-align: left;
+			width: 60%;
+		}
+
+		#tarteaucitron-disclaimer-buttons {
+			align-self: flex-end;
+			display: flex;
+			margin-top: 0;
+			width: inherit;
+		}
+
+		#tarteaucitron-site-disclaimer-title {
+			font-size: 18px;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+
+		#tarteaucitron-close-alert,
+		#tarteaucitron-personalize {
+			font-size: 12px;
+			margin: 0 15px;
+			padding: 10px;
+		}
+	}
+}
+
+@media screen and (min-device-width: 1224px) {
+	#tarteaucitron-root {
+		#tarteaucitron-alert-big {
+			padding: 2.5%;
+		}
+	}
+
+	#tarteaucitron-alert-big {
+		#tarteaucitron-disclaimer-texte {
+			font-size: 15px;
+		}
+
+		#tarteaucitron-site-disclaimer-title {
+			font-size: 20px;
+			margin-bottom: 15px;
+		}
+
+		#tarteaucitron-close-alert,
+		#tarteaucitron-personalize {
+			font-size: 14px;
+			margin: 0 25px;
+			padding: 10px;
+		}
+	}
 }

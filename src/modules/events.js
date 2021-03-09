@@ -16,7 +16,7 @@ function resizeEvent() {
 	var tacElem = document.getElementById("tarteaucitron");
 
 	if (tacElem && tacElem.style.display === "block") {
-		userInterface.jsSizing("main");
+		// userInterface.jsSizing("main");
 	}
 }
 

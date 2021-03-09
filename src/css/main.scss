@@ -6,6 +6,7 @@
 /////////////////////////////////////////////
 // Global                                  //
 /////////////////////////////////////////////
+
 .modal-open {
 	height: 100%;
 	overflow: hidden;
@@ -51,13 +52,11 @@
 
 	a {
 		color: $text-color-dark;
-		font-size: 11px;
 		font-weight: 700;
 		text-decoration: none;
 	}
 
 	strong {
-		font-size: 22px;
 		font-weight: 500;
 	}
 
@@ -78,7 +77,6 @@
 		align-items: center;
 		color: $color-mid;
 		display: flex;
-		font-size: 16px;
 
 		&::before {
 			background-color: $color-mid;
@@ -105,7 +103,6 @@
 		box-sizing: initial;
 		color: $text-color-dark;
 		font-family: $font-family-text;
-		font-size: 14px;
 		line-height: normal;
 		vertical-align: initial;
 	}
@@ -135,7 +132,6 @@
 
 	.tarteaucitron-h1 {
 		color: $color-mid;
-		font-size: 1.3em;
 		padding: 20px 0;
 		text-align: center;
 		text-transform: uppercase;

@@ -3,7 +3,7 @@
 /////////////////////////////////////////////
 #tarteaucitron-back {
 	background: $color-light;
-	display: block;
+	display: none;
 	height: 100%;
 	left: 0;
 	opacity: .7;
@@ -15,7 +15,7 @@
 
 #tarteaucitron {
 	border-bottom: 2px solid $border-color-dark !important;
-	// display: none;
+	display: none;
 	height: 100%;
 	overflow: scroll;
 	padding: 0;
@@ -48,7 +48,7 @@
 			color: $color-mid;
 			display: flex;
 			margin: 8% 0 2%;
-			
+
 			&::before {
 				background-color: $color-mid;
 				content: '';
@@ -290,19 +290,14 @@
 /////////////////////////////////////////////
 // Responsive layout for the control panel //
 /////////////////////////////////////////////
-@media screen and (min-device-width: 660px) and (orientation: landscape) {
-
-}
-
 @media screen and (min-device-width: 728px) {
 	#tarteaucitron {
-
 		#tarteaucitron-services {
 			.tarteaucitron-h3 {
 				font-size: 1.1rem;
 			}
 		}
-		
+
 		#tarteaucitron-services-top {
 			padding: 8% 0 3%;
 
@@ -402,7 +397,7 @@
 				}
 			}
 		}
-		
+
 		#tarteaucitron-services-list {
 			margin: 0;
 			overflow-y: scroll;
@@ -436,12 +431,13 @@
 	#tarteaucitron-root {
 		#tarteaucitron {
 			width: 60%;
+
 			#tarteaucitron-services {
 				#tarteaucitron-services-top {
 					padding: 2% 0 1%;
 
 					#tarteaucitron-info {
-						width: 50%;					
+						width: 50%;
 					}
 
 					.tarteaucitron-line {

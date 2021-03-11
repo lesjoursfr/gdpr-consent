@@ -28,10 +28,6 @@ const GDPRConsent = {
 				window.addEventListener("load", function() {
 					GDPRConsent.load();
 				}, false);
-				window.addEventListener("scroll", function() {
-					events.scrollEvent(GDPRConsent, GDPRConsent.parameters, GDPRConsent.lang);
-				}, false);
-
 				window.addEventListener("keydown", function(evt) {
 					events.keydownEvent(false, evt);
 				}, false);
@@ -44,9 +40,6 @@ const GDPRConsent = {
 			} else {
 				window.attachEvent("onload", function() {
 					GDPRConsent.load();
-				});
-				window.attachEvent("onscroll", function() {
-					events.scrollEvent(GDPRConsent.parameters);
 				});
 				window.attachEvent("onkeydown", function(evt) {
 					events.keydownEvent(true, evt);
@@ -67,7 +60,6 @@ const GDPRConsent = {
 			cookieName: "tarteaucitron",
 			timeExpire: 31536000000,
 			websiteName: undefined,
-			highPrivacy: false,
 			AcceptAllCta: true,
 			moreInfoLink: true,
 			mandatory: true
@@ -165,7 +157,7 @@ const GDPRConsent = {
 		html += "</div>";
 
 		// For the Banner
-		if (GDPRConsent.parameters.highPrivacy && !GDPRConsent.parameters.AcceptAllCta) {
+		if (!GDPRConsent.parameters.AcceptAllCta) {
 			html += "<div id=\"tarteaucitron-alert-big\" class=\"tarteaucitron-alert-big-bottom\">";
 			if (GDPRConsent.lang.siteDisclaimerTitle !== "" && GDPRConsent.lang.siteDisclaimerMessage !== "") {
 				html += "<div id=\"tarteaucitron-wrapper\">";
@@ -202,11 +194,7 @@ const GDPRConsent = {
 				html += "		</span>";
 			}
 			html += "   		<span id=\"tarteaucitron-disclaimer-alert\">";
-			if (GDPRConsent.parameters.highPrivacy) {
-				html += "	       	" + GDPRConsent.lang.alertBigPrivacy;
-			} else {
-				html += "	       	" + GDPRConsent.lang.alertBigClick + " " + GDPRConsent.lang.alertBig;
-			}
+			html += "	       	" + GDPRConsent.lang.alertBigPrivacy;
 			html += "   		</span>";
 			html += "		</div>";
 			html += "   	<div id=\"tarteaucitron-disclaimer-buttons\">";
@@ -261,7 +249,7 @@ const GDPRConsent = {
 		};
 
 		if (document.location.hash === GDPRConsent.hashtag) {
-			userInterface.openPanel();
+			userInterface.openPanel(GDPRConsent);
 		}
 	},
 	addService: function(serviceId) {
@@ -313,36 +301,29 @@ const GDPRConsent = {
 			userInterface.order(service.type, GDPRConsent);
 		}
 
-		if ((!isResponded && (isAutostart || (isNavigating && isWaiting)) && !GDPRConsent.highPrivacy) || isAllowed) {
-			if (!isAllowed) {
-				cookies.create(service.key, true, GDPRConsent.parameters);
-			}
+		if (isAllowed) {
 			if (GDPRConsent.launch[service.key] !== true) {
 				GDPRConsent.launch[service.key] = true;
 				service.js();
 				sendEvent(service.key + "_loaded");
 			}
 			GDPRConsent.state[service.key] = true;
-			userInterface.color(service.key, true, GDPRConsent);
 		} else if (isDenied) {
 			if (typeof service.fallback === "function") {
 				service.fallback();
 			}
 			GDPRConsent.state[service.key] = false;
-			userInterface.color(service.key, false, GDPRConsent);
 		} else if (!isResponded && isDNTRequested && GDPRConsent.handleBrowserDNTRequest) {
 			cookies.create(service.key, "false", GDPRConsent.parameters);
 			if (typeof service.fallback === "function") {
 				service.fallback();
 			}
 			GDPRConsent.state[service.key] = false;
-			userInterface.color(service.key, false, GDPRConsent);
 		} else if (!isResponded) {
 			cookies.create(service.key, "wait", GDPRConsent.parameters);
 			if (typeof service.fallback === "function") {
 				service.fallback();
 			}
-			userInterface.color(service.key, "wait", GDPRConsent);
 			userInterface.openAlert();
 		}
 
@@ -378,7 +359,10 @@ const GDPRConsent = {
 		userInterface.closePanel(GDPRConsent);
 	},
 	openPanel: function() {
-		userInterface.openPanel();
+		userInterface.openPanel(GDPRConsent);
+	},
+	respondEffect: function(key, status) {
+		userInterface.respondEffect(key, status, GDPRConsent);
 	},
 	respondAll: function(status) {
 		userInterface.respondAll(status, GDPRConsent, GDPRConsent.parameters);

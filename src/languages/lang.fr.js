@@ -27,8 +27,8 @@ const fr = {
 
 	title: "Panneau de gestion des cookies",
 	newWindow: "(nouvelle fenêtre)",
-	allowAll: "Autoriser tous les cookies",
-	denyAll: "Interdire tous les cookies",
+	allowAll: "Tout autoriser",
+	denyAll: "Tout interdire",
 
 	ads: {
 		title: "Régies publicitaires (pour nous faire connaître)",

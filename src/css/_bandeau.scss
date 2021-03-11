@@ -43,16 +43,16 @@
 		color: $text-color-white;
 		display: block;
 		font-family: $font-family-title;
-		font-size: 34px;
+		font-size: .9rem;
 		font-style: italic;
 		font-weight: 600;
 		line-height: 1;
-		margin-bottom: 30px;
+		margin-bottom: 5%;
 		text-align: center;
 	}
 
 	#tarteaucitron-disclaimer-texte {
-		font-size: 30px;
+		font-size: .9rem;
 		line-height: 1.2em;
 		text-align: center;
 		width: 80%;
@@ -86,7 +86,7 @@
 	#tarteaucitron-disclaimer-buttons {
 		display: flex;
 		justify-content: space-between;
-		margin-top: 50px;
+		margin-top: 5%;
 		width: 80%;
 	}
 
@@ -95,7 +95,7 @@
 		background-color: $color-light;
 		color: $color-mid;
 		cursor: pointer;
-		font-size: 28px;
+		font-size: .8rem;
 		opacity: .75;
 		padding: 3%;
 		text-transform: uppercase;
@@ -123,7 +123,7 @@
 @media screen and (min-device-width: 660px) and (orientation: landscape) {
 	#tarteaucitron-root {
 		#tarteaucitron-alert-big {
-			padding: 3%;
+			padding: 5%;
 		}
 
 		#tarteaucitron-wrapper {
@@ -134,31 +134,32 @@
 
 	#tarteaucitron-alert-big {
 		#tarteaucitron-disclaimer-texte {
-			font-size: 14px;
-			line-height: 1.4em;
+			font-size: .9rem;
 			max-width: 750px;
 			text-align: left;
 			width: 60%;
 		}
 
 		#tarteaucitron-disclaimer-buttons {
-			align-self: flex-end;
 			display: flex;
+			flex-direction: column;
 			margin-top: 0;
 			width: inherit;
 		}
 
 		#tarteaucitron-site-disclaimer-title {
-			font-size: 18px;
-			margin-bottom: 20px;
+			margin-bottom: 5%;
 			text-align: left;
 		}
 
 		#tarteaucitron-close-alert,
 		#tarteaucitron-personalize {
-			font-size: 12px;
-			margin: 0 15px;
-			padding: 10px;
+			font-size: .8rem;
+			padding: 5%;
+		}
+
+		#tarteaucitron-personalize {
+			margin-bottom: 10%;
 		}
 	}
 }
@@ -166,18 +167,18 @@
 @media screen and (min-device-width: 728px) {
 	#tarteaucitron-root {
 		#tarteaucitron-alert-big {
-			padding: 5% 8%;
+			padding: 4% 10%;
 		}
 	}
 
 	#tarteaucitron-alert-big {
 		#tarteaucitron-site-disclaimer-title {
-			font-size: 24px;
+			font-size: 1.2rem;
 		}
 
 		#tarteaucitron-disclaimer-texte {
-			font-size: 20px;
-			line-height: 1.4em;
+			font-size: 1.1rem;
+			line-height: 1.3em;
 		}
 
 		#tarteaucitron-disclaimer-texte,
@@ -187,13 +188,13 @@
 
 		#tarteaucitron-disclaimer-buttons {
 			justify-content: space-around;
-			margin-top: 30px;
+			margin-top: 5%;
 		}
 
 		#tarteaucitron-close-alert,
 		#tarteaucitron-personalize {
-			font-size: 18px;
-			padding: 15px;
+			font-size: 1rem;
+			padding: 3% 4%;
 		}
 	}
 }
@@ -212,8 +213,7 @@
 
 	#tarteaucitron-alert-big {
 		#tarteaucitron-disclaimer-texte {
-			font-size: 14px;
-			line-height: 1.4em;
+			font-size: 1rem;
 			max-width: 750px;
 			text-align: left;
 			width: 60%;
@@ -221,22 +221,28 @@
 
 		#tarteaucitron-disclaimer-buttons {
 			align-self: flex-end;
-			display: flex;
+			flex-direction: row;
+			flex-grow: 1;
+			justify-content: flex-end;
 			margin-top: 0;
 			width: inherit;
 		}
 
 		#tarteaucitron-site-disclaimer-title {
-			font-size: 18px;
+			font-size: 1.1rem;
 			margin-bottom: 20px;
 			text-align: left;
 		}
 
 		#tarteaucitron-close-alert,
 		#tarteaucitron-personalize {
-			font-size: 12px;
-			margin: 0 15px;
-			padding: 10px;
+			font-size: .8rem;
+			padding: 3% 4%;
+		}
+
+		#tarteaucitron-personalize {
+			margin-bottom: 0;
+			margin-right: 5%;
 		}
 	}
 }
@@ -244,25 +250,28 @@
 @media screen and (min-device-width: 1224px) {
 	#tarteaucitron-root {
 		#tarteaucitron-alert-big {
-			padding: 2.5%;
+			padding: 2% 3%;
 		}
 	}
 
 	#tarteaucitron-alert-big {
 		#tarteaucitron-disclaimer-texte {
-			font-size: 15px;
+			line-height: 1.4em;
 		}
 
 		#tarteaucitron-site-disclaimer-title {
-			font-size: 20px;
-			margin-bottom: 15px;
+			font-size: 1.2rem;
+			margin-bottom: 2%;
 		}
 
 		#tarteaucitron-close-alert,
 		#tarteaucitron-personalize {
-			font-size: 14px;
-			margin: 0 25px;
-			padding: 10px;
+			font-size: .9rem;
+			padding: 2%;
+		}
+
+		#tarteaucitron-personalize {
+			margin-right: 8%;
 		}
 	}
 }

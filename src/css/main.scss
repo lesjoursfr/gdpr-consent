@@ -20,8 +20,6 @@
 // Better scroll management                //
 /////////////////////////////////////////////
 #tarteaucitron-services {
-	box-shadow: 0 0 35px $shadow-color;
-
 	// sass-lint:disable no-vendor-prefixes
 	&::-webkit-scrollbar {
 		width: 15px;
@@ -73,20 +71,6 @@
 		display: block;
 	}
 
-	.tarteaucitron-h3 {
-		align-items: center;
-		color: $color-mid;
-		display: flex;
-
-		&::before {
-			background-color: $color-mid;
-			content: '';
-			display: inline-block;
-			height: 3px;
-			margin-right: 10px;
-			width: 15px;
-		}
-	}
 }
 
 /////////////////////////////////////////////
@@ -128,13 +112,6 @@
 		&#tarteaucitron-back {
 			background: $background-color-white;
 		}
-	}
-
-	.tarteaucitron-h1 {
-		color: $color-mid;
-		padding: 20px 0;
-		text-align: center;
-		text-transform: uppercase;
 	}
 
 	.tarteaucitron-h2 {

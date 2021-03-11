@@ -29,14 +29,9 @@ Clearly this script will:
 		"hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
 		"cookieName": "tarteaucitron", /* Cookie name */
 		"timeExpire": 31536000000, /* Cookie expiration time */
-
 		"websiteName": "Les Jours", /* The name of the Website */
-
-		"highPrivacy": true, /* Disable auto consent */
-		"AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
-
+		"AcceptAllCta" : true, /* Show the accept all button*/
 		"moreInfoLink": true, /* Show more info link */
-
 		"mandatory": false /* Show a message about mandatory cookies */
 	});
 </script>

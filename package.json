@@ -17,7 +17,8 @@
 		"build": "webpack --mode production --config webpack.config.js --progress"
 	},
 	"files": [
-		"src/**/*", "build/**/*"
+		"src/**/*",
+		"build/**/*"
 	],
 	"keywords": [
 		"cookie",

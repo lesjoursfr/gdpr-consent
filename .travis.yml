@@ -2,7 +2,7 @@ version: "~> 1.0"
 language: node_js
 os: linux
 dist: focal
-if: branch = "master" OR tag IS present
+if: branch = "stable" OR tag IS present
 jobs:
   include:
   - stage: Build project

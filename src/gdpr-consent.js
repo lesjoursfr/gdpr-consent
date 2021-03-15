@@ -34,9 +34,6 @@ const GDPRConsent = {
 				window.addEventListener("hashchange", function() {
 					events.hashchangeEvent(GDPRConsent.parameters);
 				}, false);
-				window.addEventListener("resize", function() {
-					events.resizeEvent();
-				}, false);
 			} else {
 				window.attachEvent("onload", function() {
 					GDPRConsent.load();
@@ -46,9 +43,6 @@ const GDPRConsent = {
 				});
 				window.attachEvent("onhashchange", function() {
 					events.hashchangeEvent(GDPRConsent.parameters);
-				});
-				window.attachEvent("onresize", function() {
-					events.resizeEvent();
 				});
 			}
 		}
@@ -207,7 +201,6 @@ const GDPRConsent = {
 			html += "   	</div>";
 			html += "	</div>";
 			html += "</div>";
-			html += "<div id=\"tarteaucitron-percentage\"></div>";
 		}
 
 		div.id = "tarteaucitron-root";
@@ -369,6 +362,9 @@ const GDPRConsent = {
 	},
 	respond: function(el) {
 		userInterface.respond(el, GDPRConsent, GDPRConsent.parameters);
+	},
+	activate: function(id, status) {
+		userInterface.activate(id, status, GDPRConsent, GDPRConsent.parameters);
 	},
 	toggle: function(id, closeClass) {
 		userInterface.toggle(id, closeClass);

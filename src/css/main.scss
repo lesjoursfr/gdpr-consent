@@ -2,11 +2,11 @@
 @import 'variables';
 @import 'bandeau';
 @import 'control-panel';
+@import 'card';
 
 /////////////////////////////////////////////
 // Global                                  //
 /////////////////////////////////////////////
-
 .modal-open {
 	height: 100%;
 	overflow: hidden;
@@ -49,7 +49,7 @@
 	}
 
 	a {
-		color: $text-color-dark;
+		color: $color-dark;
 		font-weight: 700;
 		text-decoration: none;
 	}
@@ -85,7 +85,7 @@
 
 	* {
 		box-sizing: initial;
-		color: $text-color-dark;
+		color: $color-dark;
 		font-family: $font-family-text;
 		line-height: normal;
 		vertical-align: initial;
@@ -110,53 +110,7 @@
 		}
 
 		&#tarteaucitron-back {
-			background: $background-color-white;
-		}
-	}
-
-	.tarteaucitron-h2 {
-		color: $text-color-dark;
-		display: inline-block;
-	}
-}
-
-/////////////////////////////////////////////
-// CSS for services                        //
-/////////////////////////////////////////////
-.tarteaucitron-is-allowed {
-	.tarteaucitron-deny {
-		opacity: .4 !important;
-	}
-
-	.tarteaucitron-allow {
-		opacity: 1 !important;
-	}
-}
-
-.tarteaucitron-is-denied {
-	.tarteaucitron-allow {
-		opacity: .4 !important;
-	}
-
-	.tarteaucitron-deny {
-		opacity: 1 !important;
-	}
-}
-
-.tarteaucitron-line {
-	.tarteaucitron-allow {
-		opacity: .4;
-	}
-
-	.tarteaucitron-deny {
-		opacity: .4;
-	}
-}
-
-span {
-	&.tarteaucitron-title {
-		&.tarteaucitron-h3 {
-			margin-top: 12px !important;
+			background: $color-light;
 		}
 	}
 }

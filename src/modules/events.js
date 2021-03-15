@@ -12,16 +12,7 @@ function hashchangeEvent(GDPRConsentParameters) {
 	}
 }
 
-function resizeEvent() {
-	var tacElem = document.getElementById("tarteaucitron");
-
-	if (tacElem && tacElem.style.display === "block") {
-		// userInterface.jsSizing("main");
-	}
-}
-
 export default {
 	keydownEvent: keydownEvent,
-	hashchangeEvent: hashchangeEvent,
-	resizeEvent: resizeEvent,
+	hashchangeEvent: hashchangeEvent
 };

@@ -57,5 +57,9 @@ Clearly this script will:
 	GDPRConsent.job.push('twitter');
 	window.fbAsyncInit = function() { FB.init({}); };
 	GDPRConsent.job.push('facebook');
+
+	/* Add Vidéos */
+	GDPRConsent.job.push('vimeo');
+	GDPRConsent.job.push('youtube');
 </script>
 ```

@@ -14,7 +14,7 @@
 }
 
 #tarteaucitron {
-	border-bottom: 2px solid $border-color-dark !important;
+	border-bottom: 2px solid $color-mid !important;
 	display: none;
 	height: 100%;
 	overflow: scroll;
@@ -39,7 +39,7 @@
 
 	#tarteaucitron-services {
 		align-items: center;
-		background: $background-color-white;
+		background: $color-light;
 		display: flex;
 		flex-direction: column;
 
@@ -128,8 +128,8 @@
 			margin-top: 10%;
 
 			button {
-				background: $border-color-dark;
-				color: $text-color-white;
+				background: $color-mid;
+				color: $color-light;
 				cursor: pointer;
 				display: inline-block;
 				font-family: $font-family-title;

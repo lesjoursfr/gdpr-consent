@@ -1,11 +1,11 @@
 /////////////////////////////////////////////
-// Big alert                               //
+// Bandeau                               //
 /////////////////////////////////////////////
 #tarteaucitron-root {
 	#tarteaucitron-alert-big {
-		background: $background-color-dark;
+		background: $color-mid;
 		box-sizing: border-box;
-		color: $text-color-white;
+		color: $color-light;
 		left: 0;
 		margin: auto;
 		padding: 8% 0;
@@ -13,16 +13,6 @@
 		text-align: left;
 		width: 100%;
 		z-index: 2147483645;
-
-		.tarteaucitron-deny,
-		.tarteaucitron-allow {
-			color: $text-color-buttons;
-			cursor: pointer;
-			display: inline-block;
-			margin-left: 7px;
-			padding: 5px 10px;
-			text-decoration: none;
-		}
 	}
 
 	#tarteaucitron-wrapper {
@@ -36,11 +26,11 @@
 #tarteaucitron-alert-big {
 	strong,
 	a {
-		color: $text-color-white;
+		color: $color-light;
 	}
 
 	#tarteaucitron-site-disclaimer-title {
-		color: $text-color-white;
+		color: $color-light;
 		display: block;
 		font-family: $font-family-title;
 		font-size: .9rem;
@@ -65,7 +55,7 @@
 		a,
 		i,
 		strong {
-			color: $text-color-white;
+			color: $color-light;
 			font-family: $font-family-text;
 			font-weight: 400;
 		}
@@ -109,15 +99,6 @@
 
 .tarteaucitron-alert-big-bottom {
 	bottom: 0;
-}
-
-#tarteaucitron-percentage {
-	background: $color-personalize !important;
-	height: 5px;
-	left: 0;
-	position: fixed;
-	width: 0;
-	z-index: 2147483644;
 }
 
 @media screen and (min-device-width: 660px) and (orientation: landscape) {

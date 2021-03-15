@@ -2,28 +2,6 @@ import { searchElements, css, addClass, removeClass } from "../utils/dom";
 import { sendEvent } from "../utils/event";
 import cookies from "./cookies";
 
-// function jsSizing(type) {
-// 	"use strict";
-// 	var servicesHeight,
-// 		mainHeight;
-
-// 	if (type === "main") {
-// 		// height of the services list container
-// 		if (document.getElementById("tarteaucitron") !== null && document.getElementById("tarteaucitron-main-line") !== null) {
-// 			// reset
-// 			css("tarteaucitron-services", "height", "auto");
-
-// 			// calculate
-// 			mainHeight = document.getElementById("tarteaucitron").offsetHeight;
-
-// 			// apply
-// 			servicesHeight = mainHeight;
-// 			css("tarteaucitron-services", "height", servicesHeight + "px");
-// 			css("tarteaucitron-services", "overflow-x", "auto");
-// 		}
-// 	}
-// }
-
 function closePanel(GDPRConsentState) {
 	"use strict";
 
@@ -191,9 +169,7 @@ function respondAll(status, GDPRConsentState, GDPRConsentParameters) {
 
 function respond(el, GDPRConsentState, GDPRConsentParameters) {
 	"use strict";
-
 	var key = el.id.replace(new RegExp("(Eng[0-9]+|Allow|Deni)ed", "g"), ""),
-		// switchBtn = document.getElementById(key),
 		status,
 		mousePosition = mouseXEvent(event), 
 		elPos = el.getBoundingClientRect();
@@ -235,6 +211,20 @@ function respond(el, GDPRConsentState, GDPRConsentParameters) {
 	GDPRConsentState.state[key] = status;
 	cookies.create(key, status, GDPRConsentParameters);
 	respondEffect(key, status, GDPRConsentState);
+}
+
+function activate(el, status, GDPRConsentState, GDPRConsentParameters) {
+	var key = el.id;
+	if ((GDPRConsentState.state[key] === undefined|false) && (GDPRConsentState.launch[key] !== true)) {
+		GDPRConsentState.launch[key] = status;
+		sendEvent(key + "_loaded");
+		GDPRConsentState.services[key].js();
+		GDPRConsentState.state[key] = status;
+		cookies.create(key, status, GDPRConsentParameters);
+		respondEffect(key, status, GDPRConsentState);
+	} else {
+		return;
+	}
 }
 
 function toggle(id, closeClass) {
@@ -280,13 +270,13 @@ function order(id, GDPRConsentState) {
 }
 
 export default {
-	// jsSizing: jsSizing,
 	closePanel: closePanel,
 	openPanel: openPanel,
 	closeAlert: closeAlert,
 	openAlert: openAlert,
 	respondAll: respondAll,
 	respond: respond,
+	activate: activate,
 	toggle: toggle,
 	order: order
 };

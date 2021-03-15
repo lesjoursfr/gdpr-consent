@@ -19,6 +19,12 @@
 	</script>
 </head>
 <body style="height: 100%;">
+	<div class="embed-responsive-16by9 tarteaucitron-vimeo" data-tarteaucitron-src="https://player.vimeo.com/video/192429974">
+	</div>
+
+	<div class="embed-responsive-16by9 tarteaucitron-youtube" data-tarteaucitron-src="https://www.youtube.com/embed/xB-puVmmlg4">
+	</div>
+
 	<script type="text/javascript">
 		/* Initialize gdprconsent.js job array */
 		GDPRConsent.job = GDPRConsent.job || [];
@@ -40,6 +46,10 @@
 		/* Add Ads Services : Facebook Pixel */
 		GDPRConsent.user.fbPixelId = '1415993661766511';
 		GDPRConsent.job.push('facebookpixel');
+
+		// Add Vidéos : Vimeo & YT
+		GDPRConsent.job.push('vimeo');
+		GDPRConsent.job.push('youtube');
 	</script>
 </body>
 </html>

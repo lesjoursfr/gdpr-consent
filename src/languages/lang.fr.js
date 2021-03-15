@@ -8,7 +8,7 @@ const fr = {
 
 	alertBigPrivacy: "Ce site utilise des cookies et vous donne le contrôle sur ce que vous souhaitez activer",
 	personalize: "Personnaliser",
-	acceptAll: "OK, tout accepter",
+	acceptAll: "Tout autoriser",
 	close: "Fermer",
 
 	all: "Préférences pour tous les services",

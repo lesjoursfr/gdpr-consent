@@ -62,7 +62,7 @@ function closeAlert() {
 
 function openAlert() {
 	"use strict";
-	var c = "tarteaucitron"
+	var c = "tarteaucitron";
 	css(c + "-percentage", "display", "block");
 	css(c + "-alert-big",   "display", "block");
 	addClass(c + "-root",   "tarteaucitron-before-visible");
@@ -119,11 +119,9 @@ function respondEffect(key, choice, GDPRConsentState) {
 
 	// Si tous les cookies ont été acceptés/refusés, je change le style des boutons
 	if (nbAllowed === GDPRConsentState.job.length) {
-		console.log("toutA");
 		document.getElementById("tarteaucitron-all-denied").classList.remove("tarteaucitron-is-selected");
 		document.getElementById("tarteaucitron-all-allowed").classList.add("tarteaucitron-is-selected");
 	} else if (nbDenied === GDPRConsentState.job.length) {
-		console.log("toutR");
 		document.getElementById("tarteaucitron-all-allowed").classList.remove("tarteaucitron-is-selected");
 		document.getElementById("tarteaucitron-all-denied").classList.add("tarteaucitron-is-selected");
 	}
@@ -197,7 +195,6 @@ function respond(el, GDPRConsentState, GDPRConsentParameters) {
 		} else if ((el.id.includes("Denied")) && (GDPRConsentState.state[key] !== false)) {
 			status = false;
 		} else {
-			console.log("allo");
 			return;
 		}		
 	}
@@ -211,6 +208,10 @@ function respond(el, GDPRConsentState, GDPRConsentParameters) {
 	GDPRConsentState.state[key] = status;
 	cookies.create(key, status, GDPRConsentParameters);
 	respondEffect(key, status, GDPRConsentState);
+
+	if ((status === false) && (GDPRConsentState.launch[key] === true)) {
+		window.location.reload();
+	}
 }
 
 function activate(el, status, GDPRConsentState, GDPRConsentParameters) {

@@ -2,6 +2,26 @@ import { searchElements, css, addClass, removeClass } from "../utils/dom";
 import { sendEvent } from "../utils/event";
 import cookies from "./cookies";
 
+function closeAlert() {
+	"use strict";
+	var c = "tarteaucitron";
+	css(c + "-percentage", "display", "none");
+	css(c + "-alert-big",   "display", "none");
+	removeClass(c + "-root",   "tarteaucitron-before-visible");
+
+	sendEvent("tac.close_alert");
+}
+
+function openAlert() {
+	"use strict";
+	var c = "tarteaucitron";
+	css(c + "-percentage", "display", "block");
+	css(c + "-alert-big",   "display", "block");
+	addClass(c + "-root",   "tarteaucitron-before-visible");
+
+	sendEvent("tac.open_alert");
+}
+
 function closePanel(GDPRConsentState) {
 	"use strict";
 
@@ -31,50 +51,6 @@ function closePanel(GDPRConsentState) {
 	sendEvent("tac.close_panel");
 }
 
-function openPanel(GDPRConsentState) {
-	"use strict";
-	var index;
-	css("tarteaucitron", "display", "block");
-	css("tarteaucitron-back", "display", "block");
-
-	document.getElementById("tarteaucitron-close-panel").focus();
-	document.getElementsByTagName("body")[0].classList.add("modal-open");
-
-	for (index = 0; index < GDPRConsentState.job.length; index++) {
-		if (GDPRConsentState.state[GDPRConsentState.job[index]] !== undefined) {
-			respondEffect(GDPRConsentState.job[index], GDPRConsentState.state[GDPRConsentState.job[index]], GDPRConsentState);
-		}
-	}
-
-	sendEvent("tac.open_panel");
-}
-
-function closeAlert() {
-	"use strict";
-	var c = "tarteaucitron";
-	css(c + "-percentage", "display", "none");
-	css(c + "-alert-big",   "display", "none");
-	removeClass(c + "-root",   "tarteaucitron-before-visible");
-
-	sendEvent("tac.close_alert");
-}
-
-function openAlert() {
-	"use strict";
-	var c = "tarteaucitron";
-	css(c + "-percentage", "display", "block");
-	css(c + "-alert-big",   "display", "block");
-	addClass(c + "-root",   "tarteaucitron-before-visible");
-
-	sendEvent("tac.open_alert");
-}
-
-function mouseXEvent(event) {
-	"use strict";
-	var e = event;
-	return e.clientX;
-}
-
 function respondEffect(key, choice, GDPRConsentState) {
 	"use strict";
 	var switchBtn = document.getElementById(key + "Switch"),
@@ -89,7 +65,7 @@ function respondEffect(key, choice, GDPRConsentState) {
 	switchBtn.classList.remove("switch-allowed");
 	allowedState.classList.remove("active");
 	deniedState.classList.remove("active");
-	
+
 	// Style des switch
 	if (choice === true) {
 		switchBtn.classList.add("switch-allowed");
@@ -140,6 +116,30 @@ function respondEffect(key, choice, GDPRConsentState) {
 	}
 }
 
+function openPanel(GDPRConsentState) {
+	"use strict";
+	var index;
+	css("tarteaucitron", "display", "block");
+	css("tarteaucitron-back", "display", "block");
+
+	document.getElementById("tarteaucitron-close-panel").focus();
+	document.getElementsByTagName("body")[0].classList.add("modal-open");
+
+	for (index = 0; index < GDPRConsentState.job.length; index++) {
+		if (GDPRConsentState.state[GDPRConsentState.job[index]] !== undefined) {
+			respondEffect(GDPRConsentState.job[index], GDPRConsentState.state[GDPRConsentState.job[index]], GDPRConsentState);
+		}
+	}
+
+	sendEvent("tac.open_panel");
+}
+
+function mouseXEvent(event) {
+	"use strict";
+	var e = event;
+	return e.clientX;
+}
+
 function respondAll(status, GDPRConsentState, GDPRConsentParameters) {
 	"use strict";
 	var s = GDPRConsentState.services,
@@ -160,8 +160,8 @@ function respondAll(status, GDPRConsentState, GDPRConsentParameters) {
 				GDPRConsentState.services[key].js();
 			}
 			GDPRConsentState.state[key] = status;
-			cookies.create(key, status, GDPRConsentParameters);	
-			respondEffect(key, status, GDPRConsentState);		
+			cookies.create(key, status, GDPRConsentParameters);
+			respondEffect(key, status, GDPRConsentState);
 		}
 	}
 }
@@ -170,11 +170,10 @@ function respond(el, GDPRConsentState, GDPRConsentParameters) {
 	"use strict";
 	var key = el.id.replace(new RegExp("(Eng[0-9]+|Allow|Deni)ed|Switch", "g"), ""),
 		status,
-		mousePosition = mouseXEvent(event), 
+		mousePosition = mouseXEvent(event),
 		elPos = el.getBoundingClientRect();
-	
-	// Cas 1 : Je clique sur le switch
-	if (el.classList.contains("tarteaucitron-switch")) {
+
+	if (el.classList.contains("tarteaucitron-switch")) { // Cas 1 : Je clique sur le switch
 		// Je regarde si il a déjà été activé ou refusé...
 		if (GDPRConsentState.state[key] !== undefined) {
 			if (el.classList.contains("switch-denied")) {
@@ -187,9 +186,7 @@ function respond(el, GDPRConsentState, GDPRConsentParameters) {
 		} else {
 			status = false;
 		}
-	} 
-	// Cas 2 : Je clique sur "Autoriser" ou "Interdire"
-	else if (el.classList.contains("tarteaucitron-switch-state")) {
+	} else if (el.classList.contains("tarteaucitron-switch-state")) { // Cas 2 : Je clique sur "Autoriser" ou "Interdire"
 		// Je vérifie que je ne reclique pas sur la même valeur
 		if ((el.id.includes("Allowed")) && (GDPRConsentState.state[key] !== true)) {
 			status = true;
@@ -197,7 +194,7 @@ function respond(el, GDPRConsentState, GDPRConsentParameters) {
 			status = false;
 		} else {
 			return;
-		}		
+		}
 	}
 
 	if ((status === true) && (GDPRConsentState.launch[key] !== true)) {
@@ -272,10 +269,10 @@ function order(id, GDPRConsentState) {
 }
 
 export default {
-	closePanel: closePanel,
-	openPanel: openPanel,
 	closeAlert: closeAlert,
 	openAlert: openAlert,
+	closePanel: closePanel,
+	openPanel: openPanel,
 	respondAll: respondAll,
 	respond: respond,
 	activate: activate,

@@ -66,18 +66,22 @@
 	}
 
 	#tarteaucitron-services-top {
-		padding: 8% 0;
+		padding: 20px 0;
 
 		.tarteaucitron-h1 {
 			color: $color-mid;
 			font-size: 1rem;
-			margin-top: 5%;
+			margin-top: 10px;
 			text-align: center;
 			text-transform: uppercase;
 		}
 
 		.tarteaucitron-line {
 			margin: 0 5%;
+
+			.tarteaucitron-h3 {
+				margin: 0;
+			}
 		}
 
 		#tarteaucitron-info {
@@ -86,7 +90,7 @@
 			font-size: .9rem;
 			line-height: 1.2em;
 			margin: 5%;
-			padding: 5% 0;
+			padding: 20px 0;
 			text-align: center;
 		}
 
@@ -102,7 +106,7 @@
 				font-size: .7rem;
 				margin-top: 2%;
 				opacity: .5;
-				padding: 5px;
+				padding: 8px;
 				text-transform: uppercase;
 				transition: background-color .3s, color .3s, opacity .3s;
 
@@ -121,7 +125,7 @@
 	}
 
 	#tarteaucitron-services-list {
-		border-top: solid 1px $color-mid;
+		border-top: solid 2px $color-mid;
 		margin: 0 0 25px;
 
 		.tarteaucitron-title {
@@ -299,21 +303,20 @@
 		}
 
 		#tarteaucitron-services-top {
-			padding: 8% 0 3%;
 
 			.tarteaucitron-h1 {
 				font-size: 1.1rem;
-				margin-top: 3%;
+				margin-top: 0;
 			}
 
 			#tarteaucitron-info {
 				font-size: 1rem;
-				margin: 3% auto;
+				margin: 20px auto;
 				width: 70%;
 			}
 
 			.tarteaucitron-line {
-				margin: 3% auto;
+				margin: 0 auto;
 				width: 70%;
 			}
 		}
@@ -368,39 +371,29 @@
 	}
 
 	#tarteaucitron {
-		overflow: hidden;
-
-		#tarteaucitron-services {
-			height: 100%;
-			overflow: hidden;
-		}
-
 		#tarteaucitron-services-top {
 			#tarteaucitron-info,
 			.tarteaucitron-line {
 				width: 80%;
-
-				.tarteaucitron-h3 {
-					margin-top: 3%;
-				}
 			}
 
 			#tarteaucitron-info {
-				padding: 3% 0;
+				font-size: .8rem;
+				line-height: 1.1rem;
+				padding: 1.5% 0;
 			}
 
 			.tarteaucitron-ask {
 				#tarteaucitron-all-allowed,
 				#tarteaucitron-all-denied {
 					font-size: .8rem;
-					padding: 2%;
+					padding: 10px;
 				}
 			}
 		}
 
 		#tarteaucitron-services-list {
 			margin: 0;
-			overflow-y: scroll;
 
 			.tarteaucitron-cookie-group {
 				flex-direction: row;
@@ -430,11 +423,15 @@
 @media screen and (min-device-width: 1224px) {
 	#tarteaucitron-root {
 		#tarteaucitron {
+			overflow: hidden;
 			width: 60%;
 
 			#tarteaucitron-services {
+				height: 100%;
+				overflow: hidden;
+
 				#tarteaucitron-services-top {
-					padding: 2% 0 1%;
+					padding: 30px 0 20px;
 
 					#tarteaucitron-info {
 						width: 50%;
@@ -443,7 +440,7 @@
 					.tarteaucitron-line {
 						align-items: center;
 						display: flex;
-						margin: 1% auto;
+						margin: 0 auto;
 						width: 70%;
 
 						.tarteaucitron-ask {
@@ -459,12 +456,14 @@
 						#tarteaucitron-all-denied {
 							font-size: .8rem;
 							margin-top: 0;
-							padding: 1.5%;
+							padding: 10px;
 						}
 					}
 				}
 
 				#tarteaucitron-services-list {
+					overflow-y: scroll;
+
 					.tarteaucitron-title {
 						button {
 							padding: .5% .5% .5% 15%;

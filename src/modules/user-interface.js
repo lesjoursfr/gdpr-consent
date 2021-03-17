@@ -33,7 +33,6 @@ function closePanel(GDPRConsentState) {
 
 function openPanel(GDPRConsentState) {
 	"use strict";
-
 	var index;
 	css("tarteaucitron", "display", "block");
 	css("tarteaucitron-back", "display", "block");
@@ -71,12 +70,14 @@ function openAlert() {
 }
 
 function mouseXEvent(event) {
+	"use strict";
 	var e = event;
 	return e.clientX;
 }
 
 function respondEffect(key, choice, GDPRConsentState) {
-	var switchBtn = document.getElementById(key),
+	"use strict";
+	var switchBtn = document.getElementById(key + "Switch"),
 		allowedState = document.getElementById(key + "Allowed"),
 		deniedState = document.getElementById(key + "Denied"),
 		index,
@@ -167,7 +168,7 @@ function respondAll(status, GDPRConsentState, GDPRConsentParameters) {
 
 function respond(el, GDPRConsentState, GDPRConsentParameters) {
 	"use strict";
-	var key = el.id.replace(new RegExp("(Eng[0-9]+|Allow|Deni)ed", "g"), ""),
+	var key = el.id.replace(new RegExp("(Eng[0-9]+|Allow|Deni)ed|Switch", "g"), ""),
 		status,
 		mousePosition = mouseXEvent(event), 
 		elPos = el.getBoundingClientRect();
@@ -214,15 +215,15 @@ function respond(el, GDPRConsentState, GDPRConsentParameters) {
 	}
 }
 
-function activate(el, status, GDPRConsentState, GDPRConsentParameters) {
-	var key = el.id;
-	if ((GDPRConsentState.state[key] === undefined|false) && (GDPRConsentState.launch[key] !== true)) {
-		GDPRConsentState.launch[key] = status;
-		sendEvent(key + "_loaded");
-		GDPRConsentState.services[key].js();
-		GDPRConsentState.state[key] = status;
-		cookies.create(key, status, GDPRConsentParameters);
-		respondEffect(key, status, GDPRConsentState);
+function activate(id, status, GDPRConsentState, GDPRConsentParameters) {
+	"use strict";
+	if ((GDPRConsentState.state[id] === undefined|false) && (GDPRConsentState.launch[id] !== true)) {
+		GDPRConsentState.launch[id] = status;
+		sendEvent(id + "_loaded");
+		GDPRConsentState.services[id].js();
+		GDPRConsentState.state[id] = status;
+		cookies.create(id, status, GDPRConsentParameters);
+		respondEffect(id, status, GDPRConsentState);
 	} else {
 		return;
 	}

@@ -91,7 +91,7 @@ const GDPRConsent = {
 		// For the Pannel
 		html += "<button type=\"button\" id=\"tarteaucitron-back\" onclick=\"GDPRConsent.closePanel();\" aria-label=\"" + GDPRConsent.lang.close + "\"></button>";
 		html += "<div id=\"tarteaucitron\" role=\"dialog\" aria-labelledby=\"dialogTitle\">";
-		html += "   <button type=\"button\" id=\"tarteaucitron-close-panel\" onclick=\"GDPRConsent.closePanel();\">&#128473;</button>";
+		html += "   <button type=\"button\" id=\"tarteaucitron-close-panel\" onclick=\"GDPRConsent.closePanel();\">X</button>";
 		html += "	<div id=\"tarteaucitron-services\">";
 
 		// L'en-tête des services
@@ -251,16 +251,10 @@ const GDPRConsent = {
 			s = GDPRConsent.services,
 			service = s[serviceId],
 			cookie = cookies.read(GDPRConsent.parameters),
-			hostname = document.location.hostname,
-			hostRef = document.referrer.split("/")[2],
-			isNavigating = (hostRef === hostname),
-			isAutostart = (!service.needConsent),
-			isWaiting = (cookie.indexOf(service.key + "=wait") >= 0),
 			isDenied = (cookie.indexOf(service.key + "=false") >= 0),
 			isAllowed = ((cookie.indexOf(service.key + "=true") >= 0) || (!service.needConsent && cookie.indexOf(service.key + "=false") < 0)),
 			isResponded = (cookie.indexOf(service.key + "=false") >= 0 || cookie.indexOf(service.key + "=true") >= 0),
 			isDNTRequested = (navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1" || window.doNotTrack === "1");
-
 		if (GDPRConsent.added[service.key] !== true) {
 			GDPRConsent.added[service.key] = true;
 
@@ -276,7 +270,7 @@ const GDPRConsent = {
 			html += "   </div>";
 			html += "   <div class=\"tarteaucitron-cookie-buttons\">";
 			html += "       <span id=\"" + service.key + "Allowed\" class=\"tarteaucitron-switch-state\" onclick=\"GDPRConsent.respond(this);\">" + GDPRConsent.lang.allow + "</span>";
-			html += "       <div class=\"tarteaucitron-switch\" id=\"" + service.key + "\" onclick=\"GDPRConsent.respond(this);\">";
+			html += "       <div class=\"tarteaucitron-switch\" id=\"" + service.key + "Switch\" onclick=\"GDPRConsent.respond(this);\">";
 			html += "			<button type=\"button\" class=\"tarteaucitron-switch-button\"></button>";
 			html += "       </div> ";
 			html += "       <span id=\"" + service.key + "Denied\" class=\"tarteaucitron-switch-state\" onclick=\"GDPRConsent.respond(this);\">" + GDPRConsent.lang.deny + "</span>";
@@ -319,7 +313,7 @@ const GDPRConsent = {
 			}
 			userInterface.openAlert();
 		}
-
+		
 		cookies.checkCount(service.key, service, GDPRConsent.lang);
 		sendEvent(service.key + "_added");
 	},

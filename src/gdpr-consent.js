@@ -85,7 +85,7 @@ const GDPRConsent = {
 			if (GDPRConsent.lang[a].title > GDPRConsent.lang[b].title) { return 1; }
 			if (GDPRConsent.lang[a].title < GDPRConsent.lang[b].title) { return -1; }
 			return 0;
-		});		
+		});
 
 		// Prepare the html
 		// For the Pannel
@@ -131,7 +131,7 @@ const GDPRConsent = {
 			html += "           &#10003; " + GDPRConsent.lang.allow;
 			html += "       </button> ";
 			html += "	</div>";
-			html += "</div>";			
+			html += "</div>";
 		}
 		for (i = 0; i < cat.length; i += 1) {
 			html += "         <li id=\"tarteaucitron-services-title_" + cat[i] + "\" class=\"tarteaucitron-hidden\">";
@@ -269,11 +269,11 @@ const GDPRConsent = {
 			}
 			html += "   </div>";
 			html += "   <div class=\"tarteaucitron-cookie-buttons\">";
-			html += "       <span id=\"" + service.key + "Allowed\" class=\"tarteaucitron-switch-state\" onclick=\"GDPRConsent.respond(this);\">" + GDPRConsent.lang.allow + "</span>";
-			html += "       <div class=\"tarteaucitron-switch\" id=\"" + service.key + "Switch\" onclick=\"GDPRConsent.respond(this);\">";
+			html += "       <span id=\"" + service.key + "Allowed\" class=\"tarteaucitron-switch-state\" onclick=\"GDPRConsent.respond(this, event);\">" + GDPRConsent.lang.allow + "</span>";
+			html += "       <div class=\"tarteaucitron-switch\" id=\"" + service.key + "Switch\" onclick=\"GDPRConsent.respond(this, event);\">";
 			html += "			<button type=\"button\" class=\"tarteaucitron-switch-button\"></button>";
 			html += "       </div> ";
-			html += "       <span id=\"" + service.key + "Denied\" class=\"tarteaucitron-switch-state\" onclick=\"GDPRConsent.respond(this);\">" + GDPRConsent.lang.deny + "</span>";
+			html += "       <span id=\"" + service.key + "Denied\" class=\"tarteaucitron-switch-state\" onclick=\"GDPRConsent.respond(this, event);\">" + GDPRConsent.lang.deny + "</span>";
 			html += "   </div>";
 			html += "</li>";
 
@@ -313,7 +313,7 @@ const GDPRConsent = {
 			}
 			userInterface.openAlert();
 		}
-		
+
 		cookies.checkCount(service.key, service, GDPRConsent.lang);
 		sendEvent(service.key + "_added");
 	},
@@ -354,8 +354,8 @@ const GDPRConsent = {
 	respondAll: function(status) {
 		userInterface.respondAll(status, GDPRConsent, GDPRConsent.parameters);
 	},
-	respond: function(el) {
-		userInterface.respond(el, GDPRConsent, GDPRConsent.parameters);
+	respond: function(el, evt) {
+		userInterface.respond(el, GDPRConsent, GDPRConsent.parameters, evt);
 	},
 	activate: function(id, status) {
 		userInterface.activate(id, status, GDPRConsent, GDPRConsent.parameters);

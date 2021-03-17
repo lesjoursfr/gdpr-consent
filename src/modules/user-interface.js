@@ -166,7 +166,7 @@ function respondAll(status, GDPRConsentState, GDPRConsentParameters) {
 	}
 }
 
-function respond(el, GDPRConsentState, GDPRConsentParameters) {
+function respond(el, GDPRConsentState, GDPRConsentParameters, event) {
 	"use strict";
 	var key = el.id.replace(new RegExp("(Eng[0-9]+|Allow|Deni)ed|Switch", "g"), ""),
 		status,

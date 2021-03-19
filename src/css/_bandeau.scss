@@ -9,7 +9,7 @@
 		display: none;
 		left: 0;
 		margin: auto;
-		padding: 8% 0;
+		padding: 4% 0 0;
 		position: fixed;
 		text-align: left;
 		width: 100%;
@@ -75,24 +75,42 @@
 	}
 
 	#tarteaucitron-disclaimer-buttons {
+		align-items: center;
+		border-top: dashed 1px $color-light;
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
 		margin-top: 5%;
+		padding-top: 5%;
 		width: 80%;
-	}
 
-	#tarteaucitron-close-alert,
-	#tarteaucitron-personalize {
-		background-color: $color-light;
-		color: $color-mid;
-		cursor: pointer;
-		font-size: .8rem;
-		opacity: .75;
-		padding: 3%;
-		text-transform: uppercase;
-		transition: opacity .45s ease;
+		#tarteaucitron-group-buttons {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+		}
 
-		&:hover {
+		button {
+			background-color: $color-light;
+			color: $color-mid;
+			cursor: pointer;
+			flex-grow: 0;
+			font-size: .7rem;
+			margin: 0 auto 6%;
+			opacity: .75;
+			padding: 3%;
+			text-transform: uppercase;
+			transition: opacity .45s ease;
+			width: auto;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		> button {
+			background-color: transparent;
+			color: $color-light;
 			opacity: 1;
 		}
 	}
@@ -104,49 +122,53 @@
 
 @media screen and (min-device-width: 660px) and (orientation: landscape) {
 	#tarteaucitron-root {
-		#tarteaucitron-alert-big {
-			padding: 5%;
-		}
-
 		#tarteaucitron-wrapper {
-			align-items: space-between;
+			align-items: initial;
 			flex-direction: row;
 		}
-	}
 
-	#tarteaucitron-alert-big {
-		#tarteaucitron-disclaimer-texte {
-			font-size: .9rem;
-			max-width: 750px;
-			text-align: left;
-			width: 60%;
-		}
+		#tarteaucitron-alert-big {
+			padding: 4%;
 
-		#tarteaucitron-disclaimer-buttons {
-			display: flex;
-			flex-direction: column;
-			margin-top: 0;
-			width: inherit;
-		}
+			#tarteaucitron-disclaimer-texte {
+				font-size: .7rem;
+				max-width: 750px;
+				text-align: left;
+				width: 50%;
+			}
 
-		#tarteaucitron-site-disclaimer-title {
-			margin-bottom: 5%;
-			text-align: left;
-		}
+			#tarteaucitron-disclaimer-buttons {
+				align-items: flex-end;
+				border: 0;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				margin-top: 0;
+				padding-top: 0;
+				width: 45%;
 
-		#tarteaucitron-close-alert,
-		#tarteaucitron-personalize {
-			font-size: .8rem;
-			padding: 5%;
-		}
+				#tarteaucitron-group-buttons {
+					display: flex;
+					justify-content: space-around;
+					width: 100%;
+				}
 
-		#tarteaucitron-personalize {
-			margin-bottom: 10%;
+				button {
+					font-size: .65rem;
+					margin: 0;
+					padding: 3%;
+				}
+			}
+
+			#tarteaucitron-site-disclaimer-title {
+				margin-bottom: 5%;
+				text-align: left;
+			}
 		}
 	}
 }
 
-@media screen and (min-device-width: 728px) {
+@media screen and (min-device-width: 768px) {
 	#tarteaucitron-root {
 		#tarteaucitron-alert-big {
 			padding: 4% 10%;
@@ -169,14 +191,31 @@
 		}
 
 		#tarteaucitron-disclaimer-buttons {
+			align-items: center;
+			border: 0;
+			flex-direction: row;
 			justify-content: space-around;
-			margin-top: 5%;
-		}
+			padding-top: 0;
 
-		#tarteaucitron-close-alert,
-		#tarteaucitron-personalize {
-			font-size: 1rem;
-			padding: 3% 4%;
+			button {
+				font-size: .75rem;
+				line-height: 1.5em;
+				margin: 0;
+				padding: 3%;
+			}
+
+			> button {
+				order: 2;
+				padding: 0;
+				text-align: right;
+				width: 40%;
+			}
+
+			#tarteaucitron-group-buttons {
+				justify-content: space-between;
+				order: 1;
+				width: 50%;
+			}
 		}
 	}
 }
@@ -185,46 +224,49 @@
 	#tarteaucitron-root {
 		#tarteaucitron-alert-big {
 			padding: 3%;
+
+			#tarteaucitron-disclaimer-texte {
+				font-size: 1rem;
+				max-width: 750px;
+				text-align: left;
+				width: 60%;
+			}
+
+			#tarteaucitron-disclaimer-buttons {
+				align-items: flex-end;
+				flex-direction: column;
+				margin-top: 0;
+				width: 40%;
+
+				button {
+					font-size: .7rem;
+					margin-left: 20px;
+					padding: 3%;
+					width: auto;
+				}
+
+				> button {
+					margin: 0;
+					order: 1;
+					padding: 0;
+				}
+
+				#tarteaucitron-group-buttons {
+					justify-content: flex-end;
+					order: 2;
+				}
+			}
+
+			#tarteaucitron-site-disclaimer-title {
+				font-size: 1.1rem;
+				margin-bottom: 20px;
+				text-align: left;
+			}
 		}
 
 		#tarteaucitron-wrapper {
 			align-items: space-between;
 			flex-direction: row;
-		}
-	}
-
-	#tarteaucitron-alert-big {
-		#tarteaucitron-disclaimer-texte {
-			font-size: 1rem;
-			max-width: 750px;
-			text-align: left;
-			width: 60%;
-		}
-
-		#tarteaucitron-disclaimer-buttons {
-			align-self: flex-end;
-			flex-direction: row;
-			flex-grow: 1;
-			justify-content: flex-end;
-			margin-top: 0;
-			width: inherit;
-		}
-
-		#tarteaucitron-site-disclaimer-title {
-			font-size: 1.1rem;
-			margin-bottom: 20px;
-			text-align: left;
-		}
-
-		#tarteaucitron-close-alert,
-		#tarteaucitron-personalize {
-			font-size: .8rem;
-			padding: 3% 4%;
-		}
-
-		#tarteaucitron-personalize {
-			margin-bottom: 0;
-			margin-right: 5%;
 		}
 	}
 }
@@ -233,27 +275,33 @@
 	#tarteaucitron-root {
 		#tarteaucitron-alert-big {
 			padding: 2% 3%;
-		}
-	}
 
-	#tarteaucitron-alert-big {
-		#tarteaucitron-disclaimer-texte {
-			line-height: 1.4em;
-		}
+			#tarteaucitron-disclaimer-texte {
+				line-height: 1.4em;
+			}
 
-		#tarteaucitron-site-disclaimer-title {
-			font-size: 1.2rem;
-			margin-bottom: 2%;
-		}
+			#tarteaucitron-site-disclaimer-title {
+				font-size: 1.2rem;
+				margin-bottom: 2%;
+			}
 
-		#tarteaucitron-close-alert,
-		#tarteaucitron-personalize {
-			font-size: .9rem;
-			padding: 2%;
-		}
+			#tarteaucitron-disclaimer-buttons {
+				align-items: flex-end;
 
-		#tarteaucitron-personalize {
-			margin-right: 8%;
+				button {
+					font-size: .8rem;
+					margin-left: 35px;
+					padding: 2% 3%;
+				}
+
+				> button {
+					padding: 0;
+				}
+			}
+
+			#tarteaucitron-personalize {
+				margin-right: 8%;
+			}
 		}
 	}
 }

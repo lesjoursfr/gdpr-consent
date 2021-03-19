@@ -9,6 +9,7 @@ const en = {
 	alertBigPrivacy: "This site uses cookies and gives you control over what you want to activate",
 	personalize: "Personalize",
 	acceptAll: "OK, accept all",
+	continue: "Reject cookies & keep on browsing",
 	close: "Close",
 
 	all: "Preference for all services",

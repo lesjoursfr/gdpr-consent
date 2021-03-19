@@ -24,6 +24,7 @@ function openAlert() {
 
 function closePanel(GDPRConsentState) {
 	"use strict";
+	console.log(GDPRConsentState.reloadThePage);
 
 	if (document.location.hash === GDPRConsentState.hashtag) {
 		if (window.history) {
@@ -203,13 +204,13 @@ function respond(el, GDPRConsentState, GDPRConsentParameters, event) {
 		GDPRConsentState.services[key].js();
 	}
 
+	if ((status === false) && (GDPRConsentState.launch[key] === true)) {
+		GDPRConsentState.reloadThePage = true;
+	}
+
 	GDPRConsentState.state[key] = status;
 	cookies.create(key, status, GDPRConsentParameters);
 	respondEffect(key, status, GDPRConsentState);
-
-	if ((status === false) && (GDPRConsentState.launch[key] === true)) {
-		window.location.reload();
-	}
 }
 
 function activate(id, status, GDPRConsentState, GDPRConsentParameters) {

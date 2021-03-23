@@ -32,7 +32,7 @@ const GDPRConsent = {
 					events.keydownEvent(false, evt);
 				}, false);
 				window.addEventListener("hashchange", function() {
-					events.hashchangeEvent(GDPRConsent.parameters);
+					events.hashchangeEvent(GDPRConsent);
 				}, false);
 			} else {
 				window.attachEvent("onload", function() {
@@ -42,7 +42,7 @@ const GDPRConsent = {
 					events.keydownEvent(true, evt);
 				});
 				window.attachEvent("onhashchange", function() {
-					events.hashchangeEvent(GDPRConsent.parameters);
+					events.hashchangeEvent(GDPRConsent);
 				});
 			}
 		}

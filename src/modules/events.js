@@ -6,9 +6,9 @@ function keydownEvent(isOldBrowser, evt) {
 	}
 }
 
-function hashchangeEvent(GDPRConsentParameters) {
-	if (document.location.hash === GDPRConsentParameters.hashtag) {
-		userInterface.openPanel();
+function hashchangeEvent(GDPRConsent) {
+	if (document.location.hash === GDPRConsent.parameters.hashtag) {
+		userInterface.openPanel(GDPRConsent);
 	}
 }
 

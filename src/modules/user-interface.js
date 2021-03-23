@@ -24,7 +24,6 @@ function openAlert() {
 
 function closePanel(GDPRConsentState) {
 	"use strict";
-	console.log(GDPRConsentState.reloadThePage);
 
 	if (document.location.hash === GDPRConsentState.hashtag) {
 		if (window.history) {

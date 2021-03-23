@@ -316,7 +316,9 @@ const GDPRConsent = {
 			if (typeof service.fallback === "function") {
 				service.fallback();
 			}
-			userInterface.openAlert();
+			if (service.lazyConsent !== true) {
+				userInterface.openAlert();
+			}
 		}
 
 		cookies.checkCount(service.key, service, GDPRConsent.lang);

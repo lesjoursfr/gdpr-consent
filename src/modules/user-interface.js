@@ -219,15 +219,15 @@ function respond(el, GDPRConsentState, GDPRConsentParameters, event) {
 	respondEffect(key, status, GDPRConsentState);
 }
 
-function activate(id, status, GDPRConsentState, GDPRConsentParameters) {
+function activate(id, GDPRConsentState, GDPRConsentParameters) {
 	"use strict";
-	if ((GDPRConsentState.state[id] === undefined|false) && (GDPRConsentState.launch[id] !== true)) {
-		GDPRConsentState.launch[id] = status;
+	if (GDPRConsentState.launch[id] !== true) {
+		GDPRConsentState.launch[id] = true;
 		sendEvent(id + "_loaded");
 		GDPRConsentState.services[id].js();
-		GDPRConsentState.state[id] = status;
-		cookies.create(id, status, GDPRConsentParameters);
-		respondEffect(id, status, GDPRConsentState);
+		GDPRConsentState.state[id] = true;
+		cookies.create(id, true, GDPRConsentParameters);
+		respondEffect(id, true, GDPRConsentState);
 	} else {
 		return;
 	}

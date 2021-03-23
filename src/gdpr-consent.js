@@ -362,8 +362,8 @@ const GDPRConsent = {
 	respond: function(el, evt) {
 		userInterface.respond(el, GDPRConsent, GDPRConsent.parameters, evt);
 	},
-	activate: function(id, status) {
-		userInterface.activate(id, status, GDPRConsent, GDPRConsent.parameters);
+	activate: function(id) {
+		userInterface.activate(id, GDPRConsent, GDPRConsent.parameters);
 	},
 	toggle: function(id, closeClass) {
 		userInterface.toggle(id, closeClass);

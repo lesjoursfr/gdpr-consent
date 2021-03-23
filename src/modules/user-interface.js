@@ -90,14 +90,15 @@ function respondEffect(key, choice, GDPRConsentState) {
 			} else {
 				nbDenied += 1;
 			}
-		}
-		if (cookieId !== "vimeo" && cookieId !== "youtube" && cookieState !== undefined) {
-			cookieCounter += 1;
+
+			if (cookieId !== "vimeo" && cookieId !== "youtube") {
+				cookieCounter += 1;
+			}
 		}
 	}
 
 	// Si tous les cookies (même si pas vimeo & YT) ont été répondus, je ferme le bandeau
-	if (cookieCounter === 5) {
+	if (cookieCounter === (GDPRConsentState.job.length - 2)) {
 		closeAlert();
 	}
 

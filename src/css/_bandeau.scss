@@ -305,3 +305,9 @@
 		}
 	}
 }
+
+@media print {
+	#tarteaucitron-alert-big {
+		display: none !important;
+	}
+}

@@ -57,9 +57,9 @@ function respondEffect(key, choice, GDPRConsentState) {
 		allowedState = document.getElementById(key + "Allowed"),
 		deniedState = document.getElementById(key + "Denied"),
 		index,
-		cookieId,
-		cookieState,
-		cookieCounter = 0,
+		serviceId,
+		serviceState,
+		missingResponses = false,
 		nbAllowed = 0,
 		nbDenied = 0;
 
@@ -81,23 +81,21 @@ function respondEffect(key, choice, GDPRConsentState) {
 
 	// Compter quels cookies ont été acceptés/refusés/répondus
 	for (index = 0; index < GDPRConsentState.job.length; index++) {
-		cookieId = GDPRConsentState.job[index];
-		cookieState = GDPRConsentState.state[cookieId];
-		if (cookieState !== undefined) {
-			if (cookieState === true) {
+		serviceId = GDPRConsentState.job[index];
+		serviceState = GDPRConsentState.state[serviceId];
+		if (serviceState !== undefined) {
+			if (serviceState === true) {
 				nbAllowed += 1;
 			} else {
 				nbDenied += 1;
 			}
-
-			if (cookieId !== "vimeo" && cookieId !== "youtube") {
-				cookieCounter += 1;
-			}
+		} else if (GDPRConsentState.services[serviceId].lazyConsent !== true) {
+			missingResponses = true;
 		}
 	}
 
-	// Si tous les cookies (même si pas vimeo & YT) ont été répondus, je ferme le bandeau
-	if (cookieCounter === (GDPRConsentState.job.length - 2)) {
+	// Si tous les cookies obligatoires ont été répondus, je ferme le bandeau
+	if (!missingResponses) {
 		closeAlert();
 	}
 

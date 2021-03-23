@@ -4,6 +4,7 @@ export default () => ({
 	name: "Vimeo",
 	uri: "https://vimeo.com/privacy",
 	needConsent: true,
+	lazyConsent: true,
 	cookies: ["__utmt_player", "__utma", "__utmb", "__utmc", "__utmv", "vuid", "__utmz", "player"],
 	js: function() {
 		"use strict";

@@ -7,6 +7,7 @@ export default (GDPRConsentUser) => ({
 	name: "Google Analytics (gtag.js)",
 	uri: "https://support.google.com/analytics/answer/6004245",
 	needConsent: true,
+	lazyConsent: false,
 	cookies: (function() {
 		// Add _gat_gtag_UA_XXXXXXX_XX cookie to cookies array
 		var gatGtagUaCookie = "_gat_gtag_" + GDPRConsentUser.gtagUa;

@@ -7,6 +7,7 @@ export default () => ({
 	name: "Facebook",
 	uri: "https://www.facebook.com/policies/cookies/",
 	needConsent: true,
+	lazyConsent: false,
 	cookies: [],
 	js: function() {
 		"use strict";

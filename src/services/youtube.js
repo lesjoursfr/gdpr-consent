@@ -4,6 +4,7 @@ export default () => ({
 	name: "YouTube",
 	uri: "https://policies.google.com/privacy",
 	needConsent: true,
+	lazyConsent: true,
 	cookies: ["VISITOR_INFO1_LIVE", "YSC", "PREF", "GEUP"],
 	js: function() {
 		"use strict";

@@ -6,6 +6,7 @@ export default () => ({
 	name: "Twitter",
 	uri: "https://support.twitter.com/articles/20170514",
 	needConsent: true,
+	lazyConsent: false,
 	cookies: [],
 	js: function() {
 		"use strict";

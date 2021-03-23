@@ -7,6 +7,7 @@ export default (GDPRConsentUser) => ({
 	name: "Facebook Pixel",
 	uri: "https://www.facebook.com/policies/cookies/",
 	needConsent: true,
+	lazyConsent: false,
 	cookies: ["datr", "fr", "reg_ext_ref", "reg_fb_gate", "reg_fb_ref", "sb", "wd", "x-src"],
 	js: function() {
 		"use strict";

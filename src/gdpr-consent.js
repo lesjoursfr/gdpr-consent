@@ -1,3 +1,5 @@
+const escape = require("lodash/escape");
+
 import "./css/main.scss";
 import { sendEvent } from "./utils/event";
 import { css } from "./utils/dom";
@@ -7,6 +9,7 @@ import cookies from "./modules/cookies";
 import events from "./modules/events";
 import userInterface from "./modules/user-interface";
 
+// eslint-disable-next-line one-var
 const GDPRConsent = {
 	user: {},
 	lang: {},
@@ -100,7 +103,7 @@ const GDPRConsent = {
 		html += "			<div id=\"tarteaucitron-info\">";
 		html += "       	" + GDPRConsent.lang.disclaimer;
 		if (GDPRConsent.parameters.websiteName) {
-			html += "   	" + GDPRConsent.lang.disclaimerWebsite + " " + GDPRConsent.parameters.websiteName + ".";
+			html += "   	" + GDPRConsent.lang.disclaimerWebsite + " " + escape(GDPRConsent.parameters.websiteName) + ".";
 		}
 		html += "       	</div>";
 		// Accepter tout ou interdire tout

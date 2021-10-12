@@ -1,40 +1,20 @@
 {
-	"parser": "babel-eslint",
-	"extends": [
-		"eslint:recommended"
-	],
 	"env": {
-		"browser": true,
-		"node":    true,
-		"es6":     true
+		"commonjs": true,
+		"es6": true,
+		"node": true
+	},
+	"extends": [
+		"standard"
+	],
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"sourceType": "module"
 	},
 	"rules": {
-		"brace-style":                 ["error", "1tbs", { "allowSingleLine": true }],
-		"camelcase":                   ["error"],
-		"comma-style":                 ["error", "last"],
-		"curly":                       ["error"],
-		"eqeqeq":                      ["error"],
-		"eol-last":                    ["off"],
-		"indent":                      ["error", "tab", { "SwitchCase": 1 }],
-		"key-spacing":                 ["off"],
-		"max-nested-callbacks":        ["error", 5],
-		"new-cap":                     ["error", { "newIsCap": true, "capIsNew": false }],
-		"no-global-assign":            ["error", { "exceptions": [] }],
-		"no-lonely-if":                ["warn"],
-		"no-mixed-spaces-and-tabs":    ["error", "smart-tabs"],
-		"no-multiple-empty-lines":     ["warn"],
-		"no-nested-ternary":           ["error"],
-		"no-underscore-dangle":        ["off"],
-		"no-use-before-define":        ["error"],
-		"one-var":                     ["error", "always"],
-		"padded-blocks":               ["warn", "never"],
-		"quote-props":                 ["error", "consistent-as-needed"],
-		"quotes":                      ["warn", "double"],
-		"semi":                        ["error", "always"],
-		"keyword-spacing":             ["warn", { "before": true }],
-		"space-before-blocks":         ["warn", "always"],
-		"space-before-function-paren": ["warn", "never"],
-		"space-in-parens":             ["warn", "never"],
-		"spaced-comment":              ["warn", "always"]
+		"semi": [
+			"error",
+			"always"
+		]
 	}
 }

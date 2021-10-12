@@ -1,7 +1,25 @@
 {
+    "search.exclude": {
+        "**/.git/**": true,
+        "**/node_modules/**": true,
+        "**/.yarn/**": true
+    },
     "search.maintainFileSearchCache": true,
-    "eslint.format.enable": true,
     "files.exclude": {
-        "**/node_modules": true
+        "**/.git/**": true,
+        "**/node_modules/**": true,
+        "**/.yarn/**": true
+    },
+    "files.watcherExclude": {
+        "**/.git/**": true,
+        "**/node_modules/**": true,
+        "**/.yarn/**": true
+    },
+    "eslint.format.enable": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
     }
 }

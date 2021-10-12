@@ -9,7 +9,7 @@
 		"url": "https://github.com/lesjoursfr/gdpr-consent/issues"
 	},
 	"engines": {
-		"node": ">=12"
+		"node": ">=v14.18.0"
 	},
 	"browserslist": "> 0.5%, last 3 versions, Firefox ESR, iOS >= 9",
 	"scripts": {
@@ -32,7 +32,11 @@
 		"babel-eslint": "^10.1.0",
 		"babel-loader": "^8.2.2",
 		"css-loader": "^6.4.0",
-		"eslint": "^8.0.0",
+		"eslint": "^7.32.0",
+		"eslint-config-standard": "^16.0.3",
+		"eslint-plugin-import": "^2.25.1",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^5.1.0",
 		"lodash": "^4.17.21",
 		"mini-css-extract-plugin": "^2.4.2",
 		"sass": "^1.42.1",
@@ -42,5 +46,6 @@
 		"webpack": "^5.58.1",
 		"webpack-cli": "^4.9.0",
 		"webpack-dev-server": "^4.3.1"
-	}
+	},
+	"packageManager": "yarn@3.0.2"
 }

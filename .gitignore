@@ -1,4 +1,12 @@
-node_modules
+# Yarn lockfile
 yarn.lock
-build
-.DS_Store
+
+# Yarn & node.js dependencies
+node_modules/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

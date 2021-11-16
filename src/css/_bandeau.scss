@@ -34,7 +34,7 @@
 		color: $color-light;
 		display: block;
 		font-family: $font-family-title;
-		font-size: .9rem;
+		font-size: 0.9rem;
 		font-style: italic;
 		font-weight: 600;
 		line-height: 1;
@@ -43,7 +43,7 @@
 	}
 
 	#tarteaucitron-disclaimer-texte {
-		font-size: .9rem;
+		font-size: 0.9rem;
 		line-height: 1.2em;
 		text-align: center;
 		width: 80%;
@@ -51,7 +51,6 @@
 
 	#tarteaucitron-site-disclaimer-message,
 	#tarteaucitron-disclaimer-alert {
-
 		&,
 		a,
 		i,
@@ -95,12 +94,12 @@
 			color: $color-mid;
 			cursor: pointer;
 			flex-grow: 0;
-			font-size: .7rem;
+			font-size: 0.7rem;
 			margin: 0 auto 6%;
-			opacity: .75;
+			opacity: 0.75;
 			padding: 3%;
 			text-transform: uppercase;
-			transition: opacity .45s ease;
+			transition: opacity 0.45s ease;
 			width: auto;
 
 			&:hover {
@@ -131,7 +130,7 @@
 			padding: 4%;
 
 			#tarteaucitron-disclaimer-texte {
-				font-size: .7rem;
+				font-size: 0.7rem;
 				max-width: 750px;
 				text-align: left;
 				width: 50%;
@@ -154,7 +153,7 @@
 				}
 
 				button {
-					font-size: .65rem;
+					font-size: 0.65rem;
 					margin: 0;
 					padding: 3%;
 				}
@@ -198,7 +197,7 @@
 			padding-top: 0;
 
 			button {
-				font-size: .75rem;
+				font-size: 0.75rem;
 				line-height: 1.5em;
 				margin: 0;
 				padding: 3%;
@@ -239,7 +238,7 @@
 				width: 40%;
 
 				button {
-					font-size: .7rem;
+					font-size: 0.7rem;
 					margin-left: 20px;
 					padding: 3%;
 					width: auto;
@@ -289,7 +288,7 @@
 				align-items: flex-end;
 
 				button {
-					font-size: .8rem;
+					font-size: 0.8rem;
 					margin-left: 35px;
 					padding: 2% 3%;
 				}

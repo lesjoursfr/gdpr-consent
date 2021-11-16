@@ -1,8 +1,8 @@
-@import 'reset';
-@import 'variables';
-@import 'bandeau';
-@import 'control-panel';
-@import 'card';
+@import "reset";
+@import "variables";
+@import "bandeau";
+@import "control-panel";
+@import "card";
 
 /////////////////////////////////////////////
 // Global                                  //
@@ -91,12 +91,10 @@
 		vertical-align: initial;
 	}
 
-	div {
-		&#tarteaucitron {
-			left: 0;
-			margin: auto;
-			right: 0;
-		}
+	#tarteaucitron {
+		left: 0;
+		margin: auto;
+		right: 0;
 	}
 
 	button {
@@ -108,9 +106,9 @@
 			border: 0;
 			outline: none;
 		}
+	}
 
-		&#tarteaucitron-back {
-			background: $color-light;
-		}
+	#tarteaucitron-back {
+		background: $color-light;
 	}
 }

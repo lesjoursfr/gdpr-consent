@@ -1,0 +1,24 @@
+{
+	"extends": "stylelint-config-sass-guidelines",
+	"ignoreFiles": [
+		"**/*.html",
+		"**/*.php",
+		"**/*.js"
+	],
+	"rules": {
+		"indentation": "tab",
+		"string-quotes": "double",
+		"selector-max-id": 8,
+		"selector-max-compound-selectors": 8,
+		"selector-no-qualifying-type": [
+			true,
+			{
+				"ignore": [
+					"attribute",
+					"class"
+				]
+			}
+		],
+		"max-nesting-depth": 4
+	}
+}

@@ -6,7 +6,7 @@
 	display: none;
 	height: 100%;
 	left: 0;
-	opacity: .7;
+	opacity: 0.7;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -27,10 +27,10 @@
 		cursor: pointer;
 		font-size: 1.5em;
 		margin: 2%;
-		opacity: .7;
+		opacity: 0.7;
 		position: absolute;
 		right: 0;
-		transition: opacity .3s;
+		transition: opacity 0.3s;
 
 		&:hover {
 			opacity: 1;
@@ -51,7 +51,7 @@
 
 			&::before {
 				background-color: $color-mid;
-				content: '';
+				content: "";
 				display: inline-block;
 				height: 3px;
 				margin-right: 10px;
@@ -87,7 +87,7 @@
 		#tarteaucitron-info {
 			border-bottom: solid 1px $color-mid;
 			border-top: solid 1px $color-mid;
-			font-size: .9rem;
+			font-size: 0.9rem;
 			line-height: 1.2em;
 			margin: 5%;
 			padding: 20px 0;
@@ -103,12 +103,12 @@
 				background-color: transparent;
 				border: solid 2px $color-mid;
 				color: $color-mid;
-				font-size: .7rem;
+				font-size: 0.7rem;
 				margin-top: 2%;
-				opacity: .5;
+				opacity: 0.5;
 				padding: 8px;
 				text-transform: uppercase;
-				transition: background-color .3s, color .3s, opacity .3s;
+				transition: background-color 0.3s, color 0.3s, opacity 0.3s;
 
 				&:hover {
 					cursor: pointer;
@@ -137,7 +137,7 @@
 				cursor: pointer;
 				display: inline-block;
 				font-family: $font-family-title;
-				font-size: .8rem;
+				font-size: 0.8rem;
 				font-weight: 700;
 				padding: 2%;
 				text-align: left;
@@ -171,7 +171,7 @@
 		margin: 8% 10%;
 
 		.tarteaucitron-cookie-text {
-			font-size: .9rem;
+			font-size: 0.9rem;
 			width: 100%;
 
 			.tarteaucitron-h3 {
@@ -187,12 +187,12 @@
 				color: $color-mid;
 				display: block;
 				font-family: $font-family-text;
-				font-size: .8rem;
+				font-size: 0.8rem;
 				font-weight: 400;
 				margin-top: 5px;
 
 				&::before {
-					content: '→ ';
+					content: "→ ";
 				}
 			}
 		}
@@ -206,7 +206,7 @@
 
 			button {
 				color: $color-mid;
-				font-size: .8rem;
+				font-size: 0.8rem;
 			}
 		}
 
@@ -214,11 +214,11 @@
 			color: $color-mid;
 			cursor: pointer;
 			font-family: $font-family-text;
-			font-size: .8rem;
+			font-size: 0.8rem;
 			margin: 0 10px;
-			opacity: .4;
+			opacity: 0.4;
 			padding: 0 !important;
-			transition: opacity .3s;
+			transition: opacity 0.3s;
 
 			&:hover {
 				border-bottom: solid 1px $color-mid;
@@ -232,7 +232,7 @@
 
 			&.solo {
 				cursor: auto;
-				opacity: .4;
+				opacity: 0.4;
 
 				&:focus {
 					border-bottom: 0;
@@ -246,9 +246,9 @@
 			border-radius: 15px;
 			cursor: pointer;
 			height: 17px;
-			opacity: .5;
+			opacity: 0.5;
 			position: relative;
-			transition: opacity .4s;
+			transition: opacity 0.4s;
 			width: 42px;
 
 			.tarteaucitron-switch-button {
@@ -303,7 +303,6 @@
 		}
 
 		#tarteaucitron-services-top {
-
 			.tarteaucitron-h1 {
 				font-size: 1.1rem;
 				margin-top: 0;
@@ -331,7 +330,7 @@
 
 			.tarteaucitron-cookie-text {
 				.tarteaucitron-description {
-					font-size: .9rem;
+					font-size: 0.9rem;
 					line-height: 1.5em;
 				}
 			}
@@ -339,7 +338,7 @@
 			.tarteaucitron-cookie-buttons {
 				button,
 				.tarteaucitron-switch-state {
-					font-size: .9rem;
+					font-size: 0.9rem;
 				}
 			}
 
@@ -353,7 +352,7 @@
 			}
 
 			.tarteaucitron-details {
-				font-size: .8rem;
+				font-size: 0.8rem;
 			}
 		}
 	}
@@ -378,7 +377,7 @@
 			}
 
 			#tarteaucitron-info {
-				font-size: .8rem;
+				font-size: 0.8rem;
 				line-height: 1.1rem;
 				padding: 1.5% 0;
 			}
@@ -386,7 +385,7 @@
 			.tarteaucitron-ask {
 				#tarteaucitron-all-allowed,
 				#tarteaucitron-all-denied {
-					font-size: .8rem;
+					font-size: 0.8rem;
 					padding: 10px;
 				}
 			}
@@ -413,7 +412,7 @@
 			}
 
 			.tarteaucitron-details {
-				font-size: .7rem;
+				font-size: 0.7rem;
 				line-height: 1.4em;
 			}
 		}
@@ -454,7 +453,7 @@
 
 						#tarteaucitron-all-allowed,
 						#tarteaucitron-all-denied {
-							font-size: .8rem;
+							font-size: 0.8rem;
 							margin-top: 0;
 							padding: 6px;
 						}
@@ -466,7 +465,7 @@
 
 					.tarteaucitron-title {
 						button {
-							padding: .5% .5% .5% 15%;
+							padding: 0.5% 0.5% 0.5% 15%;
 						}
 					}
 

@@ -31,13 +31,13 @@
 			color: $color-mid;
 			cursor: pointer;
 			font-family: $font-family-title;
-			font-size: .9rem;
+			font-size: 0.9rem;
 			margin-top: 20px;
 			padding: 2% 3%;
-			transition: opacity .3s;
+			transition: opacity 0.3s;
 
 			&:hover {
-				opacity: .85;
+				opacity: 0.85;
 			}
 		}
 	}
@@ -51,7 +51,7 @@
 		bottom: 20px;
 		color: $color-light;
 		font-family: $font-family-text;
-		font-size: .8rem;
+		font-size: 0.8rem;
 		position: absolute;
 		text-decoration: none;
 

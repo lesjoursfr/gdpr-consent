@@ -38,7 +38,7 @@
 		"eslint-plugin-promise": "^5.2.0",
 		"lodash": "^4.17.21",
 		"mini-css-extract-plugin": "^2.5.3",
-		"postcss": "^8.4.5",
+		"postcss": "^8.4.6",
 		"sass": "^1.49.4",
 		"sass-loader": "^12.4.0",
 		"style-loader": "^3.3.1",

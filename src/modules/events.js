@@ -13,6 +13,6 @@ function hashchangeEvent (GDPRConsent) {
 }
 
 export default {
-  keydownEvent: keydownEvent,
-  hashchangeEvent: hashchangeEvent
+  keydownEvent,
+  hashchangeEvent
 };

@@ -13,6 +13,7 @@
 	},
 	"browserslist": "> 0.5%, last 3 versions, Firefox ESR, iOS >= 9",
 	"scripts": {
+		"lint": "npx eslint --fix src/",
 		"server": "webpack serve --mode development --config webpack.config.js --hot --open",
 		"build": "webpack --mode production --config webpack.config.js --progress"
 	},
@@ -31,11 +32,11 @@
 		"@babel/preset-env": "^7.16.11",
 		"babel-loader": "^8.2.3",
 		"css-loader": "^6.6.0",
-		"eslint": "^7.32.0",
-		"eslint-config-standard": "^16.0.3",
+		"eslint": "^8.10.0",
+		"eslint-config-standard": "^17.0.0-1",
 		"eslint-plugin-import": "^2.25.4",
-		"eslint-plugin-node": "^11.1.0",
-		"eslint-plugin-promise": "^5.2.0",
+		"eslint-plugin-n": "^15.0.1",
+		"eslint-plugin-promise": "^6.0.0",
 		"lodash": "^4.17.21",
 		"mini-css-extract-plugin": "^2.5.3",
 		"postcss": "^8.4.7",

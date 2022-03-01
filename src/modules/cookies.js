@@ -105,8 +105,8 @@ function checkCount (key, service, lang) {
 }
 
 export default {
-  read: read,
-  create: create,
-  purge: purge,
-  checkCount: checkCount
+  read,
+  create,
+  purge,
+  checkCount
 };

@@ -272,13 +272,13 @@ function order (id, GDPRConsentState) {
 }
 
 export default {
-  closeAlert: closeAlert,
-  openAlert: openAlert,
-  closePanel: closePanel,
-  openPanel: openPanel,
-  respondAll: respondAll,
-  respond: respond,
-  activate: activate,
-  toggle: toggle,
-  order: order
+  closeAlert,
+  openAlert,
+  closePanel,
+  openPanel,
+  respondAll,
+  respond,
+  activate,
+  toggle,
+  order
 };

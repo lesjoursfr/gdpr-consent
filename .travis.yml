@@ -6,21 +6,16 @@ if: branch = "stable" OR tag IS present
 jobs:
   include:
   - stage: Build project
-    name: Build the project on Linux with NodeJS 14
+    name: Build the project on Linux with NodeJS 16
     os: linux
     dist: focal
-    node_js: '14'
-    script: npm run build
-  - stage: Build project
-    name: Build the project on Windows with NodeJS 14
-    os: windows
-    node_js: '14'
+    node_js: '16'
     script: npm run build
   - stage: Release to NPM
     name: Publish the package to the npmjs repository
     os: linux
     dist: focal
-    node_js: '14'
+    node_js: '16'
     script: npm run build
     deploy:
       edge: true

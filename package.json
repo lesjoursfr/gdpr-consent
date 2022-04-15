@@ -13,6 +13,7 @@
 	},
 	"browserslist": "> 0.5%, last 3 versions, Firefox ESR, iOS >= 9",
 	"scripts": {
+		"freshlock": "rm -rf node_modules/ && rm .yarn/install-state.gz && rm -r .yarn/cache/ && rm yarn.lock && yarn",
 		"lint": "npx eslint --fix src/",
 		"server": "webpack serve --mode development --config webpack.config.js --hot --open",
 		"build": "webpack --mode production --config webpack.config.js --progress"

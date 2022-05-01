@@ -9,7 +9,7 @@
 		"url": "https://github.com/lesjoursfr/gdpr-consent/issues"
 	},
 	"engines": {
-		"node": ">=v16.14.2"
+		"node": ">=v16.15.0"
 	},
 	"browserslist": "> 0.5%, last 3 versions, Firefox ESR, iOS >= 9",
 	"scripts": {

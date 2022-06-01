@@ -29,26 +29,26 @@
 		"GDPR"
 	],
 	"devDependencies": {
-		"@babel/core": "^7.17.10",
-		"@babel/preset-env": "^7.17.10",
+		"@babel/core": "^7.18.2",
+		"@babel/preset-env": "^7.18.2",
 		"babel-loader": "^8.2.5",
 		"css-loader": "^6.7.1",
-		"eslint": "^8.14.0",
+		"eslint": "^8.16.0",
 		"eslint-config-standard": "^17.0.0",
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-n": "^15.2.0",
 		"eslint-plugin-promise": "^6.0.0",
 		"lodash": "^4.17.21",
 		"mini-css-extract-plugin": "^2.6.0",
-		"postcss": "^8.4.13",
-		"sass": "^1.51.0",
+		"postcss": "^8.4.14",
+		"sass": "^1.52.1",
 		"sass-loader": "^13.0.0",
 		"style-loader": "^3.3.1",
-		"stylelint": "^14.8.1",
+		"stylelint": "^14.8.5",
 		"stylelint-config-sass-guidelines": "^9.0.1",
-		"webpack": "^5.72.0",
+		"webpack": "^5.72.1",
 		"webpack-cli": "^4.9.2",
-		"webpack-dev-server": "^4.8.1"
+		"webpack-dev-server": "^4.9.1"
 	},
-	"packageManager": "yarn@3.2.0"
+	"packageManager": "yarn@3.2.1"
 }

@@ -428,50 +428,50 @@
 			#tarteaucitron-services {
 				height: 100%;
 				overflow: hidden;
+			}
 
-				#tarteaucitron-services-top {
-					padding: 30px 0 20px;
+			#tarteaucitron-services-top {
+				padding: 30px 0 20px;
 
-					#tarteaucitron-info {
-						width: 50%;
+				#tarteaucitron-info {
+					width: 50%;
+				}
+
+				.tarteaucitron-line {
+					align-items: center;
+					display: flex;
+					margin: 0 auto;
+					width: 70%;
+
+					.tarteaucitron-ask {
+						flex-grow: 1;
+						justify-content: flex-end;
 					}
 
-					.tarteaucitron-line {
-						align-items: center;
-						display: flex;
-						margin: 0 auto;
-						width: 70%;
+					#tarteaucitron-all-allowed {
+						margin-right: 5%;
+					}
 
-						.tarteaucitron-ask {
-							flex-grow: 1;
-							justify-content: flex-end;
-						}
+					#tarteaucitron-all-allowed,
+					#tarteaucitron-all-denied {
+						font-size: 0.8rem;
+						margin-top: 0;
+						padding: 6px;
+					}
+				}
+			}
 
-						#tarteaucitron-all-allowed {
-							margin-right: 5%;
-						}
+			#tarteaucitron-services-list {
+				overflow-y: scroll;
 
-						#tarteaucitron-all-allowed,
-						#tarteaucitron-all-denied {
-							font-size: 0.8rem;
-							margin-top: 0;
-							padding: 6px;
-						}
+				.tarteaucitron-title {
+					button {
+						padding: 0.5% 0.5% 0.5% 15%;
 					}
 				}
 
-				#tarteaucitron-services-list {
-					overflow-y: scroll;
-
-					.tarteaucitron-title {
-						button {
-							padding: 0.5% 0.5% 0.5% 15%;
-						}
-					}
-
-					.tarteaucitron-cookie-group {
-						width: 70%;
-					}
+				.tarteaucitron-cookie-group {
+					width: 70%;
 				}
 			}
 		}

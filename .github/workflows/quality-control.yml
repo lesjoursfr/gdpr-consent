@@ -33,25 +33,3 @@ jobs:
 
       - name: Prettier checks
         run: npm run check-style
-
-  tests:
-    name: Tests Node.js ${{ matrix.node-version }}
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install
-        run: npm install
-
-      - name: AVA Tests
-        run: npx ava

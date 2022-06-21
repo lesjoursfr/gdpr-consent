@@ -2,31 +2,34 @@
 	"search.exclude": {
 		"**/.git/**": true,
 		"**/node_modules/**": true,
-		"**/.yarn/**": true
+		"**/.yarn/**": true,
+		"**/build/**": true
 	},
-	"search.maintainFileSearchCache": true,
 	"files.exclude": {
 		"**/.git/**": true,
 		"**/node_modules/**": true,
-		"**/.yarn/**": true
+		"**/.yarn/**": true,
+		"**/build/**": true
 	},
 	"files.watcherExclude": {
 		"**/.git/**": true,
 		"**/node_modules/**": true,
-		"**/.yarn/**": true
+		"**/.yarn/**": true,
+		"**/build/**": true
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true
 	},
 	"eslint.format.enable": true,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 	"css.validate": false,
 	"less.validate": false,
 	"scss.validate": false,
-	"stylelint.validate": [
-		"css",
-		"scss"
-	],
-	"[javascript]": {
-		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
-	},
-	"editor.codeActionsOnSave": {
-		"source.fixAll": true
+	"stylelint.validate": ["css", "scss"],
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	}
 }

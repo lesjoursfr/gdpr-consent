@@ -2,10 +2,14 @@
 .vscode
 .yarn
 node_modules
+server
 .editorconfig
 .eslintignore
-.eslintrc.json
+.eslintrc.cjs
 .gitattributes
-.travis.yml
-.yarnrc.yml
+.gitignore
+.prettierignore
+.prettierrc.cjs
+.stylelintrc.json
 .whitesource
+.yarnrc.yml

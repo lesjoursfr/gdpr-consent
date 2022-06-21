@@ -1,5 +1,5 @@
 [![NPM version](https://badge.fury.io/js/gdpr-consent.svg)](http://badge.fury.io/js/gdpr-consent)
-[![Build Status](https://travis-ci.org/lesjoursfr/gdpr-consent.svg?branch=master)](https://travis-ci.org/lesjoursfr/gdpr-consent)
+[![QC Checks](https://github.com/lesjoursfr/gdpr-consent/actions/workflows/quality-control.yml/badge.svg)](https://github.com/lesjoursfr/gdpr-consent/actions/workflows/quality-control.yml)
 
 # gdpr-consent.js
 

@@ -1,46 +1,46 @@
 /* globals require:true, module: true, __dirname: true */
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   devServer: {
-    host: '127.0.0.1',
+    host: "127.0.0.1",
     port: 8084,
     static: [
       {
-        directory: path.resolve(__dirname, 'server'),
+        directory: path.resolve(__dirname, "server"),
         staticOptions: {},
-        publicPath: '/',
+        publicPath: "/",
         serveIndex: true,
-        watch: true
-      }
-    ]
+        watch: true,
+      },
+    ],
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'gdpr-consent.js',
-    library: 'GDPRConsent',
-    libraryTarget: 'umd'
+    path: path.resolve(__dirname, "build"),
+    filename: "gdpr-consent.js",
+    library: "GDPRConsent",
+    libraryTarget: "umd",
   },
-  target: 'browserslist',
+  target: "browserslist",
   module: {
     rules: [
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ["babel-loader"],
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      }
-    ]
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'gdpr-consent.css'
-    })
-  ]
+      filename: "gdpr-consent.css",
+    }),
+  ],
 };

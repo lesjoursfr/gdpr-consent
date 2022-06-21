@@ -1,12 +1,12 @@
-import userInterface from './user-interface';
+import userInterface from "./user-interface";
 
-function keydownEvent (isOldBrowser, evt) {
+function keydownEvent(isOldBrowser, evt) {
   if (evt.keyCode === 27) {
     userInterface.closePanel();
   }
 }
 
-function hashchangeEvent (GDPRConsent) {
+function hashchangeEvent(GDPRConsent) {
   if (document.location.hash === GDPRConsent.parameters.hashtag) {
     userInterface.openPanel(GDPRConsent);
   }
@@ -14,5 +14,5 @@ function hashchangeEvent (GDPRConsent) {
 
 export default {
   keydownEvent,
-  hashchangeEvent
+  hashchangeEvent,
 };

@@ -1,10 +1,10 @@
-import facebook from './facebook';
-import facebookpixel from './facebookpixel';
-import googletagmanager from './googletagmanager';
-import gtag from './gtag';
-import twitter from './twitter';
-import vimeo from './vimeo';
-import youtube from './youtube';
+import facebook from "./facebook";
+import facebookpixel from "./facebookpixel";
+import googletagmanager from "./googletagmanager";
+import gtag from "./gtag";
+import twitter from "./twitter";
+import vimeo from "./vimeo";
+import youtube from "./youtube";
 
 export default {
   getServices: (GDPRConsentUser) => {
@@ -15,7 +15,7 @@ export default {
       gtag: gtag(GDPRConsentUser),
       twitter: twitter(GDPRConsentUser),
       vimeo: vimeo(GDPRConsentUser),
-      youtube: youtube(GDPRConsentUser)
+      youtube: youtube(GDPRConsentUser),
     };
-  }
+  },
 };

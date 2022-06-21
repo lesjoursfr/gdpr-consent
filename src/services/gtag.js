@@ -18,9 +18,8 @@ export default (GDPRConsentUser) => ({
     "use strict";
     window.dataLayer = window.dataLayer || [];
     addScript("https://www.googletagmanager.com/gtag/js?id=" + GDPRConsentUser.gtagUa, "", function () {
-      // eslint-disable-next-line no-undef
       window.gtag = function gtag() {
-        dataLayer.push(arguments);
+        window.dataLayer.push(arguments);
       };
       gtag("js", new Date());
 

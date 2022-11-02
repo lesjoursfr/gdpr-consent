@@ -1,6 +1,6 @@
 import userInterface from "./user-interface";
 
-function keydownEvent(isOldBrowser, evt) {
+function keydownEvent(evt) {
   if (evt.keyCode === 27) {
     userInterface.closePanel();
   }

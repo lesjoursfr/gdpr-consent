@@ -27,39 +27,27 @@ const GDPRConsent = {
     GDPRConsent.parameters = params || {};
     if (GDPRConsent.alreadyLaunch === 0) {
       GDPRConsent.alreadyLaunch = 1;
-      if (window.addEventListener) {
-        window.addEventListener(
-          "load",
-          function () {
-            GDPRConsent.load();
-          },
-          false
-        );
-        window.addEventListener(
-          "keydown",
-          function (evt) {
-            events.keydownEvent(false, evt);
-          },
-          false
-        );
-        window.addEventListener(
-          "hashchange",
-          function () {
-            events.hashchangeEvent(GDPRConsent);
-          },
-          false
-        );
-      } else {
-        window.attachEvent("onload", function () {
+      window.addEventListener(
+        "load",
+        function () {
           GDPRConsent.load();
-        });
-        window.attachEvent("onkeydown", function (evt) {
-          events.keydownEvent(true, evt);
-        });
-        window.attachEvent("onhashchange", function () {
+        },
+        false
+      );
+      window.addEventListener(
+        "keydown",
+        function (evt) {
+          events.keydownEvent(evt);
+        },
+        false
+      );
+      window.addEventListener(
+        "hashchange",
+        function () {
           events.hashchangeEvent(GDPRConsent);
-        });
-      }
+        },
+        false
+      );
     }
   },
   load: function () {

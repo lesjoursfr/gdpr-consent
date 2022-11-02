@@ -27,13 +27,8 @@ const GDPRConsent = {
     GDPRConsent.parameters = params || {};
     if (GDPRConsent.alreadyLaunch === 0) {
       GDPRConsent.alreadyLaunch = 1;
-      window.addEventListener(
-        "load",
-        function () {
-          GDPRConsent.load();
-        },
-        false
-      );
+
+      // Bind events listeners
       window.addEventListener(
         "keydown",
         function (evt) {
@@ -48,6 +43,19 @@ const GDPRConsent = {
         },
         false
       );
+
+      // Check if the DOM is already loaded
+      if (window.document.readyState === "complete") {
+        GDPRConsent.load();
+      } else {
+        window.addEventListener(
+          "load",
+          function () {
+            GDPRConsent.load();
+          },
+          false
+        );
+      }
     }
   },
   load: function () {

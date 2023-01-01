@@ -45,7 +45,7 @@
 		"GDPR"
 	],
 	"devDependencies": {
-		"@babel/core": "^7.20.5",
+		"@babel/core": "^7.20.7",
 		"@babel/preset-env": "^7.20.2",
 		"babel-loader": "^9.1.0",
 		"css-loader": "^6.7.3",
@@ -59,15 +59,15 @@
 		"mini-css-extract-plugin": "^2.7.2",
 		"postcss": "^8.4.20",
 		"prettier": "^2.8.1",
-		"sass": "^1.57.0",
+		"sass": "^1.57.1",
 		"sass-loader": "^13.2.0",
 		"style-loader": "^3.3.1",
-		"stylelint": "^14.16.0",
+		"stylelint": "^14.16.1",
 		"stylelint-config-prettier": "^9.0.4",
 		"stylelint-config-sass-guidelines": "^9.0.1",
 		"webpack": "^5.75.0",
 		"webpack-cli": "^5.0.1",
 		"webpack-dev-server": "^4.11.1"
 	},
-	"packageManager": "yarn@3.3.0"
+	"packageManager": "yarn@3.3.1"
 }

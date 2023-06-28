@@ -1,4 +1,4 @@
-import "./css/main.scss";
+import escape from "lodash/escape";
 import { sendEvent } from "./utils/event";
 import { css } from "./utils/dom";
 import languages from "./languages/index";
@@ -6,8 +6,7 @@ import services from "./services/index";
 import cookies from "./modules/cookies";
 import events from "./modules/events";
 import userInterface from "./modules/user-interface";
-
-const escape = require("lodash/escape");
+import "./css/main.scss";
 
 // eslint-disable-next-line one-var
 const GDPRConsent = {

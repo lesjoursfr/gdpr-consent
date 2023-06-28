@@ -1,4 +1,4 @@
-const escape = require("lodash/escape");
+import escape from "lodash/escape";
 
 export default () => ({
   key: "youtube",

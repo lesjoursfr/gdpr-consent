@@ -1,4 +1,3 @@
-/* globals location:true */
 const owner = {};
 
 function crossIndexOf(arr, match) {

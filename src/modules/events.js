@@ -1,8 +1,8 @@
 import userInterface from "./user-interface";
 
-function keydownEvent(evt) {
+function keydownEvent(GDPRConsent, evt) {
   if (evt.keyCode === 27) {
-    userInterface.closePanel();
+    userInterface.closePanel(GDPRConsent);
   }
 }
 

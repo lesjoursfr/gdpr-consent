@@ -31,7 +31,7 @@ const GDPRConsent = {
       window.addEventListener(
         "keydown",
         function (evt) {
-          events.keydownEvent(evt);
+          events.keydownEvent(GDPRConsent, evt);
         },
         false
       );

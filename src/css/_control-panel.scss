@@ -108,7 +108,10 @@
 				opacity: 0.5;
 				padding: 8px;
 				text-transform: uppercase;
-				transition: background-color 0.3s, color 0.3s, opacity 0.3s;
+				transition:
+					background-color 0.3s,
+					color 0.3s,
+					opacity 0.3s;
 
 				&:hover {
 					cursor: pointer;

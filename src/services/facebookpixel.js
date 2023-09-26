@@ -24,7 +24,7 @@ export default (GDPRConsentUser) => ({
     n.loaded = !0;
     n.version = "2.0";
     n.queue = [];
-    addScript("https://connect.facebook.net/en_US/fbevents.js", "facebook-fbevents", function () {
+    addScript("https://connect.facebook.net/en_US/fbevents.js", { id: "facebook-fbevents" }, function () {
       fbq("init", GDPRConsentUser.fbPixelId);
       fbq("track", "PageView");
 

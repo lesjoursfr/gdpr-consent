@@ -1,35 +1,31 @@
-export function addScript(url, id, callback, execute, attrName, attrVal) {
+export function addScript(url, attributes, callback) {
   "use strict";
   let script;
   let done = false;
 
-  if (execute === false) {
-    if (typeof callback === "function") {
-      callback();
-    }
-  } else {
-    script = document.createElement("script");
-    script.type = "text/javascript";
-    script.id = id !== undefined ? id : "";
-    script.async = true;
-    script.src = url;
+  script = document.createElement("script");
+  script.type = "text/javascript";
+  script.async = true;
+  script.src = url;
 
-    if (attrName !== undefined && attrVal !== undefined) {
+  for (const attrName in attributes) {
+    const attrVal = attributes[attrName];
+    if (attrVal !== undefined) {
       script.setAttribute(attrName, attrVal);
     }
-
-    if (typeof callback === "function") {
-      script.onreadystatechange = script.onload = function () {
-        const state = script.readyState;
-        if (!done && (!state || /loaded|complete/.test(state))) {
-          done = true;
-          callback();
-        }
-      };
-    }
-
-    document.getElementsByTagName("head")[0].appendChild(script);
   }
+
+  if (typeof callback === "function") {
+    script.onreadystatechange = script.onload = function () {
+      const state = script.readyState;
+      if (!done && (!state || /loaded|complete/.test(state))) {
+        done = true;
+        callback();
+      }
+    };
+  }
+
+  document.getElementsByTagName("head")[0].appendChild(script);
 }
 
 export function searchElements(className, fn) {

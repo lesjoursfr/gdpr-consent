@@ -33,7 +33,7 @@ export default (GDPRConsentUser) => ({
   js: function () {
     "use strict";
     window.dataLayer = window.dataLayer || [];
-    addScript("https://www.googletagmanager.com/gtag/js?id=" + GDPRConsentUser.gtagUa, "", function () {
+    addScript("https://www.googletagmanager.com/gtag/js?id=" + GDPRConsentUser.gtagUa, {}, function () {
       window.gtag = function gtag() {
         window.dataLayer.push(arguments);
       };

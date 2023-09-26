@@ -11,6 +11,6 @@ export default () => ({
   cookies: [],
   js: function () {
     "use strict";
-    addScript("//connect.facebook.net/" + getLocale() + "/sdk.js", "facebook-jssdk");
+    addScript("//connect.facebook.net/" + getLocale() + "/sdk.js", { id: "facebook-jssdk" });
   },
 });

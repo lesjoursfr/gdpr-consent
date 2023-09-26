@@ -10,6 +10,6 @@ export default () => ({
   cookies: [],
   js: function () {
     "use strict";
-    addScript("//platform.twitter.com/widgets.js", "twitter-wjs");
+    addScript("//platform.twitter.com/widgets.js", { id: "twitter-wjs" });
   },
 });

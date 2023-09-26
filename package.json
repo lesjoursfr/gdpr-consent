@@ -21,6 +21,7 @@
 		"Firefox >= 60",
 		"Edge >= 79"
 	],
+	"main": "src/index.js",
 	"scripts": {
 		"freshlock": "rm -rf node_modules/ && rm .yarn/install-state.gz && rm -r .yarn/cache/ && rm yarn.lock && yarn",
 		"eslint-check": "eslint-config-prettier src/index.js",

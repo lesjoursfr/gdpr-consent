@@ -4,7 +4,7 @@ export default (GDPRConsentUser) => ({
   key: "googletagmanager",
   type: "api",
   name: "Google Tag Manager",
-  uri: "https://adssettings.google.com/",
+  uri: "https://policies.google.com/privacy",
   needConsent: true,
   lazyConsent: false,
   cookies: [

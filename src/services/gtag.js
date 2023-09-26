@@ -4,15 +4,31 @@ import { addScript } from "../utils/dom";
 export default (GDPRConsentUser) => ({
   key: "gtag",
   type: "analytic",
-  name: "Google Analytics (gtag.js)",
-  uri: "https://support.google.com/analytics/answer/6004245",
+  name: "Google Analytics (GA4)",
+  uri: "https://policies.google.com/privacy",
   needConsent: true,
   lazyConsent: false,
   cookies: (function () {
-    // Add _gat_gtag_UA_XXXXXXX_XX cookie to cookies array
-    let gatGtagUaCookie = "_gat_gtag_" + GDPRConsentUser.gtagUa;
-    gatGtagUaCookie = gatGtagUaCookie.replace(/-/g, "_");
-    return ["_ga", "_gat", "_gid", "__utma", "__utmb", "__utmc", "__utmt", "__utmz", gatGtagUaCookie];
+    const googleIdentifier = GDPRConsentUser.gtagUa;
+    let tagUaCookie = "_gat_gtag_" + googleIdentifier;
+    let tagGCookie = "_ga_" + googleIdentifier;
+
+    tagUaCookie = tagUaCookie.replace(/-/g, "_");
+    tagGCookie = tagGCookie.replace(/G-/g, "");
+
+    return [
+      "_ga",
+      "_gat",
+      "_gid",
+      "__utma",
+      "__utmb",
+      "__utmc",
+      "__utmt",
+      "__utmz",
+      tagUaCookie,
+      tagGCookie,
+      "_gcl_au",
+    ];
   })(),
   js: function () {
     "use strict";

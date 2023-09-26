@@ -5,10 +5,10 @@ export default (GDPRConsentUser) => ({
   key: "facebookpixel",
   type: "ads",
   name: "Facebook Pixel",
-  uri: "https://www.facebook.com/policies/cookies/",
+  uri: "https://www.facebook.com/policy.php",
   needConsent: true,
   lazyConsent: false,
-  cookies: ["datr", "fr", "reg_ext_ref", "reg_fb_gate", "reg_fb_ref", "sb", "wd", "x-src"],
+  cookies: ["datr", "fr", "reg_ext_ref", "reg_fb_gate", "reg_fb_ref", "sb", "wd", "x-src", "_fbp"],
   js: function () {
     "use strict";
     if (window.fbq) {
@@ -24,10 +24,13 @@ export default (GDPRConsentUser) => ({
     n.loaded = !0;
     n.version = "2.0";
     n.queue = [];
-    addScript("//connect.facebook.net/en_US/fbevents.js", "facebook-fbevents", function () {
-      // eslint-disable-next-line no-undef
+    addScript("https://connect.facebook.net/en_US/fbevents.js", "facebook-fbevents", function () {
       fbq("init", GDPRConsentUser.fbPixelId);
       fbq("track", "PageView");
+
+      if (typeof GDPRConsentUser.facebookpixelMore === "function") {
+        GDPRConsentUser.facebookpixelMore();
+      }
     });
   },
 });

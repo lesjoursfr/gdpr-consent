@@ -3,9 +3,9 @@
 /////////////////////////////////////////////
 #tarteaucitron-root {
 	#tarteaucitron-alert-big {
-		background: $color-mid;
+		background: $gdprcst-color-mid;
 		box-sizing: border-box;
-		color: $color-light;
+		color: $gdprcst-color-light;
 		display: none;
 		left: 0;
 		margin: auto;
@@ -27,13 +27,13 @@
 #tarteaucitron-alert-big {
 	strong,
 	a {
-		color: $color-light;
+		color: $gdprcst-color-light;
 	}
 
 	#tarteaucitron-site-disclaimer-title {
-		color: $color-light;
+		color: $gdprcst-color-light;
 		display: block;
-		font-family: $font-family-title;
+		font-family: $gdprcst-font-family-title;
 		font-size: 0.9rem;
 		font-style: italic;
 		font-weight: 600;
@@ -55,8 +55,8 @@
 		a,
 		i,
 		strong {
-			color: $color-light;
-			font-family: $font-family-text;
+			color: $gdprcst-color-light;
+			font-family: $gdprcst-font-family-text;
 			font-weight: 400;
 		}
 
@@ -75,7 +75,7 @@
 
 	#tarteaucitron-disclaimer-buttons {
 		align-items: center;
-		border-top: dashed 1px $color-light;
+		border-top: dashed 1px $gdprcst-color-light;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -90,8 +90,8 @@
 		}
 
 		button {
-			background-color: $color-light;
-			color: $color-mid;
+			background-color: $gdprcst-color-light;
+			color: $gdprcst-color-mid;
 			cursor: pointer;
 			flex-grow: 0;
 			font-size: 0.7rem;
@@ -109,7 +109,7 @@
 
 		> button {
 			background-color: transparent;
-			color: $color-light;
+			color: $gdprcst-color-light;
 			opacity: 1;
 		}
 	}

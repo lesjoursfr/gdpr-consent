@@ -2,7 +2,7 @@
 // Control panel                           //
 /////////////////////////////////////////////
 #tarteaucitron-back {
-	background: $color-light;
+	background: $gdprcst-color-light;
 	display: none;
 	height: 100%;
 	left: 0;
@@ -14,7 +14,7 @@
 }
 
 #tarteaucitron {
-	border-bottom: 2px solid $color-mid !important;
+	border-bottom: 2px solid $gdprcst-color-mid !important;
 	display: none;
 	height: 100%;
 	overflow: scroll;
@@ -23,7 +23,7 @@
 	z-index: 2147483647;
 
 	#tarteaucitron-close-panel {
-		color: $color-mid;
+		color: $gdprcst-color-mid;
 		cursor: pointer;
 		font-size: 1.5em;
 		margin: 2%;
@@ -39,18 +39,18 @@
 
 	#tarteaucitron-services {
 		align-items: center;
-		background: $color-light;
+		background: $gdprcst-color-light;
 		display: flex;
 		flex-direction: column;
 
 		.tarteaucitron-h3 {
 			align-items: center;
-			color: $color-mid;
+			color: $gdprcst-color-mid;
 			display: flex;
 			margin: 8% 0 2%;
 
 			&::before {
-				background-color: $color-mid;
+				background-color: $gdprcst-color-mid;
 				content: "";
 				display: inline-block;
 				height: 3px;
@@ -69,7 +69,7 @@
 		padding: 20px 0;
 
 		.tarteaucitron-h1 {
-			color: $color-mid;
+			color: $gdprcst-color-mid;
 			font-size: 1rem;
 			margin-top: 10px;
 			text-align: center;
@@ -85,8 +85,8 @@
 		}
 
 		#tarteaucitron-info {
-			border-bottom: solid 1px $color-mid;
-			border-top: solid 1px $color-mid;
+			border-bottom: solid 1px $gdprcst-color-mid;
+			border-top: solid 1px $gdprcst-color-mid;
 			font-size: 0.9rem;
 			line-height: 1.2em;
 			margin: 5%;
@@ -101,8 +101,8 @@
 			#tarteaucitron-all-allowed,
 			#tarteaucitron-all-denied {
 				background-color: transparent;
-				border: solid 2px $color-mid;
-				color: $color-mid;
+				border: solid 2px $gdprcst-color-mid;
+				color: $gdprcst-color-mid;
 				font-size: 0.7rem;
 				margin-top: 2%;
 				opacity: 0.5;
@@ -119,8 +119,8 @@
 				}
 
 				&.tarteaucitron-is-selected {
-					background-color: $color-mid;
-					color: $color-light;
+					background-color: $gdprcst-color-mid;
+					color: $gdprcst-color-light;
 					opacity: 1;
 				}
 			}
@@ -128,18 +128,18 @@
 	}
 
 	#tarteaucitron-services-list {
-		border-top: solid 2px $color-mid;
+		border-top: solid 2px $gdprcst-color-mid;
 		margin: 0 0 25px;
 
 		.tarteaucitron-title {
 			margin-top: 10%;
 
 			button {
-				background: $color-mid;
-				color: $color-light;
+				background: $gdprcst-color-mid;
+				color: $gdprcst-color-light;
 				cursor: pointer;
 				display: inline-block;
-				font-family: $font-family-title;
+				font-family: $gdprcst-font-family-title;
 				font-size: 0.8rem;
 				font-weight: 700;
 				padding: 2%;
@@ -148,12 +148,12 @@
 		}
 
 		.tarteaucitron-details {
-			background: $color-light;
-			border: solid 1px $color-mid !important;
-			box-shadow: -3px 3px 10px $shadow-color;
-			color: $color-mid;
+			background: $gdprcst-color-light;
+			border: solid 1px $gdprcst-color-mid !important;
+			box-shadow: -3px 3px 10px $gdprcst-shadow-color;
+			color: $gdprcst-color-mid;
 			display: none;
-			font-family: $font-family-text;
+			font-family: $gdprcst-font-family-text;
 			font-size: 10px;
 			line-height: 1.3em;
 			margin: 0 0 0 25px;
@@ -187,9 +187,9 @@
 			}
 
 			a {
-				color: $color-mid;
+				color: $gdprcst-color-mid;
 				display: block;
-				font-family: $font-family-text;
+				font-family: $gdprcst-font-family-text;
 				font-size: 0.8rem;
 				font-weight: 400;
 				margin-top: 5px;
@@ -208,15 +208,15 @@
 			width: 100%;
 
 			button {
-				color: $color-mid;
+				color: $gdprcst-color-mid;
 				font-size: 0.8rem;
 			}
 		}
 
 		.tarteaucitron-switch-state {
-			color: $color-mid;
+			color: $gdprcst-color-mid;
 			cursor: pointer;
-			font-family: $font-family-text;
+			font-family: $gdprcst-font-family-text;
 			font-size: 0.8rem;
 			margin: 0 10px;
 			opacity: 0.4;
@@ -224,12 +224,12 @@
 			transition: opacity 0.3s;
 
 			&:hover {
-				border-bottom: solid 1px $color-mid;
+				border-bottom: solid 1px $gdprcst-color-mid;
 				opacity: 1;
 			}
 
 			&.active {
-				border-bottom: solid 1px $color-mid;
+				border-bottom: solid 1px $gdprcst-color-mid;
 				opacity: 1;
 			}
 
@@ -244,8 +244,8 @@
 		}
 
 		.tarteaucitron-switch {
-			background: $color-mid;
-			border: solid 1px $color-mid;
+			background: $gdprcst-color-mid;
+			border: solid 1px $gdprcst-color-mid;
 			border-radius: 15px;
 			cursor: pointer;
 			height: 17px;
@@ -255,10 +255,10 @@
 			width: 42px;
 
 			.tarteaucitron-switch-button {
-				background-color: $color-light;
-				border: solid 1px $color-mid;
+				background-color: $gdprcst-color-light;
+				border: solid 1px $gdprcst-color-mid;
 				border-radius: 15px;
-				color: $color-mid;
+				color: $gdprcst-color-mid;
 				cursor: pointer;
 				font-size: 1rem !important;
 				height: 22px;
@@ -364,7 +364,7 @@
 @media screen and (min-device-width: 1020px) {
 	#tarteaucitron-root {
 		#tarteaucitron {
-			border: solid 2px $color-mid;
+			border: solid 2px $gdprcst-color-mid;
 			height: 90%;
 			top: 50vh;
 			transform: translateY(-50%);

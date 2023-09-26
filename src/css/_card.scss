@@ -1,7 +1,7 @@
 .tarteaucitron-card {
 	&-mask {
 		align-items: center;
-		background-color: $color-mid;
+		background-color: $gdprcst-color-mid;
 		border-radius: 30px;
 		display: flex;
 		flex-direction: column;
@@ -15,9 +15,9 @@
 		}
 
 		> span {
-			color: $color-light;
+			color: $gdprcst-color-light;
 			display: block;
-			font-family: $font-family-title;
+			font-family: $gdprcst-font-family-title;
 			font-size: 1rem;
 			line-height: 1.4em;
 			text-align: center;
@@ -25,12 +25,12 @@
 		}
 
 		button {
-			background-color: $color-light;
+			background-color: $gdprcst-color-light;
 			border: 0;
 			border-radius: 10px;
-			color: $color-mid;
+			color: $gdprcst-color-mid;
 			cursor: pointer;
-			font-family: $font-family-title;
+			font-family: $gdprcst-font-family-title;
 			font-size: 0.9rem;
 			margin-top: 20px;
 			padding: 2% 3%;
@@ -49,14 +49,14 @@
 
 	&-url {
 		bottom: 20px;
-		color: $color-light;
-		font-family: $font-family-text;
+		color: $gdprcst-color-light;
+		font-family: $gdprcst-font-family-text;
 		font-size: 0.8rem;
 		position: absolute;
 		text-decoration: none;
 
 		&:hover {
-			color: $color-light !important;
+			color: $gdprcst-color-light !important;
 		}
 	}
 }

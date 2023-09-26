@@ -1,13 +1,13 @@
 ////////////////////////////////////////////
 // Fonts                                  //
 ////////////////////////////////////////////
-$font-family-title: "Archer SSm A", "Archer SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-text: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$gdprcst-font-family-title: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$gdprcst-font-family-text: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 
 /////////////////////////////////////////////
 // Colors                                  //
 /////////////////////////////////////////////
-$color-light: #fff;
-$color-dark: #414141;
-$color-mid: #c83e2c;
-$shadow-color: rgba(87, 87, 87, 0.25);
+$gdprcst-color-light: #fff !default;
+$gdprcst-color-dark: #333 !default;
+$gdprcst-color-mid: #cfb539 !default;
+$gdprcst-shadow-color: rgba(0, 0, 0, 0.25) !default;

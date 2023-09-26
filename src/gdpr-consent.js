@@ -1,8 +1,7 @@
 import escape from "lodash/escape";
 import { sendEvent } from "./utils/event";
 import { css } from "./utils/dom";
-import languages from "./languages/index";
-import services from "./services/index";
+import { getLanguage } from "./utils/lang";
 import cookies from "./modules/cookies";
 import events from "./modules/events";
 import userInterface from "./modules/user-interface";
@@ -20,6 +19,12 @@ const GDPRConsent = {
   parameters: {},
   reloadThePage: false,
   alreadyLaunch: 0,
+  withLanguages: function (loader) {
+    GDPRConsent.languagesLoader = loader;
+  },
+  withServices: function (loader) {
+    GDPRConsent.servicesLoader = loader;
+  },
   init: function (params) {
     "use strict";
 
@@ -79,9 +84,24 @@ const GDPRConsent = {
       }
     }
 
+    // Check if we have loaders
+    if (typeof GDPRConsent.languagesLoader !== "function") {
+      throw new Error("Missing languages loader !");
+    }
+    if (typeof GDPRConsent.servicesLoader !== "function") {
+      throw new Error("Missing services loader !");
+    }
+
     // Load language and services
-    GDPRConsent.lang = languages.getCurrent();
-    GDPRConsent.services = services.getServices(GDPRConsent.user);
+    GDPRConsent.lang = getLanguage(GDPRConsent.languagesLoader());
+    if (GDPRConsent.lang === undefined) {
+      throw new Error("Missing english translation !");
+    }
+    GDPRConsent.services = GDPRConsent.servicesLoader(GDPRConsent.user);
+
+    // Delete loaders
+    delete GDPRConsent.languagesLoader;
+    delete GDPRConsent.servicesLoader;
 
     // eslint-disable-next-line one-var
     const body = document.body;

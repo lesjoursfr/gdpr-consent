@@ -1,21 +1,20 @@
-const availableLanguages = "en,fr";
 const defaultLanguage = "en";
 
-export function getLanguage() {
+export function getLanguage(languages) {
   "use strict";
 
   if (!navigator) {
-    return "en";
+    return languages[defaultLanguage];
   }
 
   const lang =
     navigator.language || navigator.browserLanguage || navigator.systemLanguage || navigator.userLang || null;
   const userLanguage = lang ? lang.substr(0, 2) : null;
 
-  if (availableLanguages.indexOf(userLanguage) === -1) {
-    return defaultLanguage;
+  if (languages[userLanguage] === undefined) {
+    return languages[defaultLanguage];
   }
-  return userLanguage;
+  return languages[userLanguage];
 }
 
 export function getLocale() {

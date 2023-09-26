@@ -1,8 +1,4 @@
 const fr = {
-  siteDisclaimerTitle: "«&nbsp;Le site qui raconte l’actualité en séries&nbsp;»",
-  siteDisclaimerMessage:
-    '<i>Les&nbsp;Jours</i> sont un média <a data-ga-type="click" data-ga-category="Bottom Bar" data-ga-action="Navigate" data-ga-label="Les Jours c’est quoi ?" href="/les-jours-c-quoi/">indépendant et sans pub</a> accessible par <a data-ga-type="click" data-ga-category="Bottom Bar" data-ga-action="Navigate" data-ga-label="Abonnement" href="/abonnement/jouriste">abonnement</a>. Découvrez <a data-ga-category="Bottom Bar" data-ga-action="Navigate" data-ga-label="Les Jours en Clair" href="/les-jours-en-clair/">notre zone gratuite</a>&nbsp;: l’actualité en profondeur, avec des épisodes, des personnages, des lieux.',
-
   alertBigScroll: "En continuant de défiler,",
   alertBigClick: "En poursuivant votre navigation,",
   alertBig: "vous acceptez l’utilisation de services tiers pouvant installer des cookies",

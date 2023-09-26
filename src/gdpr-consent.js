@@ -68,10 +68,12 @@ const GDPRConsent = {
       hashtag: "#tarteaucitron",
       cookieName: "tarteaucitron",
       timeExpire: 31536000000,
-      websiteName: undefined,
       AcceptAllCta: true,
       moreInfoLink: true,
       mandatory: true,
+      websiteName: window.location.hostname,
+      siteDisclaimerTitle: "",
+      siteDisclaimerMessage: "",
     };
 
     // Get params
@@ -211,14 +213,14 @@ const GDPRConsent = {
     // For the Banner
     if (!GDPRConsent.parameters.AcceptAllCta) {
       html += '<div id="tarteaucitron-alert-big" class="tarteaucitron-alert-big-bottom">';
-      if (GDPRConsent.lang.siteDisclaimerTitle !== "" && GDPRConsent.lang.siteDisclaimerMessage !== "") {
+      if (GDPRConsent.parameters.siteDisclaimerTitle !== "" && GDPRConsent.parameters.siteDisclaimerMessage !== "") {
         html += '<div id="tarteaucitron-wrapper">';
         html += '   <div id="tarteaucitron-disclaimer-texte">';
         html += '      <span id="tarteaucitron-site-disclaimer-title">';
-        html += "         " + GDPRConsent.lang.siteDisclaimerTitle;
+        html += "         " + GDPRConsent.parameters.siteDisclaimerTitle;
         html += "      </span>";
         html += '      <span id="tarteaucitron-site-disclaimer-message">';
-        html += "          " + GDPRConsent.lang.siteDisclaimerMessage;
+        html += "          " + GDPRConsent.parameters.siteDisclaimerMessage + "<br />";
         html += "      </span>";
       }
       html += '         <span id="tarteaucitron-disclaimer-alert">';
@@ -235,14 +237,14 @@ const GDPRConsent = {
       html += "</div>";
     } else {
       html += '<div id="tarteaucitron-alert-big" class="tarteaucitron-alert-big-bottom">';
-      if (GDPRConsent.lang.siteDisclaimerTitle !== "" && GDPRConsent.lang.siteDisclaimerMessage !== "") {
+      if (GDPRConsent.parameters.siteDisclaimerTitle !== "" && GDPRConsent.parameters.siteDisclaimerMessage !== "") {
         html += '<div id="tarteaucitron-wrapper">';
         html += '   <div id="tarteaucitron-disclaimer-texte">';
         html += '      <span id="tarteaucitron-site-disclaimer-title">';
-        html += "         " + GDPRConsent.lang.siteDisclaimerTitle;
+        html += "         " + GDPRConsent.parameters.siteDisclaimerTitle;
         html += "      </span>";
         html += '      <span id="tarteaucitron-site-disclaimer-message">';
-        html += "          " + GDPRConsent.lang.siteDisclaimerMessage;
+        html += "          " + GDPRConsent.parameters.siteDisclaimerMessage + "<br />";
         html += "      </span>";
       }
       html += '         <span id="tarteaucitron-disclaimer-alert">';

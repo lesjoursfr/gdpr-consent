@@ -9,19 +9,30 @@ import twitter from "./twitter";
 import vimeo from "./vimeo";
 import youtube from "./youtube";
 
-export default {
-  getServices: (GDPRConsentUser) => {
-    return {
-      facebook: facebook(GDPRConsentUser),
-      facebookpixel: facebookpixel(GDPRConsentUser),
-      googletagmanager: googletagmanager(GDPRConsentUser),
-      gtag: gtag(GDPRConsentUser),
-      signinwithapple: signinwithapple(GDPRConsentUser),
-      signinwithgoogle: signinwithgoogle(GDPRConsentUser),
-      subscribewithgoogle: subscribewithgoogle(GDPRConsentUser),
-      twitter: twitter(GDPRConsentUser),
-      vimeo: vimeo(GDPRConsentUser),
-      youtube: youtube(GDPRConsentUser),
-    };
-  },
+export {
+  facebook,
+  facebookpixel,
+  googletagmanager,
+  gtag,
+  signinwithapple,
+  signinwithgoogle,
+  subscribewithgoogle,
+  twitter,
+  vimeo,
+  youtube,
 };
+
+export function getServices(GDPRConsentUser) {
+  return {
+    facebook: facebook(GDPRConsentUser),
+    facebookpixel: facebookpixel(GDPRConsentUser),
+    googletagmanager: googletagmanager(GDPRConsentUser),
+    gtag: gtag(GDPRConsentUser),
+    signinwithapple: signinwithapple(GDPRConsentUser),
+    signinwithgoogle: signinwithgoogle(GDPRConsentUser),
+    subscribewithgoogle: subscribewithgoogle(GDPRConsentUser),
+    twitter: twitter(GDPRConsentUser),
+    vimeo: vimeo(GDPRConsentUser),
+    youtube: youtube(GDPRConsentUser),
+  };
+}

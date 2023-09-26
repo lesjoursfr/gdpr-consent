@@ -1,4 +1,4 @@
-const fr = {
+export default {
   alertBigScroll: "En continuant de défiler,",
   alertBigClick: "En poursuivant votre navigation,",
   alertBig: "vous acceptez l’utilisation de services tiers pouvant installer des cookies",
@@ -70,5 +70,3 @@ const fr = {
   mandatoryTitle: "Cookies obligatoires",
   mandatoryText: "Ce site utilise des cookies nécessaires à son bon fonctionnement qui ne peuvent pas être désactivés.",
 };
-
-export default fr;

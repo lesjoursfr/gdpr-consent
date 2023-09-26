@@ -1,4 +1,4 @@
-const en = {
+export default {
   alertBigScroll: "By continuing to scroll,",
   alertBigClick: "If you continue to browse this website,",
   alertBig: "you are allowing all third-party services",
@@ -65,5 +65,3 @@ const en = {
   mandatoryTitle: "Mandatory cookies",
   mandatoryText: "This site uses cookies necessary for its proper functioning which cannot be deactivated.",
 };
-
-export default en;

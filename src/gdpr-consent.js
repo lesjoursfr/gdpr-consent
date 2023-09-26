@@ -5,7 +5,6 @@ import { getLanguage } from "./utils/lang";
 import cookies from "./modules/cookies";
 import events from "./modules/events";
 import userInterface from "./modules/user-interface";
-import "./css/main.scss";
 
 // eslint-disable-next-line one-var
 const GDPRConsent = {

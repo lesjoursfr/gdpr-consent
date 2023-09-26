@@ -109,7 +109,7 @@ $gdprcst-color-dark: #414141;
 $gdprcst-color-mid: #c83e2c;
 $gdprcst-shadow-color: rgba(87, 87, 87, 0.25);
 
-@import "../../node_modules/gdpr-consent/src/css/main";
+@import "node_modules/gdpr-consent/src/css/main";
 ```
 
 ### Custom services & languages

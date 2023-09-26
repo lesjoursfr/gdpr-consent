@@ -20,6 +20,21 @@ Clearly this script will:
 
 # How to use
 
+## Pre-built version
+
+### Files
+
+The prebuilt CSS/JS files can be found in the build folder.
+
+```
+build/gdpr-consent.css
+build/gdpr-consent.js
+```
+
+### HTML
+
+To add the GDPR banner you need to add these lines at the end of the `<head>` section
+
 ```html
 <link rel="stylesheet" href="gdpr-consent.css" />
 <script type="text/javascript" src="gdpr-consent.js"></script>
@@ -38,7 +53,7 @@ Clearly this script will:
 </script>
 ```
 
-# Add services
+You can then configure your services by adding these lines at the end of the `<body>` section
 
 ```html
 <script type="text/javascript">
@@ -76,4 +91,58 @@ Clearly this script will:
 	/* Add Subscribe with Google */
 	GDPRConsent.job.push("subscribewithgoogle");
 </script>
+```
+
+## Custom bundler
+
+You can also use this module with you own bundler.
+
+### Custom CSS
+
+You can change the style of the banner with these variables.
+
+```scss
+$gdprcst-font-family-title: "Archer SSm A", "Archer SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$gdprcst-font-family-text: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$gdprcst-color-light: #fff;
+$gdprcst-color-dark: #414141;
+$gdprcst-color-mid: #c83e2c;
+$gdprcst-shadow-color: rgba(87, 87, 87, 0.25);
+
+@import "../../node_modules/gdpr-consent/src/css/main";
+```
+
+### Custom services & languages
+
+You can use the `GDPRConsent.withLanguages` & `GDPRConsent.withServices` to change the available set of languages & services.
+These methods allow you to create custom builds of this module with more or less elements.
+
+```js
+import GDPRConsent from "gdpr-consent";
+
+// Load languages
+import { getLanguages } from "gdpr-consent/src/languages";
+GDPRConsent.withLanguages(getLanguages);
+
+// Load services
+import {
+	twitter,
+	facebook,
+	vimeo,
+	youtube,
+	signinwithapple,
+	signinwithgoogle,
+	subscribewithgoogle,
+} from "gdpr-consent/src/services";
+GDPRConsent.withServices((GDPRConsentUser) => {
+	return {
+		twitter: twitter(GDPRConsentUser),
+		facebook: facebook(GDPRConsentUser),
+		youtube: youtube(GDPRConsentUser),
+		vimeo: vimeo(GDPRConsentUser),
+		signinwithapple: signinwithapple(GDPRConsentUser),
+		signinwithgoogle: signinwithgoogle(GDPRConsentUser),
+		subscribewithgoogle: subscribewithgoogle(GDPRConsentUser),
+	};
+});
 ```

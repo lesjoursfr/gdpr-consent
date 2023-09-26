@@ -29,7 +29,7 @@ Clearly this script will:
 		cookieName: "tarteaucitron" /* Cookie name */,
 		timeExpire: 31536000000 /* Cookie expiration time */,
 		websiteName: "Les Jours" /* The name of the Website */,
-		AcceptAllCta: true /* Show the accept all button*/,
+		acceptAllCta: true /* Show the accept all button*/,
 		moreInfoLink: true /* Show more info link */,
 		mandatory: false /* Show a message about mandatory cookies */,
 	});

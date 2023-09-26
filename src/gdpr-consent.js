@@ -68,7 +68,7 @@ const GDPRConsent = {
       hashtag: "#tarteaucitron",
       cookieName: "tarteaucitron",
       timeExpire: 31536000000,
-      AcceptAllCta: true,
+      acceptAllCta: true,
       moreInfoLink: true,
       mandatory: true,
       websiteName: window.location.hostname,
@@ -211,7 +211,7 @@ const GDPRConsent = {
     html += "</div>";
 
     // For the Banner
-    if (!GDPRConsent.parameters.AcceptAllCta) {
+    if (!GDPRConsent.parameters.acceptAllCta) {
       html += '<div id="tarteaucitron-alert-big" class="tarteaucitron-alert-big-bottom">';
       if (GDPRConsent.parameters.siteDisclaimerTitle !== "" && GDPRConsent.parameters.siteDisclaimerMessage !== "") {
         html += '<div id="tarteaucitron-wrapper">';

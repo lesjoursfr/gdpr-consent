@@ -1,45 +1,48 @@
+import {
+  AbstractKeyValueStore,
+  CookiesKeyValueStore,
+  KeyValueStorageTypes,
+  getDefaultKeyValueStore,
+} from "@lesjoursfr/browser-tools";
+import Cookies from "js-cookie";
 import { GDPRConsentParameters, LangInterface, ServiceInterface } from "../interfaces/index.js";
 
 const owner: { [key: string]: string[] } = {};
 
-export function read(gdprConsentParams: GDPRConsentParameters): string {
-  const nameEQ = gdprConsentParams.cookieName + "=";
-  const ca = document.cookie.split(";");
-
-  for (let i = 0; i < ca.length; i += 1) {
-    let c = ca[i];
-    while (c.charAt(0) === " ") {
-      c = c.substring(1, c.length);
-    }
-    if (c.indexOf(nameEQ) === 0) {
-      return c.substring(nameEQ.length, c.length);
+let kStore: AbstractKeyValueStore | null = null;
+function getStore({ cookieName, timeExpire, preferLocalStorage }: GDPRConsentParameters): AbstractKeyValueStore {
+  if (kStore === null) {
+    kStore = preferLocalStorage ? getDefaultKeyValueStore(timeExpire) : new CookiesKeyValueStore(timeExpire);
+    if (kStore.type === KeyValueStorageTypes.localStorage && Cookies.get(cookieName) !== undefined) {
+      kStore.setItem(cookieName, cookieName);
+      Cookies.remove(cookieName);
     }
   }
 
-  return "";
+  return kStore;
+}
+
+export function read(gdprConsentParams: GDPRConsentParameters): string {
+  const store = getStore(gdprConsentParams);
+
+  return store.getItem(gdprConsentParams.cookieName) ?? "";
 }
 
 export function create(key: string, status: boolean | string, gdprConsentParams: GDPRConsentParameters): void {
-  const d = new Date();
-  const time = d.getTime();
-  const expireTime = time + gdprConsentParams.timeExpire;
+  const store = getStore(gdprConsentParams);
   const regex = new RegExp("!" + key + "=(wait|true|false)", "g");
   const cookie = read(gdprConsentParams).replace(regex, "");
-  const value = gdprConsentParams.cookieName + "=" + cookie + "!" + key + "=" + status;
+  const value = cookie + "!" + key + "=" + status;
 
-  d.setTime(expireTime);
-  document.cookie = value + "; expires=" + d.toUTCString() + "; path=/;";
+  store.setItem(gdprConsentParams.cookieName, value);
 }
 
 export function purge(arr: string[]): void {
   for (let i = 0; i < arr.length; i += 1) {
-    document.cookie = arr[i] + "=; expires=Thu, 01 Jan 2000 00:00:00 GMT; path=/;";
-    document.cookie = arr[i] + "=; expires=Thu, 01 Jan 2000 00:00:00 GMT; path=/; domain=." + location.hostname + ";";
-    document.cookie =
-      arr[i] +
-      "=; expires=Thu, 01 Jan 2000 00:00:00 GMT; path=/; domain=." +
-      location.hostname.split(".").slice(-2).join(".") +
-      ";";
+    Cookies.remove(arr[i]);
+    Cookies.remove(arr[i], { path: "/" });
+    Cookies.remove(arr[i], { path: "/", domain: "." + location.hostname });
+    Cookies.remove(arr[i], { path: "/", domain: "." + location.hostname.split(".").slice(-2).join(".") });
   }
 }
 

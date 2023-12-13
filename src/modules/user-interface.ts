@@ -1,6 +1,6 @@
 import { addClassToElement, removeClassFromElement, trigger, updateCSSOfElement } from "@lesjoursfr/browser-tools";
 import { GDPRConsentParameters, GDPRConsentState } from "../interfaces/index.js";
-import { checkCount, create } from "./cookies.js";
+import { checkCount, create, purge } from "./cookies.js";
 
 export function closeAlert(): void {
   updateCSSOfElement("tarteaucitron-percentage", "display", "none");
@@ -93,6 +93,12 @@ export function respondEffect(key: string, choice: boolean | string, gdprConsent
   } else if (nbDenied === gdprConsentState.job.length) {
     removeClassFromElement("tarteaucitron-all-allowed", "tarteaucitron-is-selected");
     addClassToElement("tarteaucitron-all-denied", "tarteaucitron-is-selected");
+  }
+
+  // Purge the cookies for the service
+  const cookies = gdprConsentState.services[key].cookies;
+  if (cookies.length > 0 && choice === false) {
+    purge(cookies);
   }
 
   // Compteur de cookies affiché sous le nom du cookie

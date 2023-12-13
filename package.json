@@ -47,7 +47,8 @@
 		"GDPR"
 	],
 	"dependencies": {
-		"@lesjoursfr/browser-tools": "^1.0.3"
+		"@lesjoursfr/browser-tools": "^1.0.5",
+		"js-cookie": "^3.0.5"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.23.6",
@@ -55,6 +56,7 @@
 		"@tsconfig/next": "^2.0.1",
 		"@types/babel__core": "^7.20.5",
 		"@types/babel__preset-env": "^7.9.6",
+		"@types/js-cookie": "^3.0.6",
 		"@types/lodash": "^4.14.202",
 		"@types/node": "^20.10.4",
 		"@typescript-eslint/eslint-plugin": "^6.14.0",

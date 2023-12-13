@@ -5,63 +5,70 @@ import { GDPRConsentParameters } from "./interfaces/index.js";
  */
 export const DefaulGDPRConsentParameters: GDPRConsentParameters = {
   /**
-   * The editor's initial content
+   * The hashtag to open the GDPR panel
    *
    * @type {string}
    * @default "#tarteaucitron"
    */
   hashtag: "#tarteaucitron",
   /**
-   * The editor's initial content
+   * The cookie's name where to save the user response
    *
    * @type {string}
    * @default "tarteaucitron"
    */
   cookieName: "tarteaucitron",
   /**
-   * The editor's height
+   * The cookie's expiration time
    *
    * @type {number}
    * @default 31536000000
    */
   timeExpire: 31536000000,
   /**
-   * Control if the editor can be resized by the user
+   * Control if we must show the "Accept all" button
    *
    * @type {boolean}
    * @default true
    */
   acceptAllCta: true,
   /**
-   * Control if the editor can be resized by the user
+   * Control if we must show the "More info" link on services
    *
    * @type {boolean}
    * @default true
    */
   moreInfoLink: true,
   /**
-   * Control if the editor can be resized by the user
+   * Control if we must show the "Mandatory" message
    *
    * @type {boolean}
    * @default true
    */
   mandatory: true,
   /**
-   * The editor's initial content
+   * Control if we prefer storing the response inside the localStorage instead of the cookies
+   *
+   * @type {boolean}
+   * @default false
+   */
+  preferLocalStorage: false,
+  /**
+   * The name of the website
    *
    * @type {string}
    * @default window.location.hostname
    */
   websiteName: window.location.hostname,
   /**
-   * The editor's initial content
+   * The title of the GDPR banner
    *
    * @type {string}
    * @default ""
    */
   siteDisclaimerTitle: "",
   /**
-   * The editor's initial content
+   * The message of the GDPR banner
    *
    * @type {string}
    * @default ""

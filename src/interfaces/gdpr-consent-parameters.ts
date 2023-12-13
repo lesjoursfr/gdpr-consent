@@ -5,6 +5,7 @@ export type GDPRConsentParameters = {
   acceptAllCta: boolean;
   moreInfoLink: boolean;
   mandatory: boolean;
+  preferLocalStorage: boolean;
   websiteName: string;
   siteDisclaimerTitle: string;
   siteDisclaimerMessage: string;

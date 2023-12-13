@@ -12,6 +12,13 @@ declare global {
 }
 
 export const googleanalytics = ((user: GDPRConsentUser): ServiceInterface => {
+  const googleIdentifier = user.googleanalyticsUa;
+  let tagUaCookie = "_gat_gtag_" + googleIdentifier;
+  let tagGCookie = "_ga_" + googleIdentifier;
+
+  tagUaCookie = tagUaCookie.replace(/-/g, "_");
+  tagGCookie = tagGCookie.replace(/G-/g, "");
+
   return {
     key: "googleanalytics",
     type: "analytic",
@@ -19,28 +26,19 @@ export const googleanalytics = ((user: GDPRConsentUser): ServiceInterface => {
     uri: "https://policies.google.com/privacy",
     needConsent: true,
     lazyConsent: false,
-    cookies: (function () {
-      const googleIdentifier = user.gtagUa;
-      let tagUaCookie = "_gat_gtag_" + googleIdentifier;
-      let tagGCookie = "_ga_" + googleIdentifier;
-
-      tagUaCookie = tagUaCookie.replace(/-/g, "_");
-      tagGCookie = tagGCookie.replace(/G-/g, "");
-
-      return [
-        "_ga",
-        "_gat",
-        "_gid",
-        "__utma",
-        "__utmb",
-        "__utmc",
-        "__utmt",
-        "__utmz",
-        tagUaCookie,
-        tagGCookie,
-        "_gcl_au",
-      ];
-    })(),
+    cookies: [
+      "_ga",
+      "_gat",
+      "_gid",
+      "__utma",
+      "__utmb",
+      "__utmc",
+      "__utmt",
+      "__utmz",
+      tagUaCookie,
+      tagGCookie,
+      "_gcl_au",
+    ],
     js: function () {
       window.dataLayer = window.dataLayer || [];
       addScript("https://www.googletagmanager.com/gtag/js?id=" + user.googleanalyticsUa, {}, function () {

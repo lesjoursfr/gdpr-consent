@@ -7,7 +7,7 @@ export interface ServiceInterface {
   uri: string;
   needConsent: boolean;
   lazyConsent: boolean;
-  cookies: Array<string> | (() => Array<string>);
+  cookies: Array<string>;
   js: () => void;
   fallback?: () => void;
 }

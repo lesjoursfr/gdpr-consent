@@ -44,7 +44,7 @@ export function purge(arr: string[]): void {
 }
 
 export function checkCount(key: string, service: ServiceInterface, lang: LangInterface): void {
-  const arr = service.cookies as unknown as string;
+  const arr = service.cookies;
   const nb = arr.length;
   let nbCurrent = 0;
   let html = "";

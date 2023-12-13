@@ -2,6 +2,7 @@
 	"extends": ["stylelint-config-sass-guidelines"],
 	"ignoreFiles": [
 		"build/**",
+		"dist/**",
 		"package.json",
 		"node_modules/**",
 		".pnp.*",

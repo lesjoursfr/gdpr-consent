@@ -26,10 +26,10 @@ jobs:
         run: npm install
 
       - name: ESLint checks
-        run: npm run check-js
+        run: npm run eslint-check
 
       - name: Stylelint checks
-        run: npm run check-sass
+        run: npm run stylelint-check
 
       - name: Prettier checks
-        run: npm run check-style
+        run: npm run prettier-check

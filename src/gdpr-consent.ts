@@ -1,122 +1,121 @@
+import { trigger, updateCSSOfElement } from "@lesjoursfr/browser-tools";
 import escape from "lodash/escape";
-import { sendEvent } from "./utils/event";
-import { css } from "./utils/dom";
-import { getLanguage } from "./utils/lang";
-import cookies from "./modules/cookies";
-import events from "./modules/events";
-import userInterface from "./modules/user-interface";
+import { DefaulGDPRConsentParameters } from "./gdpr-consent-parameters";
+import {
+  GDPRConsentParameters,
+  GDPRConsentState,
+  GDPRConsentUser,
+  LangInterface,
+  LanguagesLoader,
+  ServiceInterface,
+  ServicesCategories,
+  ServicesLoader,
+} from "./interfaces/index.js";
+import { getLanguage } from "./languages/index.js";
+import {
+  activate,
+  checkCount,
+  closePanel,
+  create,
+  hashchangeEvent,
+  keydownEvent,
+  openAlert,
+  openPanel,
+  order,
+  read,
+  respond,
+  respondAll,
+  respondEffect,
+  toggle,
+} from "./modules/index.js";
 
-// eslint-disable-next-line one-var
-const GDPRConsent = {
-  user: {},
-  lang: {},
-  services: {},
-  added: [],
-  idprocessed: [],
-  state: [],
-  launch: [],
-  parameters: {},
-  reloadThePage: false,
-  alreadyLaunch: 0,
-  withLanguages: function (loader) {
-    GDPRConsent.languagesLoader = loader;
-  },
-  withServices: function (loader) {
-    GDPRConsent.servicesLoader = loader;
-  },
-  init: function (params) {
-    "use strict";
+class GDPRConsentInstance implements GDPRConsentState {
+  user: GDPRConsentUser;
+  lang!: LangInterface;
+  services: { [key: string]: ServiceInterface };
+  added: { [key: string]: boolean };
+  state: { [key: string]: boolean | string };
+  launch: { [key: string]: boolean };
+  parameters!: GDPRConsentParameters;
+  reloadThePage: boolean;
+  alreadyLaunch: number;
+  languagesLoader?: LanguagesLoader;
+  servicesLoader?: ServicesLoader;
+  job!: string[];
 
-    GDPRConsent.parameters = params || {};
-    if (GDPRConsent.alreadyLaunch === 0) {
-      GDPRConsent.alreadyLaunch = 1;
+  public constructor() {
+    this.user = {};
+    this.services = {};
+    this.added = {};
+    this.state = {};
+    this.launch = {};
+    this.reloadThePage = false;
+    this.alreadyLaunch = 0;
+  }
+
+  public withLanguages(loader: LanguagesLoader): void {
+    this.languagesLoader = loader;
+  }
+
+  public withServices(loader: ServicesLoader): void {
+    this.servicesLoader = loader;
+  }
+
+  public init(params: Partial<GDPRConsentParameters> = {}): void {
+    // Get params
+    this.parameters = Object.assign({}, structuredClone(DefaulGDPRConsentParameters), structuredClone(params));
+
+    // Launch
+    if (this.alreadyLaunch === 0) {
+      this.alreadyLaunch = 1;
 
       // Bind events listeners
-      window.addEventListener(
-        "keydown",
-        function (evt) {
-          events.keydownEvent(GDPRConsent, evt);
-        },
-        false
-      );
-      window.addEventListener(
-        "hashchange",
-        function () {
-          events.hashchangeEvent(GDPRConsent);
-        },
-        false
-      );
+      window.addEventListener("keydown", (evt) => keydownEvent(this, evt), false);
+      window.addEventListener("hashchange", () => hashchangeEvent(this), false);
 
       // Check if the DOM is already loaded
       if (window.document.readyState === "complete") {
-        GDPRConsent.load();
+        this.load();
       } else {
-        window.addEventListener(
-          "load",
-          function () {
-            GDPRConsent.load();
-          },
-          false
-        );
+        window.addEventListener("load", () => this.load(), false);
       }
     }
-  },
-  load: function () {
-    "use strict";
-    const defaults = {
-      hashtag: "#tarteaucitron",
-      cookieName: "tarteaucitron",
-      timeExpire: 31536000000,
-      acceptAllCta: true,
-      moreInfoLink: true,
-      mandatory: true,
-      websiteName: window.location.hostname,
-      siteDisclaimerTitle: "",
-      siteDisclaimerMessage: "",
-    };
+  }
 
-    // Get params
-    if (GDPRConsent.parameters !== undefined) {
-      // eslint-disable-next-line one-var
-      for (const k in defaults) {
-        if (!Object.prototype.hasOwnProperty.call(GDPRConsent.parameters, k)) {
-          GDPRConsent.parameters[k] = defaults[k];
-        }
-      }
-    }
-
+  public load(): void {
     // Check if we have loaders
-    if (typeof GDPRConsent.languagesLoader !== "function") {
+    if (typeof this.languagesLoader !== "function") {
       throw new Error("Missing languages loader !");
     }
-    if (typeof GDPRConsent.servicesLoader !== "function") {
+    if (typeof this.servicesLoader !== "function") {
       throw new Error("Missing services loader !");
     }
 
     // Load language and services
-    GDPRConsent.lang = getLanguage(GDPRConsent.languagesLoader());
-    if (GDPRConsent.lang === undefined) {
+    const lang = getLanguage(this.languagesLoader());
+    if (lang === undefined) {
       throw new Error("Missing english translation !");
     }
-    GDPRConsent.services = GDPRConsent.servicesLoader(GDPRConsent.user);
+    this.lang = lang;
+    this.services = this.servicesLoader(this.user);
 
     // Delete loaders
-    delete GDPRConsent.languagesLoader;
-    delete GDPRConsent.servicesLoader;
+    delete this.languagesLoader;
+    delete this.servicesLoader;
 
     // eslint-disable-next-line one-var
     const body = document.body;
     const div = document.createElement("div");
     let html = "";
     let index;
-    let cat = ["ads", "analytic", "api", "comment", "social", "support", "video", "other"];
+    let cat: ServicesCategories[] = ["ads", "analytic", "api", "comment", "social", "support", "video", "other"];
     let i;
 
-    cat = cat.sort(function (a, b) {
-      if (GDPRConsent.lang[a].title > GDPRConsent.lang[b].title) {
+    cat = cat.sort((a, b) => {
+      if (this.lang[a].title > this.lang[b].title) {
         return 1;
       }
-      if (GDPRConsent.lang[a].title < GDPRConsent.lang[b].title) {
+      if (this.lang[a].title < this.lang[b].title) {
         return -1;
       }
       return 0;
@@ -126,7 +125,7 @@ const GDPRConsent = {
     // For the Pannel
     html +=
       '<button type="button" id="tarteaucitron-back" onclick="GDPRConsent.closePanel();" aria-label="' +
-      GDPRConsent.lang.close +
+      this.lang.close +
       '"></button>';
     html += '<div id="tarteaucitron" role="dialog" aria-labelledby="dialogTitle">';
     html += '   <button type="button" id="tarteaucitron-close-panel" onclick="GDPRConsent.closePanel();">X</button>';
@@ -136,26 +135,25 @@ const GDPRConsent = {
     html += '      <div id="tarteaucitron-services-top">';
     html +=
       '         <span class="tarteaucitron-h1" role="heading" aria-level="1" id="dialogTitle">' +
-      GDPRConsent.lang.title +
+      this.lang.title +
       "</span>";
     html += '         <div id="tarteaucitron-info">';
-    html += "          " + GDPRConsent.lang.disclaimer;
-    if (GDPRConsent.parameters.websiteName) {
-      html += "      " + GDPRConsent.lang.disclaimerWebsite + " " + escape(GDPRConsent.parameters.websiteName) + ".";
+    html += "          " + this.lang.disclaimer;
+    if (this.parameters.websiteName) {
+      html += "      " + this.lang.disclaimerWebsite + " " + escape(this.parameters.websiteName) + ".";
     }
     html += "          </div>";
     // Accepter tout ou interdire tout
     html += '         <div class="tarteaucitron-line">';
-    html +=
-      '               <span class="tarteaucitron-h3" role="heading" aria-level="2">' + GDPRConsent.lang.all + "</span>";
+    html += '               <span class="tarteaucitron-h3" role="heading" aria-level="2">' + this.lang.all + "</span>";
     html += '               <div class="tarteaucitron-ask">';
     html +=
       '                  <button type="button" id="tarteaucitron-all-allowed" class="tarteaucitron-allow" onclick="GDPRConsent.respondAll(true);">';
-    html += "                        &#10003; " + GDPRConsent.lang.allowAll;
+    html += "                        &#10003; " + this.lang.allowAll;
     html += "                  </button> ";
     html +=
       '                  <button type="button" id="tarteaucitron-all-denied" class="tarteaucitron-deny" onclick="GDPRConsent.respondAll(false);">';
-    html += "                        &#10007; " + GDPRConsent.lang.denyAll;
+    html += "                        &#10007; " + this.lang.denyAll;
     html += "                  </button>";
     html += "                </div>";
     html += "           </div>";
@@ -164,18 +162,16 @@ const GDPRConsent = {
     // La liste des Services
     html += '      <div id="tarteaucitron-services-list">';
     html += '         <div class="clear"></div>';
-    if (GDPRConsent.parameters.mandatory === true) {
+    if (this.parameters.mandatory === true) {
       html += '<div class="tarteaucitron-cookie-group">';
       html += '   <div class="tarteaucitron-cookie-text">';
       html +=
-        '      <span class="tarteaucitron-h3" role="heading" aria-level="2">' +
-        GDPRConsent.lang.mandatoryTitle +
-        "</span>";
-      html += '      <span class="tarteaucitron-description">' + GDPRConsent.lang.mandatoryText + "</span>";
+        '      <span class="tarteaucitron-h3" role="heading" aria-level="2">' + this.lang.mandatoryTitle + "</span>";
+      html += '      <span class="tarteaucitron-description">' + this.lang.mandatoryText + "</span>";
       html += "   </div>";
       html += '   <div class="tarteaucitron-cookie-buttons">';
       html += '       <button type="button" class="tarteaucitron-allow solo">';
-      html += "           &#10003; " + GDPRConsent.lang.allow;
+      html += "           &#10003; " + this.lang.allow;
       html += "       </button> ";
       html += "   </div>";
       html += "</div>";
@@ -187,20 +183,20 @@ const GDPRConsent = {
         '               <button type="button" onclick="GDPRConsent.toggle(\'tarteaucitron-details' +
         cat[i] +
         "', 'tarteaucitron-info-box');return false\">&#10011; " +
-        GDPRConsent.lang[cat[i]].title +
+        this.lang[cat[i]].title +
         "</button>";
       html += "            </div>";
       html +=
         '            <div id="tarteaucitron-details' +
         cat[i] +
         '" class="tarteaucitron-details tarteaucitron-info-box">';
-      html += "               " + GDPRConsent.lang[cat[i]].details;
+      html += "               " + this.lang[cat[i]].details;
       html += "            </div>";
       html += '         <ul id="tarteaucitron-services_' + cat[i] + '"></ul></li>';
     }
     html +=
       '             <li id="tarteaucitron-no-services-title" class="tarteaucitron-line">' +
-      GDPRConsent.lang.noServices +
+      this.lang.noServices +
       "</li>";
     html += "         </ul>";
     html +=
@@ -210,57 +206,57 @@ const GDPRConsent = {
     html += "</div>";
 
     // For the Banner
-    if (!GDPRConsent.parameters.acceptAllCta) {
+    if (!this.parameters.acceptAllCta) {
       html += '<div id="tarteaucitron-alert-big" class="tarteaucitron-alert-big-bottom">';
-      if (GDPRConsent.parameters.siteDisclaimerTitle !== "" && GDPRConsent.parameters.siteDisclaimerMessage !== "") {
+      if (this.parameters.siteDisclaimerTitle !== "" && this.parameters.siteDisclaimerMessage !== "") {
         html += '<div id="tarteaucitron-wrapper">';
         html += '   <div id="tarteaucitron-disclaimer-texte">';
         html += '      <span id="tarteaucitron-site-disclaimer-title">';
-        html += "         " + GDPRConsent.parameters.siteDisclaimerTitle;
+        html += "         " + this.parameters.siteDisclaimerTitle;
         html += "      </span>";
         html += '      <span id="tarteaucitron-site-disclaimer-message">';
-        html += "          " + GDPRConsent.parameters.siteDisclaimerMessage + "<br />";
+        html += "          " + this.parameters.siteDisclaimerMessage + "<br />";
         html += "      </span>";
       }
       html += '         <span id="tarteaucitron-disclaimer-alert">';
-      html += "             " + GDPRConsent.lang.alertBigPrivacy;
+      html += "             " + this.lang.alertBigPrivacy;
       html += "         </span>";
       html += "      </div>";
 
       html += '      <div id="tarteaucitron-disclaimer-buttons">';
       html += '          <button type="button" id="tarteaucitron-personalize" onclick="GDPRConsent.openPanel();">';
-      html += "              " + GDPRConsent.lang.personalize;
+      html += "              " + this.lang.personalize;
       html += "          </button>";
       html += "      </div>";
       html += "   </div>";
       html += "</div>";
     } else {
       html += '<div id="tarteaucitron-alert-big" class="tarteaucitron-alert-big-bottom">';
-      if (GDPRConsent.parameters.siteDisclaimerTitle !== "" && GDPRConsent.parameters.siteDisclaimerMessage !== "") {
+      if (this.parameters.siteDisclaimerTitle !== "" && this.parameters.siteDisclaimerMessage !== "") {
         html += '<div id="tarteaucitron-wrapper">';
         html += '   <div id="tarteaucitron-disclaimer-texte">';
         html += '      <span id="tarteaucitron-site-disclaimer-title">';
-        html += "         " + GDPRConsent.parameters.siteDisclaimerTitle;
+        html += "         " + this.parameters.siteDisclaimerTitle;
         html += "      </span>";
         html += '      <span id="tarteaucitron-site-disclaimer-message">';
-        html += "          " + GDPRConsent.parameters.siteDisclaimerMessage + "<br />";
+        html += "          " + this.parameters.siteDisclaimerMessage + "<br />";
         html += "      </span>";
       }
       html += '         <span id="tarteaucitron-disclaimer-alert">';
-      html += "             " + GDPRConsent.lang.alertBigPrivacy;
+      html += "             " + this.lang.alertBigPrivacy;
       html += "         </span>";
       html += "      </div>";
       html += '      <div id="tarteaucitron-disclaimer-buttons">';
       html += '          <button type="button" id="tarteaucitron-continue" onclick="GDPRConsent.respondAll(false);">';
-      html += "              &rarr; " + GDPRConsent.lang.continue;
+      html += "              &rarr; " + this.lang.continue;
       html += "          </button>";
       html += '         <div id="tarteaucitron-group-buttons">';
       html +=
         '             <button type="button" id="tarteaucitron-personalize" onclick="GDPRConsent.respondAll(true);">';
-      html += "                 &#10003; " + GDPRConsent.lang.acceptAll;
+      html += "                 &#10003; " + this.lang.acceptAll;
       html += "             </button>";
       html += '             <button type="button" id="tarteaucitron-close-alert" onclick="GDPRConsent.openPanel();">';
-      html += "                 " + GDPRConsent.lang.personalize;
+      html += "                 " + this.lang.personalize;
       html += "             </button>";
       html += "         </div>";
       html += "      </div>";
@@ -271,80 +267,63 @@ const GDPRConsent = {
     div.id = "tarteaucitron-root";
 
     // Append tarteaucitron: #tarteaucitron-root last-child of the body
-    body.appendChild(div, body);
+    body.appendChild(div);
     div.innerHTML = html;
 
     // Send an event
-    sendEvent("tac.root_available");
+    trigger(window, "tac.root_available");
 
-    if (GDPRConsent.job !== undefined) {
-      GDPRConsent.job = GDPRConsent.cleanArray(GDPRConsent.job);
-      for (index = 0; index < GDPRConsent.job.length; index += 1) {
-        GDPRConsent.addService(GDPRConsent.job[index]);
+    if (this.job !== undefined) {
+      this.job = this.cleanArray(this.job);
+      for (index = 0; index < this.job.length; index += 1) {
+        this.addService(this.job[index]);
       }
     } else {
-      GDPRConsent.job = [];
+      this.job = [];
     }
 
-    GDPRConsent.job.push = function (id) {
-      // ie <9 hack
-      if (typeof GDPRConsent.job.indexOf === "undefined") {
-        GDPRConsent.job.indexOf = function (obj, start) {
-          let i;
-          const j = this.length;
-          for (i = start || 0; i < j; i += 1) {
-            if (this[i] === obj) {
-              return i;
-            }
-          }
-          return -1;
-        };
+    this.job.push = (id: string): number => {
+      if (this.job.indexOf(id) === -1) {
+        Array.prototype.push.call(this.job, id);
       }
-
-      if (GDPRConsent.job.indexOf(id) === -1) {
-        Array.prototype.push.call(this, id);
-      }
-      GDPRConsent.launch[id] = false;
-      GDPRConsent.addService(id);
+      this.launch[id] = false;
+      this.addService(id);
+      return this.job.length;
     };
 
-    if (document.location.hash === GDPRConsent.hashtag) {
-      userInterface.openPanel(GDPRConsent);
+    if (document.location.hash === this.parameters.hashtag) {
+      openPanel(this);
     }
-  },
-  addService: function (serviceId) {
-    "use strict";
-    let html = "";
-    const s = GDPRConsent.services;
+  }
+
+  public addService(serviceId: string): void {
+    const s = this.services;
     const service = s[serviceId];
-    const cookie = cookies.read(GDPRConsent.parameters);
+    const cookie = read(this.parameters);
     const isDenied = cookie.indexOf(service.key + "=false") >= 0;
     const isAllowed =
       cookie.indexOf(service.key + "=true") >= 0 ||
       (!service.needConsent && cookie.indexOf(service.key + "=false") < 0);
     const isResponded = cookie.indexOf(service.key + "=false") >= 0 || cookie.indexOf(service.key + "=true") >= 0;
-    const isDNTRequested =
-      navigator.doNotTrack === "1" ||
-      navigator.doNotTrack === "yes" ||
-      navigator.msDoNotTrack === "1" ||
-      window.doNotTrack === "1";
-    if (GDPRConsent.added[service.key] !== true) {
-      GDPRConsent.added[service.key] = true;
+
+    let html = "";
+    if (this.added[service.key] !== true) {
+      this.added[service.key] = true;
 
       html += '<div id="' + service.key + '-line" class="tarteaucitron-cookie-group">';
       html += '   <div class="tarteaucitron-cookie-text">';
       html += '       <span class="tarteaucitron-h3" role="heading" aria-level="3">' + service.name + "</span>";
       html += '       <span id="tacCL' + service.key + '" class="tarteaucitron-description"></span>';
-      if (GDPRConsent.parameters.moreInfoLink === true) {
+      if (this.parameters.moreInfoLink === true) {
         html +=
           '       <a href="' +
           service.uri +
           '" target="_blank" rel="noreferrer noopener" title="' +
           service.name +
           " " +
-          GDPRConsent.lang.newWindow +
+          this.lang.newWindow +
           '">';
-        html += "           " + GDPRConsent.lang.source;
+        html += "           " + this.lang.source;
         html += "       </a>";
       }
       html += "   </div>";
@@ -353,7 +332,7 @@ const GDPRConsent = {
         '       <span id="' +
         service.key +
         'Allowed" class="tarteaucitron-switch-state" onclick="GDPRConsent.respond(this, event);">' +
-        GDPRConsent.lang.allow +
+        this.lang.allow +
         "</span>";
       html +=
         '       <div class="tarteaucitron-switch" id="' +
@@ -365,65 +344,59 @@ const GDPRConsent = {
         '       <span id="' +
         service.key +
         'Denied" class="tarteaucitron-switch-state" onclick="GDPRConsent.respond(this, event);">' +
-        GDPRConsent.lang.deny +
+        this.lang.deny +
         "</span>";
       html += "   </div>";
       html += "</li>";
 
-      css("tarteaucitron-services-title_" + service.type, "display", "block");
+      updateCSSOfElement("tarteaucitron-services-title_" + service.type, "display", "block");
 
-      if (document.getElementById("tarteaucitron-services_" + service.type) !== null) {
-        document.getElementById("tarteaucitron-services_" + service.type).innerHTML += html;
+      const serviceTypeEl = document.getElementById("tarteaucitron-services_" + service.type);
+      if (serviceTypeEl !== null) {
+        serviceTypeEl.innerHTML += html;
       }
 
-      css("tarteaucitron-no-services-title", "display", "none");
+      updateCSSOfElement("tarteaucitron-no-services-title", "display", "none");
 
-      userInterface.order(service.type, GDPRConsent);
+      order(service.type, this);
     }
 
     if (isAllowed) {
-      if (GDPRConsent.launch[service.key] !== true) {
-        GDPRConsent.launch[service.key] = true;
+      if (this.launch[service.key] !== true) {
+        this.launch[service.key] = true;
         service.js();
-        sendEvent(service.key + "_loaded");
+        trigger(window, service.key + "_loaded");
       }
-      GDPRConsent.state[service.key] = true;
+      this.state[service.key] = true;
     } else if (isDenied) {
       if (typeof service.fallback === "function") {
         service.fallback();
       }
-      GDPRConsent.state[service.key] = false;
-    } else if (!isResponded && isDNTRequested && GDPRConsent.handleBrowserDNTRequest) {
-      cookies.create(service.key, "false", GDPRConsent.parameters);
-      if (typeof service.fallback === "function") {
-        service.fallback();
-      }
-      GDPRConsent.state[service.key] = false;
+      this.state[service.key] = false;
     } else if (!isResponded) {
-      cookies.create(service.key, "wait", GDPRConsent.parameters);
+      create(service.key, "wait", this.parameters);
       if (typeof service.fallback === "function") {
         service.fallback();
       }
       if (service.lazyConsent !== true) {
-        userInterface.openAlert();
+        openAlert();
       }
     }
 
-    cookies.checkCount(service.key, service, GDPRConsent.lang);
-    sendEvent(service.key + "_added");
-  },
-  cleanArray: function cleanArray(arr) {
-    "use strict";
-    let i;
+    checkCount(service.key, service, this.lang);
+    trigger(window, service.key + "_added");
+  }
+
+  public cleanArray(arr: string[]): string[] {
+    const s = this.services;
+
     const len = arr.length;
     let out = [];
-    const obj = {};
-    const s = GDPRConsent.services;
-
-    for (i = 0; i < len; i += 1) {
+    const obj: { [key: string]: boolean } = {};
+    for (let i = 0; i < len; i += 1) {
       if (!obj[arr[i]]) {
-        obj[arr[i]] = {};
-        if (GDPRConsent.services[arr[i]] !== undefined) {
+        obj[arr[i]] = true;
+        if (s[arr[i]] !== undefined) {
           out.push(arr[i]);
         }
       }
@@ -440,28 +413,35 @@ const GDPRConsent = {
     });
 
     return out;
-  },
-  closePanel: function () {
-    userInterface.closePanel(GDPRConsent);
-  },
-  openPanel: function () {
-    userInterface.openPanel(GDPRConsent);
-  },
-  respondEffect: function (key, status) {
-    userInterface.respondEffect(key, status, GDPRConsent);
-  },
-  respondAll: function (status) {
-    userInterface.respondAll(status, GDPRConsent, GDPRConsent.parameters);
-  },
-  respond: function (el, evt) {
-    userInterface.respond(el, GDPRConsent, GDPRConsent.parameters, evt);
-  },
-  activate: function (id) {
-    userInterface.activate(id, GDPRConsent, GDPRConsent.parameters);
-  },
-  toggle: function (id, closeClass) {
-    userInterface.toggle(id, closeClass);
-  },
-};
+  }
 
-export default GDPRConsent;
+  public closePanel(): void {
+    closePanel(this);
+  }
+
+  public openPanel(): void {
+    openPanel(this);
+  }
+
+  public respondEffect(key: string, status: boolean): void {
+    respondEffect(key, status, this);
+  }
+
+  public respondAll(status: boolean | string): void {
+    respondAll(status, this, this.parameters);
+  }
+
+  public respond(el: HTMLElement, evt: MouseEvent): void {
+    respond(el, this, this.parameters, evt);
+  }
+
+  public activate(id: string): void {
+    activate(id, this, this.parameters);
+  }
+
+  public toggle(id: string, closeClass: string): void {
+    toggle(id, closeClass);
+  }
+}
+
+export const GDPRConsent = new GDPRConsentInstance();

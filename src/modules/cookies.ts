@@ -1,25 +1,13 @@
-const owner = {};
+import { GDPRConsentParameters, LangInterface, ServiceInterface } from "../interfaces/index.js";
 
-function crossIndexOf(arr, match) {
-  "use strict";
-  let i;
-  for (i = 0; i < arr.length; i += 1) {
-    if (arr[i] === match) {
-      return true;
-    }
-  }
-  return false;
-}
+const owner: { [key: string]: string[] } = {};
 
-function read(GDPRConsentParameters) {
-  "use strict";
-  const nameEQ = GDPRConsentParameters.cookieName + "=";
+export function read(gdprConsentParams: GDPRConsentParameters): string {
+  const nameEQ = gdprConsentParams.cookieName + "=";
   const ca = document.cookie.split(";");
-  let i;
-  let c;
 
-  for (i = 0; i < ca.length; i += 1) {
-    c = ca[i];
+  for (let i = 0; i < ca.length; i += 1) {
+    let c = ca[i];
     while (c.charAt(0) === " ") {
       c = c.substring(1, c.length);
     }
@@ -27,28 +15,24 @@ function read(GDPRConsentParameters) {
       return c.substring(nameEQ.length, c.length);
     }
   }
+
   return "";
 }
 
-function create(key, status, GDPRConsentParameters) {
-  "use strict";
-
+export function create(key: string, status: boolean | string, gdprConsentParams: GDPRConsentParameters): void {
   const d = new Date();
   const time = d.getTime();
-  const expireTime = time + GDPRConsentParameters.timeExpire;
+  const expireTime = time + gdprConsentParams.timeExpire;
   const regex = new RegExp("!" + key + "=(wait|true|false)", "g");
-  const cookie = read(GDPRConsentParameters).replace(regex, "");
-  const value = GDPRConsentParameters.cookieName + "=" + cookie + "!" + key + "=" + status;
+  const cookie = read(gdprConsentParams).replace(regex, "");
+  const value = gdprConsentParams.cookieName + "=" + cookie + "!" + key + "=" + status;
 
   d.setTime(expireTime);
-  document.cookie = value + "; expires=" + d.toGMTString() + "; path=/;";
+  document.cookie = value + "; expires=" + d.toUTCString() + "; path=/;";
 }
 
-function purge(arr) {
-  "use strict";
-  let i;
-
-  for (i = 0; i < arr.length; i += 1) {
+export function purge(arr: string[]): void {
+  for (let i = 0; i < arr.length; i += 1) {
     document.cookie = arr[i] + "=; expires=Thu, 01 Jan 2000 00:00:00 GMT; path=/;";
     document.cookie = arr[i] + "=; expires=Thu, 01 Jan 2000 00:00:00 GMT; path=/; domain=." + location.hostname + ";";
     document.cookie =
@@ -59,25 +43,23 @@ function purge(arr) {
   }
 }
 
-function checkCount(key, service, lang) {
-  "use strict";
-  const arr = service.cookies;
+export function checkCount(key: string, service: ServiceInterface, lang: LangInterface): void {
+  const arr = service.cookies as unknown as string;
   const nb = arr.length;
   let nbCurrent = 0;
   let html = "";
-  let i;
   const status = document.cookie.indexOf(key + "=true");
 
   if (status >= 0 && nb === 0) {
     html += lang.useNoCookie;
   } else if (status >= 0) {
-    for (i = 0; i < nb; i += 1) {
+    for (let i = 0; i < nb; i += 1) {
       if (document.cookie.indexOf(arr[i] + "=") !== -1) {
         nbCurrent += 1;
         if (owner[arr[i]] === undefined) {
           owner[arr[i]] = [];
         }
-        if (crossIndexOf(owner[arr[i]], service.name) === false) {
+        if (owner[arr[i]].indexOf(service.name) === -1) {
           owner[arr[i]].push(service.name);
         }
       }
@@ -102,14 +84,8 @@ function checkCount(key, service, lang) {
     html += ".";
   }
 
-  if (document.getElementById("tacCL" + key) !== null) {
-    document.getElementById("tacCL" + key).innerHTML = html;
+  const element = document.getElementById("tacCL" + key);
+  if (element !== null) {
+    element.innerHTML = html;
   }
 }
-
-export default {
-  read,
-  create,
-  purge,
-  checkCount,
-};

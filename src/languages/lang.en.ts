@@ -1,4 +1,6 @@
-export default {
+import { LangInterface } from "../interfaces/index.js";
+
+export const en: LangInterface = {
   alertBigScroll: "By continuing to scroll,",
   alertBigClick: "If you continue to browse this website,",
   alertBig: "you are allowing all third-party services",

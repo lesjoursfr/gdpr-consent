@@ -65,9 +65,9 @@ You can then configure your services by adding these lines at the end of the `<b
 	GDPRConsent.job.push("googletagmanager");
 
 	/* Add Google Analytics (gtag.js) */
-	GDPRConsent.user.gtagUa = "UA-59581990-1";
-	GDPRConsent.user.gtagInitOptions = { send_page_view: false, optimize_id: "GTM-W4WVC25" };
-	GDPRConsent.job.push("gtag");
+	GDPRConsent.user.googleanalyticsUa = "UA-59581990-1";
+	GDPRConsent.user.googleanalyticsInitOptions = { send_page_view: false, optimize_id: "GTM-W4WVC25" };
+	GDPRConsent.job.push("googleanalytics");
 
 	/* Add Socials Sharing Services : Twitter & Facebook */
 	GDPRConsent.job.push("twitter");

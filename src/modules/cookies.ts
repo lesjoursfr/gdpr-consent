@@ -14,7 +14,7 @@ function getStore({ cookieName, timeExpire, preferLocalStorage }: GDPRConsentPar
   if (kStore === null) {
     kStore = preferLocalStorage ? getDefaultKeyValueStore(timeExpire) : new CookiesKeyValueStore(timeExpire);
     if (kStore.type === KeyValueStorageTypes.localStorage && Cookies.get(cookieName) !== undefined) {
-      kStore.setItem(cookieName, cookieName);
+      kStore.setItem(cookieName, Cookies.get(cookieName)!);
       Cookies.remove(cookieName);
     }
   }

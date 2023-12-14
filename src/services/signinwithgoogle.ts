@@ -1,5 +1,5 @@
-import { ServiceInterface, ServiceLoader } from "../interfaces";
-import { addScript } from "../utils";
+import { ServiceInterface, ServiceLoader } from "../interfaces/index.js";
+import { addScript } from "../utils/index.js";
 
 export const signinwithgoogle = ((): ServiceInterface => {
   return {

@@ -1,6 +1,6 @@
-import { ServiceInterface, ServiceLoader } from "../interfaces";
-import { getLocale } from "../languages";
-import { addScript } from "../utils";
+import { ServiceInterface, ServiceLoader } from "../interfaces/index.js";
+import { getLocale } from "../languages/index.js";
+import { addScript } from "../utils/index.js";
 
 export const facebook = ((): ServiceInterface => {
   return {

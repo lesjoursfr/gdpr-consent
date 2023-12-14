@@ -1,7 +1,7 @@
 /* eslint-disable prefer-rest-params */
 /* eslint-disable prefer-spread */
-import { GDPRConsentUser, ServiceInterface, ServiceLoader } from "../interfaces";
-import { addScript } from "../utils";
+import { GDPRConsentUser, ServiceInterface, ServiceLoader } from "../interfaces/index.js";
+import { addScript } from "../utils/index.js";
 
 type FacebookPixelFunctionType = (...args: unknown[]) => unknown;
 

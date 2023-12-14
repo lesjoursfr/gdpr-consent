@@ -1,5 +1,5 @@
 import escape from "lodash/escape";
-import { ServiceInterface, ServiceLoader } from "../interfaces";
+import { ServiceInterface, ServiceLoader } from "../interfaces/index.js";
 
 export const youtube = ((): ServiceInterface => {
   return {

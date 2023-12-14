@@ -1,14 +1,14 @@
-import { GDPRConsentUser, ServiceInterface } from "../interfaces";
-import { facebook } from "./facebook";
-import { facebookpixel } from "./facebookpixel";
-import { googleanalytics } from "./googleanalytics";
-import { googletagmanager } from "./googletagmanager";
-import { signinwithapple } from "./signinwithapple";
-import { signinwithgoogle } from "./signinwithgoogle";
-import { subscribewithgoogle } from "./subscribewithgoogle";
-import { twitter } from "./twitter";
-import { vimeo } from "./vimeo";
-import { youtube } from "./youtube";
+import { GDPRConsentUser, ServiceInterface } from "../interfaces/index.js";
+import { facebook } from "./facebook.js";
+import { facebookpixel } from "./facebookpixel.js";
+import { googleanalytics } from "./googleanalytics.js";
+import { googletagmanager } from "./googletagmanager.js";
+import { signinwithapple } from "./signinwithapple.js";
+import { signinwithgoogle } from "./signinwithgoogle.js";
+import { subscribewithgoogle } from "./subscribewithgoogle.js";
+import { twitter } from "./twitter.js";
+import { vimeo } from "./vimeo.js";
+import { youtube } from "./youtube.js";
 
 export {
   facebook,

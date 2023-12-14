@@ -1,5 +1,5 @@
-import { GDPRConsentUser, ServiceInterface, ServiceLoader } from "../interfaces";
-import { addScript } from "../utils";
+import { GDPRConsentUser, ServiceInterface, ServiceLoader } from "../interfaces/index.js";
+import { addScript } from "../utils/index.js";
 
 export const googletagmanager = ((user: GDPRConsentUser): ServiceInterface => {
   return {

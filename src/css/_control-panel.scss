@@ -294,7 +294,7 @@
 	}
 
 	#tarteaucitron-services-bottom {
-		padding: 20px 0;
+		padding-top: 20px;
 		text-align: center;
 
 		#tarteaucitron-save-responses {
@@ -380,6 +380,10 @@
 			.tarteaucitron-details {
 				font-size: 0.8rem;
 			}
+		}
+
+		#tarteaucitron-services-bottom {
+			padding-bottom: 20px;
 		}
 	}
 }

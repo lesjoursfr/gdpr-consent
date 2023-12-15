@@ -30,6 +30,7 @@ export const fr: LangInterface = {
   newWindow: "(nouvelle fenêtre)",
   allowAll: "Tout autoriser",
   denyAll: "Tout interdire",
+  save: "Enregistrer",
 
   ads: {
     title: "Régies publicitaires (pour nous faire connaître)",

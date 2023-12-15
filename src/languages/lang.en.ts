@@ -30,6 +30,7 @@ export const en: LangInterface = {
   newWindow: "(new window)",
   allowAll: "Allow all cookies",
   denyAll: "Deny all cookies",
+  save: "Save",
 
   ads: {
     title: "Advertising network (to let us know)",

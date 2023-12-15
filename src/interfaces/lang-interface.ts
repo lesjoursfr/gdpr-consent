@@ -27,6 +27,7 @@ export interface LangInterface {
   newWindow: string;
   allowAll: string;
   denyAll: string;
+  save: string;
 
   ads: {
     title: string;

@@ -202,6 +202,12 @@ class GDPRConsentInstance implements GDPRConsentState {
       '         <div class="tarteaucitron-hidden" id="tarteaucitron-scrollbar-child" style="height:20px;display:block"></div>';
     html += "      </div>";
     html += "   </div>";
+    html += '   <div id="tarteaucitron-services-bottom">';
+    html +=
+      '       <button type="button" id="tarteaucitron-save-responses" onclick="GDPRConsent.closePanel();">' +
+      this.lang.save +
+      "</button>";
+    html += "   </div>";
     html += "</div>";
 
     // For the Banner

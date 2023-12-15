@@ -292,6 +292,29 @@
 			}
 		}
 	}
+
+	#tarteaucitron-services-bottom {
+		padding: 20px 0;
+		text-align: center;
+
+		#tarteaucitron-save-responses {
+			background-color: transparent;
+			border: solid 2px $gdprcst-color-mid;
+			color: $gdprcst-color-mid;
+			font-size: 0.7rem;
+			padding: 8px;
+			text-transform: uppercase;
+			cursor: pointer;
+			transition:
+				background-color 0.3s,
+				color 0.3s;
+
+			&:hover {
+				background-color: $gdprcst-color-mid;
+				color: $gdprcst-color-light;
+			}
+		}
+	}
 }
 
 /////////////////////////////////////////////

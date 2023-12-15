@@ -134,7 +134,8 @@ export function openPanel(gdprConsentState: GDPRConsentState): void {
 export function respondAll(
   status: boolean | string,
   gdprConsentState: GDPRConsentState,
-  gdprConsentParams: GDPRConsentParameters
+  gdprConsentParams: GDPRConsentParameters,
+  closePanelAfter: boolean = false
 ): void {
   const s = gdprConsentState.services;
 
@@ -154,6 +155,10 @@ export function respondAll(
       create(key, status, gdprConsentParams);
       respondEffect(key, status, gdprConsentState);
     }
+  }
+
+  if (closePanelAfter) {
+    closePanel(gdprConsentState);
   }
 }
 

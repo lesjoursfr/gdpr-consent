@@ -147,11 +147,11 @@ class GDPRConsentInstance implements GDPRConsentState {
     html += '               <span class="tarteaucitron-h3" role="heading" aria-level="2">' + this.lang.all + "</span>";
     html += '               <div class="tarteaucitron-ask">';
     html +=
-      '                  <button type="button" id="tarteaucitron-all-allowed" class="tarteaucitron-allow" onclick="GDPRConsent.respondAll(true);">';
+      '                  <button type="button" id="tarteaucitron-all-allowed" class="tarteaucitron-allow" onclick="GDPRConsent.respondAll(true, true);">';
     html += "                        &#10003; " + this.lang.allowAll;
     html += "                  </button> ";
     html +=
-      '                  <button type="button" id="tarteaucitron-all-denied" class="tarteaucitron-deny" onclick="GDPRConsent.respondAll(false);">';
+      '                  <button type="button" id="tarteaucitron-all-denied" class="tarteaucitron-deny" onclick="GDPRConsent.respondAll(false, true);">';
     html += "                        &#10007; " + this.lang.denyAll;
     html += "                  </button>";
     html += "                </div>";
@@ -426,8 +426,8 @@ class GDPRConsentInstance implements GDPRConsentState {
     respondEffect(key, status, this);
   }
 
-  public respondAll(status: boolean | string): void {
-    respondAll(status, this, this.parameters);
+  public respondAll(status: boolean | string, closePanelAfter?: boolean): void {
+    respondAll(status, this, this.parameters, closePanelAfter);
   }
 
   public respond(el: HTMLElement, evt: MouseEvent): void {

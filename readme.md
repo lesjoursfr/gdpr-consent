@@ -119,31 +119,20 @@ You can use the `GDPRConsent.withLanguages` & `GDPRConsent.withServices` to chan
 These methods allow you to create custom builds of this module with more or less elements.
 
 ```js
-import GDPRConsent from "gdpr-consent";
+import { GDPRConsent, languages, services } from "gdpr-consent";
 
 // Load languages
-import { getLanguages } from "gdpr-consent/src/languages";
+const { getLanguages } = languages;
 GDPRConsent.withLanguages(getLanguages);
 
 // Load services
-import {
-	twitter,
-	facebook,
-	vimeo,
-	youtube,
-	signinwithapple,
-	signinwithgoogle,
-	subscribewithgoogle,
-} from "gdpr-consent/src/services";
-GDPRConsent.withServices((GDPRConsentUser) => {
+const { twitter, facebook, youtube, vimeo } = services;
+GDPRConsent.withServices((gdprConsentUser) => {
 	return {
-		twitter: twitter(GDPRConsentUser),
-		facebook: facebook(GDPRConsentUser),
-		youtube: youtube(GDPRConsentUser),
-		vimeo: vimeo(GDPRConsentUser),
-		signinwithapple: signinwithapple(GDPRConsentUser),
-		signinwithgoogle: signinwithgoogle(GDPRConsentUser),
-		subscribewithgoogle: subscribewithgoogle(GDPRConsentUser),
+		twitter: twitter(gdprConsentUser),
+		facebook: facebook(gdprConsentUser),
+		youtube: youtube(gdprConsentUser),
+		vimeo: vimeo(gdprConsentUser),
 	};
 });
 ```

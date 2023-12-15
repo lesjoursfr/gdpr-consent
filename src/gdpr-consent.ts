@@ -1,5 +1,4 @@
-import { trigger, updateCSSOfElement } from "@lesjoursfr/browser-tools";
-import escape from "lodash/escape";
+import { escape, trigger, updateCSSOfElement } from "@lesjoursfr/browser-tools";
 import { DefaulGDPRConsentParameters } from "./gdpr-consent-parameters.js";
 import {
   GDPRConsentParameters,

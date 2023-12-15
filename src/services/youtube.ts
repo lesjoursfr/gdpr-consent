@@ -1,4 +1,4 @@
-import escape from "lodash/escape";
+import { escape } from "@lesjoursfr/browser-tools";
 import { ServiceInterface, ServiceLoader } from "../interfaces/index.js";
 
 export const youtube = ((): ServiceInterface => {

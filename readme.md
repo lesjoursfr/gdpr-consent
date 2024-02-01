@@ -67,7 +67,10 @@ You can then configure your services by adding these lines at the end of the `<b
 
 	/* Add Google Analytics (gtag.js) */
 	GDPRConsent.user.googleanalyticsUa = "UA-59581990-1";
-	GDPRConsent.user.googleanalyticsInitOptions = { send_page_view: false, optimize_id: "GTM-W4WVC25" };
+	GDPRConsent.user.googleanalyticsInitOptions = {
+		send_page_view: false,
+		optimize_id: "GTM-W4WVC25",
+	};
 	GDPRConsent.job.push("googleanalytics");
 
 	/* Add Socials Sharing Services : Twitter & Facebook */
@@ -103,8 +106,10 @@ You can also use this module with you own bundler.
 You can change the style of the banner with these variables.
 
 ```scss
-$gdprcst-font-family-title: "Archer SSm A", "Archer SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$gdprcst-font-family-text: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$gdprcst-font-family-title: "Archer SSm A", "Archer SSm B", "Helvetica Neue",
+	Helvetica, Arial, sans-serif;
+$gdprcst-font-family-text: "proxima-nova", "Helvetica Neue", Helvetica, Arial,
+	sans-serif;
 $gdprcst-color-light: #fff;
 $gdprcst-color-dark: #414141;
 $gdprcst-color-mid: #c83e2c;

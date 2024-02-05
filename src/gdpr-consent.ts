@@ -17,6 +17,7 @@ import {
   closePanel,
   create,
   hashchangeEvent,
+  isActivated,
   keydownEvent,
   openAlert,
   openPanel,
@@ -440,6 +441,10 @@ class GDPRConsentInstance implements GDPRConsentState {
 
   public activate(id: string): void {
     activate(id, this, this.parameters);
+  }
+
+  public isActivated(id: string): boolean {
+    return isActivated(id, this);
   }
 
   public toggle(id: string, closeClass: string): void {

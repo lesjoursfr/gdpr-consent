@@ -26,5 +26,6 @@ export type GDPRConsentState = {
   respondAll: (status: boolean | string) => void;
   respond: (el: HTMLElement, event: MouseEvent) => void;
   activate: (id: string) => void;
+  isActivated: (id: string) => boolean;
   toggle: (id: string, closeClass: string) => void;
 };

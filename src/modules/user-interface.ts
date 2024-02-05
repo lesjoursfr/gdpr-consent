@@ -231,6 +231,10 @@ export function activate(
   respondEffect(id, true, gdprConsentState);
 }
 
+export function isActivated(id: string, gdprConsentState: GDPRConsentState): boolean {
+  return gdprConsentState.state[id] === true;
+}
+
 export function toggle(id: string, closeClass: string): void {
   const div = document.getElementById(id);
   if (div === null) {

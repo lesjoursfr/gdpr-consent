@@ -1,7 +1,7 @@
-import { ServiceInterface, ServiceLoader } from "../interfaces/index.js";
+import { GDPRConsentUser, ServiceInterface, ServiceLoader } from "../interfaces/index.js";
 import { addScript } from "../utils/index.js";
 
-export const signinwithgoogle = ((): ServiceInterface => {
+export const signinwithgoogle = ((user: GDPRConsentUser): ServiceInterface => {
   return {
     key: "signinwithgoogle",
     type: "other",
@@ -11,7 +11,13 @@ export const signinwithgoogle = ((): ServiceInterface => {
     lazyConsent: true,
     cookies: [],
     js: function () {
-      addScript("https://accounts.google.com/gsi/client");
+      if (typeof user.signinwithgoogleMore === "function") {
+        addScript("https://accounts.google.com/gsi/client", undefined, function () {
+          (user.signinwithgoogleMore as () => void)();
+        });
+      } else {
+        addScript("https://accounts.google.com/gsi/client");
+      }
     },
   };
 }) as ServiceLoader;

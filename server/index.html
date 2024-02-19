@@ -37,6 +37,12 @@
 			style="height: 300px"
 		></div>
 
+		<div
+			class="tarteaucitron-facebookvideo"
+			data-tarteaucitron-src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FLesJoursfr%2Fvideos%2F275794947041783%2F&show_text=false&t=0"
+			style="height: 300px"
+		></div>
+
 		<button onclick="GDPRConsent.openPanel(); return false;">Open the Cookies panel</button>
 
 		<script type="text/javascript">
@@ -63,9 +69,10 @@
 			GDPRConsent.user.fbPixelId = "1415993661766511";
 			GDPRConsent.job.push("facebookpixel");
 
-			/* Add Vidéos : Vimeo & YT */
+			/* Add Vidéos : Vimeo, YouTube & Facebook */
 			GDPRConsent.job.push("vimeo");
 			GDPRConsent.job.push("youtube");
+			GDPRConsent.job.push("facebookvideo");
 
 			/* Add Sign-in with */
 			GDPRConsent.job.push("signinwithapple");

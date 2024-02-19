@@ -32,6 +32,11 @@ export const en: LangInterface = {
   denyAll: "Deny all cookies",
   save: "Save",
 
+  placeholder: {
+    beforeName: "Cookies for",
+    afterName: "are disabled. If you want to access this content you need to activate this service.",
+  },
+
   ads: {
     title: "Advertising network (to let us know)",
     details: "Ad networks can generate revenue by selling advertising space on the site.",

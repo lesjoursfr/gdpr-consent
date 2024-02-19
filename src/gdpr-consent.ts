@@ -374,13 +374,13 @@ class GDPRConsentInstance implements GDPRConsentState {
       this.state[service.key] = true;
     } else if (isDenied) {
       if (typeof service.fallback === "function") {
-        service.fallback();
+        service.fallback(this.lang);
       }
       this.state[service.key] = false;
     } else if (!isResponded) {
       create(service.key, "wait", this.parameters);
       if (typeof service.fallback === "function") {
-        service.fallback();
+        service.fallback(this.lang);
       }
       if (service.lazyConsent !== true) {
         openAlert();

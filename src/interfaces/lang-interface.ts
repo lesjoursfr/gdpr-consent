@@ -29,6 +29,11 @@ export interface LangInterface {
   denyAll: string;
   save: string;
 
+  placeholder: {
+    beforeName: string;
+    afterName: string;
+  };
+
   ads: {
     title: string;
     details: string;

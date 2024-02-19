@@ -32,6 +32,11 @@ export const fr: LangInterface = {
   denyAll: "Tout interdire",
   save: "Enregistrer",
 
+  placeholder: {
+    beforeName: "Le dépôt de cookies pour",
+    afterName: "est désactivé. Si vous souhaitez accéder à ce contenu, merci de l’activer.",
+  },
+
   ads: {
     title: "Régies publicitaires (pour nous faire connaître)",
     details:

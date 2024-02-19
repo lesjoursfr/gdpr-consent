@@ -1,4 +1,5 @@
 import { GDPRConsentUser } from "./gdpr-consent-user.js";
+import { LangInterface } from "./lang-interface.js";
 
 export interface ServiceInterface {
   key: string;
@@ -9,7 +10,7 @@ export interface ServiceInterface {
   lazyConsent: boolean;
   cookies: Array<string>;
   js: () => void;
-  fallback?: () => void;
+  fallback?: (lang: LangInterface) => void;
 }
 
 export type ServiceLoader = (user: GDPRConsentUser) => ServiceInterface;

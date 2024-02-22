@@ -1,5 +1,7 @@
 import { escape } from "@lesjoursfr/browser-tools";
 import { LangInterface, ServiceInterface, ServiceLoader } from "../interfaces/index.js";
+import { getLocale } from "../languages/index.js";
+import { addScript } from "../utils/index.js";
 
 export const facebookvideo = ((): ServiceInterface => {
   return {
@@ -16,10 +18,23 @@ export const facebookvideo = ((): ServiceInterface => {
 
       for (let i = 0; i < div.length; i++) {
         if (div[i].classList.contains(cardClass)) {
-          let videoUrl = div[i].getAttribute("data-tarteaucitron-src") ?? "";
-          videoUrl = `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(videoUrl)}&show_text=false&t=0`;
-          div[i].innerHTML =
-            `<iframe src="${escape(videoUrl)}" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`;
+          const videoUrl = div[i].getAttribute("data-tarteaucitron-src") ?? "";
+          div[i].innerHTML = `<div class="fb-video" data-href="${escape(videoUrl)}" data-show-text="false"></div>`;
+
+          if (document.getElementById("fb-root") === null) {
+            const prevFbAsyncInit = window.fbAsyncInit || function () {};
+            const currentNode = div[i];
+            window.fbAsyncInit = function () {
+              prevFbAsyncInit();
+              FB.XFBML.parse(currentNode);
+            };
+
+            if (document.getElementById("facebook-jssdk") === null) {
+              addScript("//connect.facebook.net/" + getLocale() + "/sdk.js", { id: "facebook-jssdk" });
+            }
+          } else {
+            FB.XFBML.parse(div[i]);
+          }
         }
       }
     },

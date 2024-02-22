@@ -17,7 +17,8 @@ export const vimeo = ((): ServiceInterface => {
       for (let i = 0; i < div.length; i++) {
         if (div[i].classList.contains(cardClass)) {
           const videoUrl = div[i].getAttribute("data-tarteaucitron-src") ?? "";
-          div[i].innerHTML = '<iframe src="' + escape(videoUrl) + '" frameborder="0" allowfullscreen="true"></iframe>';
+          div[i].innerHTML =
+            `<iframe src="${escape(videoUrl)}" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`;
         }
       }
     },

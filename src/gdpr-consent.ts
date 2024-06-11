@@ -103,7 +103,6 @@ class GDPRConsentInstance implements GDPRConsentState {
     delete this.languagesLoader;
     delete this.servicesLoader;
 
-    // eslint-disable-next-line one-var
     const body = document.body;
     const div = document.createElement("div");
     let html = "";

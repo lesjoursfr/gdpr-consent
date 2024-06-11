@@ -1,9 +1,9 @@
-module.exports = {
+const config = {
   printWidth: 120,
   trailingComma: "es5",
   overrides: [
     {
-      files: [".eslintrc.*", ".prettierrc.*", "*.json", "*.md"],
+      files: ["eslint.config.mjs", "prettier.config.mjs", "*.json", "*.md"],
       options: {
         printWidth: 80,
       },
@@ -16,3 +16,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

@@ -34,9 +34,11 @@ export const facebookpixel = ((user: GDPRConsentUser): ServiceInterface => {
         return;
       }
       const n = (window.fbq = function () {
-        n.callMethod
-          ? n.callMethod.apply(n, arguments as unknown as unknown[])
-          : n.queue.push(arguments as unknown as unknown[]);
+        if (n.callMethod) {
+          n.callMethod.apply(n, arguments as unknown as unknown[]);
+        } else {
+          n.queue.push(arguments as unknown as unknown[]);
+        }
       } as unknown as FacebookPixelType);
       if (!window._fbq) {
         window._fbq = n;

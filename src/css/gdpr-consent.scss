@@ -1,113 +1,113 @@
-@import "reset";
-@import "variables";
-@import "bandeau";
-@import "control-panel";
-@import "card";
+@import 'reset';
+@import 'variables';
+@import 'bandeau';
+@import 'control-panel';
+@import 'card';
 
 /////////////////////////////////////////////
 // Global                                  //
 /////////////////////////////////////////////
 .modal-open {
-	height: 100%;
-	overflow: hidden;
+  height: 100%;
+  overflow: hidden;
 }
 
 #content-wrapper {
-	display: unset;
+  display: unset;
 }
 
 /////////////////////////////////////////////
 // Better scroll management                //
 /////////////////////////////////////////////
 #tarteaucitron-services {
-	// sass-lint:disable no-vendor-prefixes
-	&::-webkit-scrollbar {
-		width: 15px;
-	}
+  // sass-lint:disable no-vendor-prefixes
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
 
-	&::-webkit-scrollbar-track {
-		box-shadow: inset 0 0 0 $gdprcst-color-mid;
-	}
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0 $gdprcst-color-mid;
+  }
 
-	&::-webkit-scrollbar-thumb {
-		background-color: $gdprcst-color-mid;
-		outline: 0 solid $gdprcst-color-mid;
-	}
-	// sass-lint:enable no-vendor-prefixes
+  &::-webkit-scrollbar-thumb {
+    background-color: $gdprcst-color-mid;
+    outline: 0 solid $gdprcst-color-mid;
+  }
+  // sass-lint:enable no-vendor-prefixes
 }
 
 /////////////////////////////////////////////
 // Common value                            //
 /////////////////////////////////////////////
 #tarteaucitron {
-	* {
-		zoom: 1;
-	}
+  * {
+    zoom: 1;
+  }
 
-	.clear {
-		clear: both;
-	}
+  .clear {
+    clear: both;
+  }
 
-	a {
-		color: $gdprcst-color-dark;
-		font-weight: 700;
-		text-decoration: none;
-	}
+  a {
+    color: $gdprcst-color-dark;
+    font-weight: 700;
+    text-decoration: none;
+  }
 
-	strong {
-		font-weight: 500;
-	}
+  strong {
+    font-weight: 500;
+  }
 
-	ul {
-		padding: 0;
-	}
+  ul {
+    padding: 0;
+  }
 
-	.tarteaucitron-h1,
-	.tarteaucitron-h2,
-	.tarteaucitron-h3,
-	.tarteaucitron-h4,
-	.tarteaucitron-h5,
-	.tarteaucitron-h6 {
-		display: block;
-	}
+  .tarteaucitron-h1,
+  .tarteaucitron-h2,
+  .tarteaucitron-h3,
+  .tarteaucitron-h4,
+  .tarteaucitron-h5,
+  .tarteaucitron-h6 {
+    display: block;
+  }
 }
 
 /////////////////////////////////////////////
 // Root div added just before </body>      //
 /////////////////////////////////////////////
 #tarteaucitron-root {
-	left: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
 
-	* {
-		box-sizing: initial;
-		color: $gdprcst-color-dark;
-		font-family: $gdprcst-font-family-text;
-		line-height: normal;
-		vertical-align: initial;
-	}
+  * {
+    box-sizing: initial;
+    color: $gdprcst-color-dark;
+    font-family: $gdprcst-font-family-text;
+    line-height: normal;
+    vertical-align: initial;
+  }
 
-	#tarteaucitron {
-		left: 0;
-		margin: auto;
-		right: 0;
-	}
+  #tarteaucitron {
+    left: 0;
+    margin: auto;
+    right: 0;
+  }
 
-	button {
-		background: transparent;
-		border: 0;
+  button {
+    background: transparent;
+    border: 0;
 
-		&:hover,
-		&:focus {
-			border: 0;
-			outline: none;
-		}
-	}
+    &:hover,
+    &:focus {
+      border: 0;
+      outline: none;
+    }
+  }
 
-	#tarteaucitron-back {
-		background: $gdprcst-color-light;
-	}
+  #tarteaucitron-back {
+    background: $gdprcst-color-light;
+  }
 }

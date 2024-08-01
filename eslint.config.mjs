@@ -21,7 +21,15 @@ export default tseslint.config(
   },
   prettierConfig,
   {
-    ignores: ["package.json", "node_modules/*", ".yarn/*", "build/*", "dist/*"],
+    ignores: [
+      "package.json",
+      "eslint.config.mjs",
+      "prettier.config.mjs",
+      "node_modules/*",
+      ".yarn/*",
+      "build/*",
+      "dist/*",
+    ],
   },
   {
     files: ["**/*.ts"],

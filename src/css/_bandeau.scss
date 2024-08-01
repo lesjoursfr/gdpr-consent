@@ -2,311 +2,311 @@
 // Bandeau                               //
 /////////////////////////////////////////////
 #tarteaucitron-root {
-	#tarteaucitron-alert-big {
-		background: $gdprcst-color-mid;
-		box-sizing: border-box;
-		color: $gdprcst-color-light;
-		display: none;
-		left: 0;
-		margin: auto;
-		padding: 4% 0 0;
-		position: fixed;
-		text-align: left;
-		width: 100%;
-		z-index: 2147483645;
-	}
+  #tarteaucitron-alert-big {
+    background: $gdprcst-color-mid;
+    box-sizing: border-box;
+    color: $gdprcst-color-light;
+    display: none;
+    left: 0;
+    margin: auto;
+    padding: 4% 0 0;
+    position: fixed;
+    text-align: left;
+    width: 100%;
+    z-index: 2147483645;
+  }
 
-	#tarteaucitron-wrapper {
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
+  #tarteaucitron-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 
 #tarteaucitron-alert-big {
-	strong,
-	a {
-		color: $gdprcst-color-light;
-	}
+  strong,
+  a {
+    color: $gdprcst-color-light;
+  }
 
-	#tarteaucitron-site-disclaimer-title {
-		color: $gdprcst-color-light;
-		display: block;
-		font-family: $gdprcst-font-family-title;
-		font-size: 0.9rem;
-		font-style: italic;
-		font-weight: 600;
-		line-height: 1;
-		margin-bottom: 5%;
-		text-align: center;
-	}
+  #tarteaucitron-site-disclaimer-title {
+    color: $gdprcst-color-light;
+    display: block;
+    font-family: $gdprcst-font-family-title;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 5%;
+    text-align: center;
+  }
 
-	#tarteaucitron-disclaimer-texte {
-		font-size: 0.9rem;
-		line-height: 1.2em;
-		text-align: center;
-		width: 80%;
-	}
+  #tarteaucitron-disclaimer-texte {
+    font-size: 0.9rem;
+    line-height: 1.2em;
+    text-align: center;
+    width: 80%;
+  }
 
-	#tarteaucitron-site-disclaimer-message,
-	#tarteaucitron-disclaimer-alert {
-		&,
-		a,
-		i,
-		strong {
-			color: $gdprcst-color-light;
-			font-family: $gdprcst-font-family-text;
-			font-weight: 400;
-		}
+  #tarteaucitron-site-disclaimer-message,
+  #tarteaucitron-disclaimer-alert {
+    &,
+    a,
+    i,
+    strong {
+      color: $gdprcst-color-light;
+      font-family: $gdprcst-font-family-text;
+      font-weight: 400;
+    }
 
-		a {
-			text-decoration: underline;
-		}
+    a {
+      text-decoration: underline;
+    }
 
-		i {
-			font-style: italic;
-		}
+    i {
+      font-style: italic;
+    }
 
-		strong {
-			font-weight: 700;
-		}
-	}
+    strong {
+      font-weight: 700;
+    }
+  }
 
-	#tarteaucitron-disclaimer-buttons {
-		align-items: center;
-		border-top: dashed 1px $gdprcst-color-light;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		margin-top: 5%;
-		padding-top: 5%;
-		width: 80%;
+  #tarteaucitron-disclaimer-buttons {
+    align-items: center;
+    border-top: dashed 1px $gdprcst-color-light;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 5%;
+    padding-top: 5%;
+    width: 80%;
 
-		#tarteaucitron-group-buttons {
-			display: flex;
-			justify-content: space-between;
-			width: 100%;
-		}
+    #tarteaucitron-group-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
 
-		button {
-			background-color: $gdprcst-color-light;
-			color: $gdprcst-color-mid;
-			cursor: pointer;
-			flex-grow: 0;
-			font-size: 0.7rem;
-			margin: 0 auto 6%;
-			opacity: 0.75;
-			padding: 3%;
-			text-transform: uppercase;
-			transition: opacity 0.45s ease;
-			width: auto;
+    button {
+      background-color: $gdprcst-color-light;
+      color: $gdprcst-color-mid;
+      cursor: pointer;
+      flex-grow: 0;
+      font-size: 0.7rem;
+      margin: 0 auto 6%;
+      opacity: 0.75;
+      padding: 3%;
+      text-transform: uppercase;
+      transition: opacity 0.45s ease;
+      width: auto;
 
-			&:hover {
-				opacity: 1;
-			}
-		}
+      &:hover {
+        opacity: 1;
+      }
+    }
 
-		> button {
-			background-color: transparent;
-			color: $gdprcst-color-light;
-			opacity: 1;
-		}
-	}
+    > button {
+      background-color: transparent;
+      color: $gdprcst-color-light;
+      opacity: 1;
+    }
+  }
 }
 
 .tarteaucitron-alert-big-bottom {
-	bottom: 0;
+  bottom: 0;
 }
 
 @media screen and (min-device-width: 660px) and (orientation: landscape) {
-	#tarteaucitron-root {
-		#tarteaucitron-wrapper {
-			align-items: initial;
-			flex-direction: row;
-		}
+  #tarteaucitron-root {
+    #tarteaucitron-wrapper {
+      align-items: initial;
+      flex-direction: row;
+    }
 
-		#tarteaucitron-alert-big {
-			padding: 4%;
+    #tarteaucitron-alert-big {
+      padding: 4%;
 
-			#tarteaucitron-disclaimer-texte {
-				font-size: 0.7rem;
-				max-width: 750px;
-				text-align: left;
-				width: 50%;
-			}
+      #tarteaucitron-disclaimer-texte {
+        font-size: 0.7rem;
+        max-width: 750px;
+        text-align: left;
+        width: 50%;
+      }
 
-			#tarteaucitron-disclaimer-buttons {
-				align-items: flex-end;
-				border: 0;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				margin-top: 0;
-				padding-top: 0;
-				width: 45%;
+      #tarteaucitron-disclaimer-buttons {
+        align-items: flex-end;
+        border: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 0;
+        padding-top: 0;
+        width: 45%;
 
-				#tarteaucitron-group-buttons {
-					display: flex;
-					justify-content: space-around;
-					width: 100%;
-				}
+        #tarteaucitron-group-buttons {
+          display: flex;
+          justify-content: space-around;
+          width: 100%;
+        }
 
-				button {
-					font-size: 0.65rem;
-					margin: 0;
-					padding: 3%;
-				}
-			}
+        button {
+          font-size: 0.65rem;
+          margin: 0;
+          padding: 3%;
+        }
+      }
 
-			#tarteaucitron-site-disclaimer-title {
-				margin-bottom: 5%;
-				text-align: left;
-			}
-		}
-	}
+      #tarteaucitron-site-disclaimer-title {
+        margin-bottom: 5%;
+        text-align: left;
+      }
+    }
+  }
 }
 
 @media screen and (min-device-width: 768px) {
-	#tarteaucitron-root {
-		#tarteaucitron-alert-big {
-			padding: 4% 10%;
-		}
-	}
+  #tarteaucitron-root {
+    #tarteaucitron-alert-big {
+      padding: 4% 10%;
+    }
+  }
 
-	#tarteaucitron-alert-big {
-		#tarteaucitron-site-disclaimer-title {
-			font-size: 1.2rem;
-		}
+  #tarteaucitron-alert-big {
+    #tarteaucitron-site-disclaimer-title {
+      font-size: 1.2rem;
+    }
 
-		#tarteaucitron-disclaimer-texte {
-			font-size: 1.1rem;
-			line-height: 1.3em;
-		}
+    #tarteaucitron-disclaimer-texte {
+      font-size: 1.1rem;
+      line-height: 1.3em;
+    }
 
-		#tarteaucitron-disclaimer-texte,
-		#tarteaucitron-disclaimer-buttons {
-			width: 100%;
-		}
+    #tarteaucitron-disclaimer-texte,
+    #tarteaucitron-disclaimer-buttons {
+      width: 100%;
+    }
 
-		#tarteaucitron-disclaimer-buttons {
-			align-items: center;
-			border: 0;
-			flex-direction: row;
-			justify-content: space-around;
-			padding-top: 0;
+    #tarteaucitron-disclaimer-buttons {
+      align-items: center;
+      border: 0;
+      flex-direction: row;
+      justify-content: space-around;
+      padding-top: 0;
 
-			button {
-				font-size: 0.75rem;
-				line-height: 1.5em;
-				margin: 0;
-				padding: 3%;
-			}
+      button {
+        font-size: 0.75rem;
+        line-height: 1.5em;
+        margin: 0;
+        padding: 3%;
+      }
 
-			> button {
-				order: 2;
-				padding: 0;
-				text-align: right;
-				width: 40%;
-			}
+      > button {
+        order: 2;
+        padding: 0;
+        text-align: right;
+        width: 40%;
+      }
 
-			#tarteaucitron-group-buttons {
-				justify-content: space-between;
-				order: 1;
-				width: 50%;
-			}
-		}
-	}
+      #tarteaucitron-group-buttons {
+        justify-content: space-between;
+        order: 1;
+        width: 50%;
+      }
+    }
+  }
 }
 
 @media screen and (min-device-width: 1024px) {
-	#tarteaucitron-root {
-		#tarteaucitron-alert-big {
-			padding: 3%;
+  #tarteaucitron-root {
+    #tarteaucitron-alert-big {
+      padding: 3%;
 
-			#tarteaucitron-disclaimer-texte {
-				font-size: 1rem;
-				max-width: 750px;
-				text-align: left;
-				width: 60%;
-			}
+      #tarteaucitron-disclaimer-texte {
+        font-size: 1rem;
+        max-width: 750px;
+        text-align: left;
+        width: 60%;
+      }
 
-			#tarteaucitron-disclaimer-buttons {
-				align-items: flex-end;
-				flex-direction: column;
-				margin-top: 0;
-				width: 40%;
+      #tarteaucitron-disclaimer-buttons {
+        align-items: flex-end;
+        flex-direction: column;
+        margin-top: 0;
+        width: 40%;
 
-				button {
-					font-size: 0.7rem;
-					margin-left: 20px;
-					padding: 3%;
-					width: auto;
-				}
+        button {
+          font-size: 0.7rem;
+          margin-left: 20px;
+          padding: 3%;
+          width: auto;
+        }
 
-				> button {
-					margin: 0;
-					order: 1;
-					padding: 0;
-				}
+        > button {
+          margin: 0;
+          order: 1;
+          padding: 0;
+        }
 
-				#tarteaucitron-group-buttons {
-					justify-content: flex-end;
-					order: 2;
-				}
-			}
+        #tarteaucitron-group-buttons {
+          justify-content: flex-end;
+          order: 2;
+        }
+      }
 
-			#tarteaucitron-site-disclaimer-title {
-				font-size: 1.1rem;
-				margin-bottom: 20px;
-				text-align: left;
-			}
-		}
+      #tarteaucitron-site-disclaimer-title {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+    }
 
-		#tarteaucitron-wrapper {
-			align-items: space-between;
-			flex-direction: row;
-		}
-	}
+    #tarteaucitron-wrapper {
+      align-items: space-between;
+      flex-direction: row;
+    }
+  }
 }
 
 @media screen and (min-device-width: 1224px) {
-	#tarteaucitron-root {
-		#tarteaucitron-alert-big {
-			padding: 2% 3%;
+  #tarteaucitron-root {
+    #tarteaucitron-alert-big {
+      padding: 2% 3%;
 
-			#tarteaucitron-disclaimer-texte {
-				line-height: 1.4em;
-			}
+      #tarteaucitron-disclaimer-texte {
+        line-height: 1.4em;
+      }
 
-			#tarteaucitron-site-disclaimer-title {
-				font-size: 1.2rem;
-				margin-bottom: 2%;
-			}
+      #tarteaucitron-site-disclaimer-title {
+        font-size: 1.2rem;
+        margin-bottom: 2%;
+      }
 
-			#tarteaucitron-disclaimer-buttons {
-				align-items: flex-end;
+      #tarteaucitron-disclaimer-buttons {
+        align-items: flex-end;
 
-				button {
-					font-size: 0.8rem;
-					margin-left: 35px;
-					padding: 2% 3%;
-				}
+        button {
+          font-size: 0.8rem;
+          margin-left: 35px;
+          padding: 2% 3%;
+        }
 
-				> button {
-					padding: 0;
-				}
-			}
+        > button {
+          padding: 0;
+        }
+      }
 
-			#tarteaucitron-personalize {
-				margin-right: 8%;
-			}
-		}
-	}
+      #tarteaucitron-personalize {
+        margin-right: 8%;
+      }
+    }
+  }
 }
 
 @media print {
-	#tarteaucitron-alert-big {
-		display: none !important;
-	}
+  #tarteaucitron-alert-big {
+    display: none !important;
+  }
 }

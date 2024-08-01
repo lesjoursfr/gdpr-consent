@@ -14,6 +14,12 @@ const config = {
         trailingComma: "none",
       },
     },
+    {
+      files: ["*.scss"],
+      options: {
+        singleQuote: true,
+      },
+    },
   ],
 };
 

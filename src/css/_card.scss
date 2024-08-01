@@ -1,63 +1,63 @@
 .tarteaucitron-card {
-	&-mask {
-		align-items: center;
-		background-color: $gdprcst-color-mid;
-		border-radius: 30px;
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		justify-content: center;
-		padding: 20px;
-		position: relative;
-		box-sizing: border-box;
+  &-mask {
+    align-items: center;
+    background-color: $gdprcst-color-mid;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    box-sizing: border-box;
 
-		&.visible {
-			display: block;
-		}
+    &.visible {
+      display: block;
+    }
 
-		> span {
-			color: $gdprcst-color-light;
-			display: block;
-			font-family: $gdprcst-font-family-title;
-			font-size: 1rem;
-			line-height: 1.4em;
-			text-align: center;
-			width: 90%;
-		}
+    > span {
+      color: $gdprcst-color-light;
+      display: block;
+      font-family: $gdprcst-font-family-title;
+      font-size: 1rem;
+      line-height: 1.4em;
+      text-align: center;
+      width: 90%;
+    }
 
-		button {
-			background-color: $gdprcst-color-light;
-			border: 0;
-			border-radius: 10px;
-			color: $gdprcst-color-mid;
-			cursor: pointer;
-			font-family: $gdprcst-font-family-title;
-			font-size: 0.9rem;
-			margin-top: 20px;
-			padding: 2% 3%;
-			transition: opacity 0.3s;
+    button {
+      background-color: $gdprcst-color-light;
+      border: 0;
+      border-radius: 10px;
+      color: $gdprcst-color-mid;
+      cursor: pointer;
+      font-family: $gdprcst-font-family-title;
+      font-size: 0.9rem;
+      margin-top: 20px;
+      padding: 2% 3%;
+      transition: opacity 0.3s;
 
-			&:hover {
-				opacity: 0.85;
-			}
-		}
-	}
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+  }
 
-	&-type {
-		text-decoration: underline;
-		text-transform: capitalize;
-	}
+  &-type {
+    text-decoration: underline;
+    text-transform: capitalize;
+  }
 
-	&-url {
-		bottom: 20px;
-		color: $gdprcst-color-light;
-		font-family: $gdprcst-font-family-text;
-		font-size: 0.8rem;
-		position: absolute;
-		text-decoration: none;
+  &-url {
+    bottom: 20px;
+    color: $gdprcst-color-light;
+    font-family: $gdprcst-font-family-text;
+    font-size: 0.8rem;
+    position: absolute;
+    text-decoration: none;
 
-		&:hover {
-			color: $gdprcst-color-light !important;
-		}
-	}
+    &:hover {
+      color: $gdprcst-color-light !important;
+    }
+  }
 }

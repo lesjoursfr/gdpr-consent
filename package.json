@@ -47,7 +47,7 @@
 		"GDPR"
 	],
 	"dependencies": {
-		"@lesjoursfr/browser-tools": "^1.1.3",
+		"@lesjoursfr/browser-tools": "^1.1.4",
 		"js-cookie": "^3.0.5"
 	},
 	"devDependencies": {

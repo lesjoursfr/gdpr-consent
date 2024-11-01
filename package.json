@@ -59,7 +59,7 @@
 		"@types/babel__preset-env": "^7.9.7",
 		"@types/facebook-js-sdk": "^3.3.12",
 		"@types/js-cookie": "^3.0.6",
-		"@types/node": "^20.16.13",
+		"@types/node": "^22.8.2",
 		"babel-loader": "^9.2.1",
 		"css-loader": "^7.1.2",
 		"css-minimizer-webpack-plugin": "^7.0.0",

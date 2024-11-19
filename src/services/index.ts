@@ -2,6 +2,7 @@ import { GDPRConsentUser, ServiceInterface } from "../interfaces/index.js";
 import { facebook } from "./facebook.js";
 import { facebookpixel } from "./facebookpixel.js";
 import { facebookvideo } from "./facebookvideo.js";
+import { googleads } from "./googleads.js";
 import { googleanalytics } from "./googleanalytics.js";
 import { googletagmanager } from "./googletagmanager.js";
 import { signinwithapple } from "./signinwithapple.js";
@@ -15,6 +16,7 @@ export {
   facebook,
   facebookpixel,
   facebookvideo,
+  googleads,
   googleanalytics,
   googletagmanager,
   signinwithapple,
@@ -30,8 +32,9 @@ export function getServices(user: GDPRConsentUser): { [key: string]: ServiceInte
     facebook: facebook(user),
     facebookpixel: facebookpixel(user),
     facebookvideo: facebookvideo(user),
-    googletagmanager: googletagmanager(user),
+    googleads: googleads(user),
     googleanalytics: googleanalytics(user),
+    googletagmanager: googletagmanager(user),
     signinwithapple: signinwithapple(user),
     signinwithgoogle: signinwithgoogle(user),
     subscribewithgoogle: subscribewithgoogle(user),

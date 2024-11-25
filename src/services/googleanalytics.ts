@@ -19,10 +19,12 @@ export const googleanalytics = ((user: GDPRConsentUser): ServiceInterface => {
   tagUaCookie = tagUaCookie.replace(/-/g, "_");
   tagGCookie = tagGCookie.replace(/G-/g, "");
 
+  const isGoogleAdsLinked = user.googleanalyticsWithEnabledAdsLink === true;
+
   return {
     key: "googleanalytics",
     type: "analytic",
-    name: "Google Analytics (GA4)",
+    name: isGoogleAdsLinked ? "Google Analytics (GA4) & Google Ads" : "Google Analytics (GA4)",
     uri: "https://policies.google.com/privacy",
     needConsent: true,
     lazyConsent: false,

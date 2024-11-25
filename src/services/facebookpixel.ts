@@ -23,7 +23,7 @@ declare global {
 export const facebookpixel = ((user: GDPRConsentUser): ServiceInterface => {
   return {
     key: "facebookpixel",
-    type: "ads",
+    type: "analytic",
     name: "Facebook Pixel",
     uri: "https://www.facebook.com/privacy/policies/cookies/",
     needConsent: true,

@@ -38,12 +38,13 @@ export const en: LangInterface = {
   },
 
   ads: {
-    title: "Advertising network (to let us know)",
+    title: "Advertising network",
     details: "Ad networks can generate revenue by selling advertising space on the site.",
   },
   analytic: {
-    title: "Navigation (ergonomics) and audience measurement",
-    details: "The audience measurement services used to generate useful statistics attendance to improve the site.",
+    title: "Measurement of the navigation (ergonomics), the audience & the marketing performance",
+    details:
+      "The audience measurement services are used to generate useful statistics attendance to improve the site and optimise the marketing campaigns.",
   },
   social: {
     title: "Social networks (sharing buttons and Twitter cards)",

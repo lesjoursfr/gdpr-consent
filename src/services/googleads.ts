@@ -21,7 +21,7 @@ export const googleads = ((user: GDPRConsentUser): ServiceInterface => {
 
   return {
     key: "googleads",
-    type: "ads",
+    type: "analytic",
     name: "Google Ads",
     uri: "https://policies.google.com/privacy",
     needConsent: true,

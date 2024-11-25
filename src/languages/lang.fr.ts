@@ -38,14 +38,14 @@ export const fr: LangInterface = {
   },
 
   ads: {
-    title: "Régies publicitaires (pour nous faire connaître)",
+    title: "Régies publicitaires",
     details:
       "Les régies publicitaires permettent de générer des revenus en commercialisant les espaces publicitaires du site.",
   },
   analytic: {
-    title: "Mesure de navigation (ergonomie) et d’audience",
+    title: "Mesure de navigation (ergonomie), d’audience et de performance publicitaire",
     details:
-      "Les services de mesure d’audience permettent de générer des statistiques de fréquentation utiles à l’amélioration du site.",
+      "Les services de mesure d’audience permettent de générer des statistiques de fréquentation utiles à l’amélioration du site et à l’optimisation des campagnes publicitaires.",
   },
   social: {
     title: "Réseaux sociaux (boutons de partage et Twitter cards)",

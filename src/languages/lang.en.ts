@@ -47,7 +47,7 @@ export const en: LangInterface = {
       "The audience measurement services are used to generate useful statistics attendance to improve the site and optimise the marketing campaigns.",
   },
   social: {
-    title: "Social networks (sharing buttons and Twitter cards)",
+    title: "Social networks (sharing buttons, Twitter cards, …)",
     details: "Social networks can improve the usability of the site and help to promote it via the shares.",
   },
   video: {
@@ -64,7 +64,7 @@ export const en: LangInterface = {
   },
   api: {
     title: "Services",
-    details: "APIs are used to load scripts: geolocation, search engines, translations, ...",
+    details: "APIs are used to load scripts: geolocation, search engines, translations, …",
   },
   other: {
     title: "Other",

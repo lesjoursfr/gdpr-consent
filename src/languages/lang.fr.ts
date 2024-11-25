@@ -48,7 +48,7 @@ export const fr: LangInterface = {
       "Les services de mesure d’audience permettent de générer des statistiques de fréquentation utiles à l’amélioration du site et à l’optimisation des campagnes publicitaires.",
   },
   social: {
-    title: "Réseaux sociaux (boutons de partage et Twitter cards)",
+    title: "Réseaux sociaux (boutons de partage, cartes Twitter, …)",
     details:
       "Les réseaux sociaux permettent d’améliorer la convivialité du site et aident à sa promotion via les partages.",
   },
@@ -68,7 +68,7 @@ export const fr: LangInterface = {
   },
   api: {
     title: "Services",
-    details: "Les APIs permettent de charger des scripts : géolocalisation, moteurs de recherche, traductions, ...",
+    details: "Les APIs permettent de charger des scripts : géolocalisation, moteurs de recherche, traductions, …",
   },
   other: {
     title: "Autre",

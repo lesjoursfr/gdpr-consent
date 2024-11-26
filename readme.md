@@ -12,11 +12,11 @@ The european cookie law regulates the management of cookies and you should ask y
 
 Clearly this script will:
 
--   Disable all services by default,
--   Display a banner on the first page view and a small one on other pages,
--   Display a panel to allow or deny each services one by one,
--   Activate services on the second page view if not denied,
--   Store the consent in a cookie for 365 days.
+- Disable all services by default,
+- Display a banner on the first page view and a small one on other pages,
+- Display a panel to allow or deny each services one by one,
+- Activate services on the second page view if not denied,
+- Store the consent in a cookie for 365 days.
 
 # How to use
 

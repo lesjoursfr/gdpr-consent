@@ -39,6 +39,7 @@ class GDPRConsentInstance implements GDPRConsentState {
   parameters!: GDPRConsentParameters;
   reloadThePage: boolean;
   alreadyLaunch: number;
+  loaded: boolean;
   languagesLoader?: LanguagesLoader;
   servicesLoader?: ServicesLoader;
   job!: string[];
@@ -51,6 +52,7 @@ class GDPRConsentInstance implements GDPRConsentState {
     this.launch = {};
     this.reloadThePage = false;
     this.alreadyLaunch = 0;
+    this.loaded = false;
   }
 
   public withLanguages(loader: LanguagesLoader): void {
@@ -297,6 +299,11 @@ class GDPRConsentInstance implements GDPRConsentState {
     if (document.location.hash === this.parameters.hashtag) {
       openPanel(this);
     }
+
+    this.loaded = true;
+
+    // Send an event
+    trigger(window, "tac.loaded");
   }
 
   public addService(serviceId: string): void {

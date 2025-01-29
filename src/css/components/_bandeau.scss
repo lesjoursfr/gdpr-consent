@@ -1,11 +1,10 @@
-/////////////////////////////////////////////
-// Bandeau                               //
-/////////////////////////////////////////////
+@use '../config';
+
 #tarteaucitron-root {
   #tarteaucitron-alert-big {
-    background: $gdprcst-color-mid;
+    background: config.$gdprcst-color-mid;
     box-sizing: border-box;
-    color: $gdprcst-color-light;
+    color: config.$gdprcst-color-light;
     display: none;
     left: 0;
     margin: auto;
@@ -27,13 +26,13 @@
 #tarteaucitron-alert-big {
   strong,
   a {
-    color: $gdprcst-color-light;
+    color: config.$gdprcst-color-light;
   }
 
   #tarteaucitron-site-disclaimer-title {
-    color: $gdprcst-color-light;
+    color: config.$gdprcst-color-light;
     display: block;
-    font-family: $gdprcst-font-family-title;
+    font-family: config.$gdprcst-font-family-title;
     font-size: 0.9rem;
     font-style: italic;
     font-weight: 600;
@@ -55,8 +54,8 @@
     a,
     i,
     strong {
-      color: $gdprcst-color-light;
-      font-family: $gdprcst-font-family-text;
+      color: config.$gdprcst-color-light;
+      font-family: config.$gdprcst-font-family-text;
       font-weight: 400;
     }
 
@@ -75,7 +74,7 @@
 
   #tarteaucitron-disclaimer-buttons {
     align-items: center;
-    border-top: dashed 1px $gdprcst-color-light;
+    border-top: dashed 1px config.$gdprcst-color-light;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -90,8 +89,8 @@
     }
 
     button {
-      background-color: $gdprcst-color-light;
-      color: $gdprcst-color-mid;
+      background-color: config.$gdprcst-color-light;
+      color: config.$gdprcst-color-mid;
       cursor: pointer;
       flex-grow: 0;
       font-size: 0.7rem;
@@ -109,7 +108,7 @@
 
     > button {
       background-color: transparent;
-      color: $gdprcst-color-light;
+      color: config.$gdprcst-color-light;
       opacity: 1;
     }
   }

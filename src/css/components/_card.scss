@@ -1,7 +1,9 @@
+@use '../config';
+
 .tarteaucitron-card {
   &-mask {
     align-items: center;
-    background-color: $gdprcst-color-mid;
+    background-color: config.$gdprcst-color-mid;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -16,9 +18,9 @@
     }
 
     > span {
-      color: $gdprcst-color-light;
+      color: config.$gdprcst-color-light;
       display: block;
-      font-family: $gdprcst-font-family-title;
+      font-family: config.$gdprcst-font-family-title;
       font-size: 1rem;
       line-height: 1.4em;
       text-align: center;
@@ -26,12 +28,12 @@
     }
 
     button {
-      background-color: $gdprcst-color-light;
+      background-color: config.$gdprcst-color-light;
       border: 0;
       border-radius: 10px;
-      color: $gdprcst-color-mid;
+      color: config.$gdprcst-color-mid;
       cursor: pointer;
-      font-family: $gdprcst-font-family-title;
+      font-family: config.$gdprcst-font-family-title;
       font-size: 0.9rem;
       margin-top: 20px;
       padding: 2% 3%;
@@ -50,14 +52,14 @@
 
   &-url {
     bottom: 20px;
-    color: $gdprcst-color-light;
-    font-family: $gdprcst-font-family-text;
+    color: config.$gdprcst-color-light;
+    font-family: config.$gdprcst-font-family-text;
     font-size: 0.8rem;
     position: absolute;
     text-decoration: none;
 
     &:hover {
-      color: $gdprcst-color-light !important;
+      color: config.$gdprcst-color-light !important;
     }
   }
 }

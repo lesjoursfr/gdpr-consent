@@ -1,0 +1,109 @@
+@use '../config';
+
+/////////////////////////////////////////////
+// Global                                  //
+/////////////////////////////////////////////
+.modal-open {
+  height: 100%;
+  overflow: hidden;
+}
+
+#content-wrapper {
+  display: unset;
+}
+
+/////////////////////////////////////////////
+// Better scroll management                //
+/////////////////////////////////////////////
+#tarteaucitron-services {
+  // sass-lint:disable no-vendor-prefixes
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0 config.$gdprcst-color-mid;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: config.$gdprcst-color-mid;
+    outline: 0 solid config.$gdprcst-color-mid;
+  }
+  // sass-lint:enable no-vendor-prefixes
+}
+
+/////////////////////////////////////////////
+// Common value                            //
+/////////////////////////////////////////////
+#tarteaucitron {
+  * {
+    zoom: 1;
+  }
+
+  .clear {
+    clear: both;
+  }
+
+  a {
+    color: config.$gdprcst-color-dark;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  .tarteaucitron-h1,
+  .tarteaucitron-h2,
+  .tarteaucitron-h3,
+  .tarteaucitron-h4,
+  .tarteaucitron-h5,
+  .tarteaucitron-h6 {
+    display: block;
+  }
+}
+
+/////////////////////////////////////////////
+// Root div added just before </body>      //
+/////////////////////////////////////////////
+#tarteaucitron-root {
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+
+  * {
+    box-sizing: initial;
+    color: config.$gdprcst-color-dark;
+    font-family: config.$gdprcst-font-family-text;
+    line-height: normal;
+    vertical-align: initial;
+  }
+
+  #tarteaucitron {
+    left: 0;
+    margin: auto;
+    right: 0;
+  }
+
+  button {
+    background: transparent;
+    border: 0;
+
+    &:hover,
+    &:focus {
+      border: 0;
+      outline: none;
+    }
+  }
+
+  #tarteaucitron-back {
+    background: config.$gdprcst-color-light;
+  }
+}

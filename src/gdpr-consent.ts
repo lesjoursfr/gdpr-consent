@@ -252,15 +252,17 @@ class GDPRConsentInstance implements GDPRConsentState {
       html += "         </span>";
       html += "      </div>";
       html += '      <div id="tarteaucitron-disclaimer-buttons">';
-      html += '          <button type="button" id="tarteaucitron-continue" onclick="GDPRConsent.respondAll(false);">';
+      html +=
+        '          <button type="button" id="tarteaucitron-continue" onclick="GDPRConsent.alertRespondAll(false);">';
       html += "              &rarr; " + this.lang.continue;
       html += "          </button>";
       html += '         <div id="tarteaucitron-group-buttons">';
       html +=
-        '             <button type="button" id="tarteaucitron-personalize" onclick="GDPRConsent.respondAll(true);">';
+        '             <button type="button" id="tarteaucitron-personalize" onclick="GDPRConsent.alertRespondAll(true);">';
       html += "                 &#10003; " + this.lang.acceptAll;
       html += "             </button>";
-      html += '             <button type="button" id="tarteaucitron-close-alert" onclick="GDPRConsent.openPanel();">';
+      html +=
+        '             <button type="button" id="tarteaucitron-close-alert" onclick="GDPRConsent.alertOpenPanel();">';
       html += "                 " + this.lang.personalize;
       html += "             </button>";
       html += "         </div>";
@@ -437,8 +439,11 @@ class GDPRConsentInstance implements GDPRConsentState {
     respondEffect(key, status, this);
   }
 
-  public respondAll(status: boolean | string, closePanelAfter?: boolean): void {
-    respondAll(status, this, this.parameters, closePanelAfter);
+  public respondAll(status: boolean, closePanelAfter?: boolean): void {
+    respondAll(status, this, this.parameters);
+    if (closePanelAfter) {
+      closePanel(this);
+    }
   }
 
   public respond(el: HTMLElement, evt: MouseEvent): void {
@@ -455,6 +460,16 @@ class GDPRConsentInstance implements GDPRConsentState {
 
   public toggle(id: string, closeClass: string): void {
     toggle(id, closeClass);
+  }
+
+  public alertOpenPanel(): void {
+    openPanel(this);
+    trigger(window, "tac.alert_outcome", { outcome: "personalize" });
+  }
+
+  public alertRespondAll(status: boolean): void {
+    respondAll(status, this, this.parameters);
+    trigger(window, "tac.alert_outcome", { outcome: status === true ? "acceptAll" : "denyAll" });
   }
 }
 

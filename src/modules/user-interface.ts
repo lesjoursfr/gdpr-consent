@@ -140,10 +140,9 @@ export function respondEffect(key: string, choice: boolean | string, gdprConsent
 }
 
 export function respondAll(
-  status: boolean | string,
+  status: boolean,
   gdprConsentState: GDPRConsentState,
-  gdprConsentParams: GDPRConsentParameters,
-  closePanelAfter: boolean = false
+  gdprConsentParams: GDPRConsentParameters
 ): void {
   const s = gdprConsentState.services;
 
@@ -163,10 +162,6 @@ export function respondAll(
       create(key, status, gdprConsentParams);
       respondEffect(key, status, gdprConsentState);
     }
-  }
-
-  if (closePanelAfter) {
-    closePanel(gdprConsentState);
   }
 }
 

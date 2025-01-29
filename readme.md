@@ -106,16 +106,17 @@ You can also use this module with you own bundler.
 You can change the style of the banner with these variables.
 
 ```scss
-$gdprcst-font-family-title: "Archer SSm A", "Archer SSm B", "Helvetica Neue",
-	Helvetica, Arial, sans-serif;
-$gdprcst-font-family-text: "proxima-nova", "Helvetica Neue", Helvetica, Arial,
-	sans-serif;
-$gdprcst-color-light: #fff;
-$gdprcst-color-dark: #414141;
-$gdprcst-color-mid: #c83e2c;
-$gdprcst-shadow-color: rgba(87, 87, 87, 0.25);
-
-@import "node_modules/gdpr-consent/src/css/main";
+@use "node_modules/gdpr-consent/src/css/gdpr-consent" with (
+	/* Override GDPR Consent variables */
+	$gdprcst-font-family-title:
+		"'Archer SSm A', 'Archer SSm B', 'Helvetica Neue', helvetica, arial, sans-serif",
+	$gdprcst-font-family-text:
+		"'proxima-nova', 'Helvetica Neue', helvetica, arial, sans-serif",
+	$gdprcst-color-light: #fff,
+	$gdprcst-color-dark: #414141,
+	$gdprcst-color-mid: #c83e2c,
+	$gdprcst-shadow-color: rgb(87 87 87 / 25%)
+);
 ```
 
 ### Custom services & languages

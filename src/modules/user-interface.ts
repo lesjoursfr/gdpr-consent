@@ -2,19 +2,27 @@ import { addClassToElement, removeClassFromElement, trigger, updateCSSOfElement 
 import { GDPRConsentParameters, GDPRConsentState } from "../interfaces/index.js";
 import { checkCount, create, purge } from "./cookies.js";
 
+let alertIsClosed = true;
+
 export function closeAlert(): void {
-  updateCSSOfElement("tarteaucitron-percentage", "display", "none");
+  if (alertIsClosed === true) {
+    return;
+  }
+
   updateCSSOfElement("tarteaucitron-alert-big", "display", "none");
   removeClassFromElement("tarteaucitron-root", "tarteaucitron-before-visible");
-
+  alertIsClosed = true;
   trigger(window, "tac.close_alert");
 }
 
 export function openAlert(): void {
-  updateCSSOfElement("tarteaucitron-percentage", "display", "block");
+  if (alertIsClosed === false) {
+    return;
+  }
+
   updateCSSOfElement("tarteaucitron-alert-big", "display", "block");
   addClassToElement("tarteaucitron-root", "tarteaucitron-before-visible");
-
+  alertIsClosed = false;
   trigger(window, "tac.open_alert");
 }
 

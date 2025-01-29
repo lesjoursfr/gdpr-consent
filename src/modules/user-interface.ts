@@ -51,6 +51,22 @@ export function closePanel(gdprConsentState: GDPRConsentState): void {
   trigger(window, "tac.close_panel");
 }
 
+export function openPanel(gdprConsentState: GDPRConsentState): void {
+  updateCSSOfElement("tarteaucitron", "display", "block");
+  updateCSSOfElement("tarteaucitron-back", "display", "block");
+
+  document.getElementById("tarteaucitron-close-panel")!.focus();
+  document.getElementsByTagName("body")[0].classList.add("modal-open");
+
+  for (let index = 0; index < gdprConsentState.job.length; index++) {
+    if (gdprConsentState.state[gdprConsentState.job[index]] !== undefined) {
+      respondEffect(gdprConsentState.job[index], gdprConsentState.state[gdprConsentState.job[index]], gdprConsentState);
+    }
+  }
+
+  trigger(window, "tac.open_panel");
+}
+
 export function respondEffect(key: string, choice: boolean | string, gdprConsentState: GDPRConsentState): void {
   const switchBtn = document.getElementById(key + "Switch")!;
   const allowedState = document.getElementById(key + "Allowed")!;
@@ -121,22 +137,6 @@ export function respondEffect(key: string, choice: boolean | string, gdprConsent
   } else {
     checkCount(key, gdprConsentState.services[key], gdprConsentState.lang);
   }
-}
-
-export function openPanel(gdprConsentState: GDPRConsentState): void {
-  updateCSSOfElement("tarteaucitron", "display", "block");
-  updateCSSOfElement("tarteaucitron-back", "display", "block");
-
-  document.getElementById("tarteaucitron-close-panel")!.focus();
-  document.getElementsByTagName("body")[0].classList.add("modal-open");
-
-  for (let index = 0; index < gdprConsentState.job.length; index++) {
-    if (gdprConsentState.state[gdprConsentState.job[index]] !== undefined) {
-      respondEffect(gdprConsentState.job[index], gdprConsentState.state[gdprConsentState.job[index]], gdprConsentState);
-    }
-  }
-
-  trigger(window, "tac.open_panel");
 }
 
 export function respondAll(

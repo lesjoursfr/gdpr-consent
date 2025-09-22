@@ -26,7 +26,9 @@ jobs:
           package-manager-cache: false
 
       - name: Install
-        run: npm install
+        run: |
+          yarn config set enableImmutableInstalls false
+          yarn install
 
       - name: ESLint checks
         run: npm run eslint-check

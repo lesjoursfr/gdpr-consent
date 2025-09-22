@@ -82,5 +82,10 @@
 		"webpack-cli": "^6.0.1",
 		"webpack-dev-server": "^5.2.2"
 	},
-	"packageManager": "yarn@4.9.4"
+	"dependenciesMeta": {
+		"@parcel/watcher": {
+			"built": true
+		}
+	},
+	"packageManager": "yarn@4.10.2"
 }

@@ -109,7 +109,17 @@ class GDPRConsentInstance implements GDPRConsentState {
     const div = document.createElement("div");
     let html = "";
     let index;
-    let cat: ServicesCategories[] = ["ads", "analytic", "api", "comment", "social", "support", "video", "other"];
+    let cat: ServicesCategories[] = [
+      "ads",
+      "analytic",
+      "audio",
+      "social",
+      "video",
+      "comment",
+      "support",
+      "api",
+      "other",
+    ];
     let i;
 
     cat = cat.sort((a, b) => {

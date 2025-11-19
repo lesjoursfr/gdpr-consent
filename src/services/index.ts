@@ -1,4 +1,5 @@
 import { GDPRConsentUser, ServiceInterface } from "../interfaces/index.js";
+import { acast } from "./acast.js";
 import { facebook } from "./facebook.js";
 import { facebookpixel } from "./facebookpixel.js";
 import { facebookvideo } from "./facebookvideo.js";
@@ -13,6 +14,7 @@ import { vimeo } from "./vimeo.js";
 import { youtube } from "./youtube.js";
 
 export {
+  acast,
   facebook,
   facebookpixel,
   facebookvideo,
@@ -29,6 +31,7 @@ export {
 
 export function getServices(user: GDPRConsentUser): { [key: string]: ServiceInterface } {
   return {
+    acast: acast(user),
     facebook: facebook(user),
     facebookpixel: facebookpixel(user),
     facebookvideo: facebookvideo(user),

@@ -47,6 +47,11 @@ export const fr: LangInterface = {
     details:
       "Les services de mesure d’audience permettent de générer des statistiques de fréquentation utiles à l’amélioration du site et à l’optimisation des campagnes publicitaires.",
   },
+  audio: {
+    title: "Audio",
+    details:
+      "Les services de partage audio permettent d’enrichir le site de contenu multimédia et augmentent sa visibilité.",
+  },
   social: {
     title: "Réseaux sociaux (boutons de partage, cartes Twitter, …)",
     details:

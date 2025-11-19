@@ -46,6 +46,10 @@ export const en: LangInterface = {
     details:
       "The audience measurement services are used to generate useful statistics attendance to improve the site and optimise the marketing campaigns.",
   },
+  audio: {
+    title: "Audio",
+    details: "Audio sharing services help to add rich media on the site and increase its visibility.",
+  },
   social: {
     title: "Social networks (sharing buttons, Twitter cards, …)",
     details: "Social networks can improve the usability of the site and help to promote it via the shares.",

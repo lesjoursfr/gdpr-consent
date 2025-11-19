@@ -42,6 +42,10 @@ export interface LangInterface {
     title: string;
     details: string;
   };
+  audio: {
+    title: string;
+    details: string;
+  };
   social: {
     title: string;
     details: string;
@@ -73,4 +77,13 @@ export interface LangInterface {
 
 export type LanguagesLoader = () => { [key: string]: LangInterface };
 
-export type ServicesCategories = "ads" | "analytic" | "social" | "video" | "comment" | "support" | "api" | "other";
+export type ServicesCategories =
+  | "ads"
+  | "analytic"
+  | "audio"
+  | "social"
+  | "video"
+  | "comment"
+  | "support"
+  | "api"
+  | "other";

@@ -57,6 +57,8 @@
     font-size: 0.8rem;
     position: absolute;
     text-decoration: none;
+    line-height: 1.2;
+    line-break: anywhere;
 
     &:hover {
       color: config.$gdprcst-color-light !important;

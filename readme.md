@@ -108,7 +108,7 @@ You can change the style of the banner with these variables.
 ```scss
 @use "node_modules/gdpr-consent/src/css/gdpr-consent" with (
 	/* Override GDPR Consent variables */
-	$gdprcst-font-family-title: (
+		$gdprcst-font-family-title: (
 			"Archer SSm A",
 			"Archer SSm B",
 			"Helvetica Neue",

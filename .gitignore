@@ -16,6 +16,9 @@ node_modules/
 # Yarn lockfile
 yarn.lock
 
+# NPM lockfile
+package-lock.json
+
 # OS X
 .DS_Store
 ._*

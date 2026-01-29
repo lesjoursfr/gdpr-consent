@@ -118,7 +118,7 @@
   bottom: 0;
 }
 
-@media screen and (min-device-width: 660px) and (orientation: landscape) {
+@media screen and (device-width >= 660px) and (orientation: landscape) {
   #tarteaucitron-root {
     #tarteaucitron-wrapper {
       align-items: initial;
@@ -166,7 +166,7 @@
   }
 }
 
-@media screen and (min-device-width: 768px) {
+@media screen and (device-width >= 768px) {
   #tarteaucitron-root {
     #tarteaucitron-alert-big {
       padding: 4% 10%;
@@ -218,7 +218,7 @@
   }
 }
 
-@media screen and (min-device-width: 1024px) {
+@media screen and (device-width >= 1024px) {
   #tarteaucitron-root {
     #tarteaucitron-alert-big {
       padding: 3%;
@@ -269,7 +269,7 @@
   }
 }
 
-@media screen and (min-device-width: 1224px) {
+@media screen and (device-width >= 1224px) {
   #tarteaucitron-root {
     #tarteaucitron-alert-big {
       padding: 2% 3%;

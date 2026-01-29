@@ -319,7 +319,7 @@
 /////////////////////////////////////////////
 // Responsive layout for the control panel //
 /////////////////////////////////////////////
-@media screen and (width >= 728px) {
+@media screen and (device-width >= 728px) {
   #tarteaucitron {
     #tarteaucitron-services {
       .tarteaucitron-h3 {
@@ -387,7 +387,7 @@
   }
 }
 
-@media screen and (width >= 1020px) {
+@media screen and (device-width >= 1020px) {
   #tarteaucitron-root {
     #tarteaucitron {
       border: solid 2px config.$gdprcst-color-mid;
@@ -448,7 +448,7 @@
   }
 }
 
-@media screen and (width >= 1224px) {
+@media screen and (device-width >= 1224px) {
   #tarteaucitron-root {
     #tarteaucitron {
       overflow: hidden;

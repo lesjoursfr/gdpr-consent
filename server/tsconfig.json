@@ -2,6 +2,7 @@
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
 		"rootDir": "..",
+		"types": ["node", "@types/webpack-env"],
 		"sourceMap": true,
 		"declaration": false,
 		"declarationDir": null

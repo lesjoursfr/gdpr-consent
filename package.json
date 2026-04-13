@@ -60,7 +60,7 @@
 		"@types/facebook-js-sdk": "3.3.12",
 		"@types/js-cookie": "3.0.6",
 		"@types/node": "24.12.2",
-		"@types/webpack-env": "^1.18.8",
+		"@types/webpack-env": "1.18.8",
 		"babel-loader": "10.1.1",
 		"css-loader": "7.1.4",
 		"css-minimizer-webpack-plugin": "8.0.0",

@@ -3,6 +3,17 @@ import { LangInterface, ServiceInterface, ServiceLoader } from "../interfaces/in
 import { getLocale } from "../languages/index.js";
 import { addScript } from "../utils/index.js";
 
+declare global {
+  interface Window {
+    fbAsyncInit?: () => void;
+    FB?: {
+      XFBML: {
+        parse: (node: Element) => void;
+      };
+    };
+  }
+}
+
 export const facebookvideo = ((): ServiceInterface => {
   return {
     key: "facebookvideo",
@@ -26,14 +37,14 @@ export const facebookvideo = ((): ServiceInterface => {
             const currentNode = div[i];
             window.fbAsyncInit = function () {
               prevFbAsyncInit();
-              FB.XFBML.parse(currentNode);
+              window.FB!.XFBML.parse(currentNode);
             };
 
             if (document.getElementById("facebook-jssdk") === null) {
               addScript("//connect.facebook.net/" + getLocale() + "/sdk.js", { id: "facebook-jssdk" });
             }
           } else {
-            FB.XFBML.parse(div[i]);
+            window.FB!.XFBML.parse(div[i]);
           }
         }
       }

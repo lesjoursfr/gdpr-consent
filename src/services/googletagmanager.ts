@@ -1,6 +1,12 @@
 import { GDPRConsentUser, ServiceInterface, ServiceLoader } from "../interfaces/index.js";
 import { addScript } from "../utils/index.js";
 
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+  }
+}
+
 export const googletagmanager = ((user: GDPRConsentUser): ServiceInterface => {
   return {
     key: "googletagmanager",

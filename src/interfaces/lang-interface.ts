@@ -78,12 +78,4 @@ export interface LangInterface {
 export type LanguagesLoader = () => { [key: string]: LangInterface };
 
 export type ServicesCategories =
-  | "ads"
-  | "analytic"
-  | "audio"
-  | "social"
-  | "video"
-  | "comment"
-  | "support"
-  | "api"
-  | "other";
+  "ads" | "analytic" | "audio" | "social" | "video" | "comment" | "support" | "api" | "other";
